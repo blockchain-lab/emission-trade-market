@@ -1,0 +1,50 @@
+127.0.0.1 peer0
+127.0.0.1 peer1
+127.0.0.1 peer2
+127.0.0.1 peer3
+127.0.0.1 peer4
+127.0.0.1 peer5
+127.0.0.1 peer6
+127.0.0.1 peer7
+127.0.0.1 peer8
+127.0.0.1 orderer0
+127.0.0.1 kafka-zookeeper 
+
+
+
+install binary specifics -> curl -sSL https://goo.gl/byy2Qj | bash -s 1.0.5
+docker images -> are there images missing????
+export PATH=<path to download location>/bin:$PATH
+
+docker ps
+
+cli continer for example in general in production you never need that
+strangely name container chaincode, chaincode doesnt run inside the peer is isolated with diff permissions the only thing running inside is the chaincode 
+
+not optimized for production, not optimized, not secured, used solo ordering so no crash tolerance, fast way to show everything is working
+
+cryptogen generate --config=./crypto-config.yaml
+export FABRIC_CFG_PATH=$PWD
+configtxgen -profile FourOrgsOrdererGenesis -outputBlock ./artifacts/genesis.block
+THESE CONFIGS RUN ON THE CLIENT SIDE
+configtxgen -profile FourOrgsOrdererGenesis -inspectBlock ./artifacts/genesis.block
+configtxgen -profile Channel1 -outputCreateChannelTx ./artifacts/ch1.tx -channelID ch1
+configtxgen -profile Channel2 -outputCreateChannelTx ./artifacts/ch2.tx -channelID ch2
+configtxgen -profile Channel1 -inspectChannelCreateTx ./artifacts/ch1.tx
+configtxgen -profile Channel2 -inspectChannelCreateTx ./artifacts/ch2.tx
+
+CHANNEL 1 IS 012 AND CHANNEL 2 IS 023
+
+configtxgen -profile Channel1 -outputAnchorPeersUpdate ./artifacts/Org0MSPanchors1.tx -channelID ch1 -asOrg Org0MSP
+configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org0MSPanchors2.tx -channelID ch2 -asOrg Org0MSP
+
+
+configtxgen -profile Channel1 -outputAnchorPeersUpdate ./artifacts/Org1MSPanchors1.tx -channelID ch1 -asOrg Org1MSP
+
+
+configtxgen -profile Channel1 -outputAnchorPeersUpdate ./artifacts/Org2MSPanchors1.tx -channelID ch1 -asOrg Org2MSP
+configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org2MSPanchors2.tx -channelID ch2 -asOrg Org2MSP
+
+configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org3MSPanchors2.tx -channelID ch2 -asOrg Org3MSP
+
+THIS MAY FAIL BECAUSE PEER0 IS NOT LOCAL HOST, ETC, still will try 

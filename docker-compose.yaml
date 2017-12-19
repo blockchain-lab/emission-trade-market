@@ -1,0 +1,238 @@
+version: '2'
+
+networks:
+  custom:
+
+services:
+
+  orderer0:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=orderer0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererOrg0MSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      - ORDERER_GENERAL_TLS_ENABLED=false
+      - CONFIGTX_ORDERER_BATCHTIMEOUT=1s 
+      - CONFIGTX_ORDERER_ORDERERTYPE=kafka 
+      - CONFIGTX_ORDERER_KAFKA_BROKERS=[kafka-zookeeper:9092] 
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    volumes:
+    - ../artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+    - ../crypto-config/ordererOrganizations/ordererorg0/msp:/var/hyperledger/orderer/msp
+    container_name: orderer0
+    networks:
+      - custom
+
+# maybe peer0.org1
+  peer0:
+    container_name: peer0
+    enviroment:
+      - CORE_PEER_ID=peer0
+      - CORE_PEER_ADDRESS=peer0:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0:7051
+      - CORE_PEER_LOCALMSPID=Org0MSP
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer
+    volumes:
+    - /var/run/:/host/var/run/
+    - ../crypto-config/peerOrganizations/org0/peers/peer0.org0/msp:/etc/hyperledger/fabric/msp  
+    ports:
+      - 7051:7051
+      - 7053:7053
+    networks:
+      - custom
+
+  peer1:
+    container_name: peer1
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer
+     enviroment:
+      - CORE_PEER_ID=peer1
+      - CORE_PEER_ADDRESS=peer1:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1:7051
+      - CORE_PEER_LOCALMSPID=Org0MSP
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org0/peers/peer1.org0/msp:/etc/hyperledger/fabric/msp  
+    ports:
+      - 8051:7051
+      - 8053:7053
+    networks:
+      - custom
+
+  peer2:
+    container_name: peer2
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer
+    enviroment:
+      - CORE_PEER_ID=peer2
+      - CORE_PEER_ADDRESS=peer2:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org1/peers/peer2.org1/msp:/etc/hyperledger/fabric/msp  
+    ports:
+      - 9051:7051
+      - 9053:7053 
+    networks:
+      - custom
+
+  peer3:
+    container_name: peer3
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer
+    enviroment:
+      - CORE_PEER_ID=peer3
+      - CORE_PEER_ADDRESS=peer3:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org1/peers/peer3.org1/msp:/etc/hyperledger/fabric/msp  
+    ports:
+      - 10051:7051
+      - 10053:7053 
+    networks:
+      - custom
+
+   peer4:
+    container_name: peer4
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer
+    enviroment:
+      - CORE_PEER_ID=peer4
+      - CORE_PEER_ADDRESS=peer4:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer4:7051
+      - CORE_PEER_LOCALMSPID=Org2MSP
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org2/peers/peer4.org2/msp:/etc/hyperledger/fabric/msp   
+    ports:
+      - 11051:7051
+      - 11053:7053 
+    networks:
+      - custom 
+
+   peer5:
+    container_name: peer5
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer
+    enviroment:
+      - CORE_PEER_ID=peer5
+      - CORE_PEER_ADDRESS=peer5:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer5:7051
+      - CORE_PEER_LOCALMSPID=Org2MSP
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org2/peers/peer5.org2/msp:/etc/hyperledger/fabric/msp   
+    ports:
+      - 12051:7051
+      - 12053:7053   
+    networks:
+      - custom 
+  
+  peer6:
+    container_name: peer
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer6
+    enviroment:
+      - CORE_PEER_ID=peer6
+      - CORE_PEER_ADDRESS=peer6:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer6:7051
+      - CORE_PEER_LOCALMSPID=Org3MSP
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org3/peers/peer6.org3/msp:/etc/hyperledger/fabric/msp   
+    ports:
+      - 13051:7051
+      - 13053:7053 
+    networks:
+      - custom
+
+  peer7:
+    container_name: peer7
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer
+    enviroment:
+      - CORE_PEER_ID=peer7
+      - CORE_PEER_ADDRESS=peer7:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer7:7051
+      - CORE_PEER_LOCALMSPID=Org3MSP
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../crypto-config/peerOrganizations/org3/peers/peer7.org3/msp:/etc/hyperledger/fabric/msp   
+    ports:
+      - 14051:7051
+      - 14053:7053 
+    networks:
+      - custom
+  
+  zookeeper:
+      image: hyperledger/fabric-zookeeper:x86_64-1.0.0-rc2-snapshot-b8e189e
+      ports:
+          - 2181:2181
+  kafka0:
+      image: hyperledger/fabric-kafka:x86_64-1.0.0-rc2-snapshot-b8e189e
+      environment:
+          # - KAFKA_ADVERTISED_HOST_NAME=10.16.8.111
+          - KAFKA_ADVERTISED_HOST_NAME=127.0.0.1 
+          - KAFKA_ADVERTISED_PORT=9092
+          - KAFKA_BROKER_ID=0
+          - KAFKA_MESSAGE_MAX_BYTES=103809024 
+          - KAFKA_REPLICA_FETCH_MAX_BYTES=103809024 
+          - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+          - KAFKA_NUM_REPLICA_FETCHERS=1
+          - KAFKA_DEFAULT_REPLICATION_FACTOR=1
+          - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      ports:
+          - 9092:9092
+      depends_on:
+          - zookeeper
+  # cli:
+  #   container_name: cli
+  #   image: hyperledger/fabric-tools
+  #   tty: true
+  #   environment:
+  #     - GOPATH=/opt/gopath
+  #     - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+  #     - CORE_LOGGING_LEVEL=DEBUG
+  #     - CORE_PEER_ID=cli
+  #     - CORE_PEER_ADDRESS=peer0:7051
+  #     - CORE_PEER_LOCALMSPID=Org1MSP
+  #     - CORE_PEER_TLS_ENABLED=false
+  #     - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  #   working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+  #   command: /bin/bash -c './scripts/script.sh ${CHANNEL_NAME} ${DELAY}; sleep $TIMEOUT'
+  #   volumes:
+  #       - /var/run/:/host/var/run/
+  #       - ./../chaincode/:/opt/gopath/src/github.com/hyperledger/fabric/examples/chaincode/go
+  #       - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+  #       - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
+  #       - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
+  #   depends_on:
+  #     - orderer0
+  #     - peer0
+  #     - peer1
+  #     - peer2
+  #     - peer3
+  #     - peer4
+  #     - peer5
+  #     - peer6
+  #     - peer7
+  #   networks:
+  #     - custom
+

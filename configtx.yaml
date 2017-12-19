@@ -1,0 +1,103 @@
+#   Profile
+#   - Different configuration profiles may be encoded here to be specified as parameters to the configtxgen tool
+
+Profiles:
+    # configure network for custom organization
+    # we create profile and set configuration of members
+    # we can have as many profiles as we want
+    # two profiles one for channel and one for orderer (genesis block)
+
+    FourOrgsOrdererGenesis:
+        Orderer:
+            # settings for orderer and cryto materials defined before
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererOrg0
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *Org0
+                    - *Org1
+                    - *Org2
+                    - *Org3
+
+    Channel1:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org0
+                - *Org1
+                - *Org2
+
+    Channel2:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org0
+                - *Org2
+                - *Org3
+
+#   Section: Organizations
+
+Organizations:
+    - &OrdererOrg0
+        Name: OrdererOrg0
+        ID: OrdererOrg0MSP
+        MSPDir: crypto-config/ordererOrganizations/ordererorg0/msp/
+    - &Org0
+        Name: Org0MSP
+        ID: Org0MSP
+        MSPDir: crypto-config/peerOrganizations/org0/msp/
+        AnchorPeers:
+            - Host: peer0
+              Port: 7051
+
+    - &Org1
+        Name: Org1MSP
+        ID: Org1MSP
+        MSPDir: crypto-config/peerOrganizations/org1/msp/
+        AnchorPeers:
+            - Host: peer2
+              Port: 7051
+
+    - &Org2
+        Name: Org2MSP
+        ID: Org2MSP
+        MSPDir: crypto-config/peerOrganizations/org2/msp/
+        AnchorPeers:
+            - Host: peer4
+              Port: 7051
+
+    - &Org3
+        Name: Org3MSP
+        ID: Org3MSP
+        MSPDir: crypto-config/peerOrganizations/org3/msp/
+        AnchorPeers:
+            - Host: peer6
+              Port: 7051
+
+
+#   SECTION: Orderer
+
+Orderer: &OrdererDefaults
+    OrdererType: kafka
+    Addresses:
+        - orderer0:7050
+    BatchTimeout: 1s
+    BatchSize:
+        MaxMessageCount: 30
+        AbsoluteMaxBytes: 99 MB
+        PreferredMaxBytes: 512 KB
+    Kafka:
+        Brokers:
+            - kafka-zookeeper:9092
+    Organizations:
+
+#   SECTION: Application
+#   - This section defines the values to encode into a config transaction or genesis block for application related parameters
+
+Application: &ApplicationDefaults
+    # Organizations is the list of orgs which are defined as participants on the application side of the network
+    Organizations:

@@ -1,0 +1,50 @@
+On VMs which are designated for peers, orderer, and kafka-zookeeper, install hyperledger fabric.
+Add IP to hostname mapping of all VMs in /etc/hosts of all VMs
+Install hyperledger fabric on client too which can help us create certain required files for peers and orderers.
+Create crypto materials for organizations (include peers and orderers crypto material).
+Create orderer genesis block. 
+Create channel configuration transaction.
+Start the blockchain network.
+Create channels on orderer using channel configuration transaction.
+Make peers join the channel.
+Update anchor peer of each organization.
+Install a chaincode.
+Instantiate a chaincode.
+Invoke a chaincode.
+Query a chaincode.
+
+production issues
+We don't need to install all components of fabric on all VMs
+Fabric ca for production environment, give certificates dynamically
+In the production setup, we need to copy only required crypto material
+one ordered for developer, one point of failure -> if not commited to orderer stay in memorie, in production multiple ordered based on apache kafka-> use same chaincode but with multiple ordered should be the same solo ordering vs kafka safe ordering
+dns server? certificates tied to a domain -> data leakage if peer not in domain bc certificate linked to domain
+tls certificate, next generation of ssl
+
+a peer can only communicate with people from same org with certificates
+
+
+we are using kafka with one orderer for now but easy to escalate
+
+KAFKA TUTORIAL!!! number of instances can outbumber, must know well
+APLICATIONS!!!! ADVANCED
+
+not log level to debug in production -> low performance, error or info yes
+
+in production we want to persist the data in the ledger not keep it in the container so we would use not local var in compose but in remote storage (recommends starting from the beginning so no later problems)
+
+do we want tls?
+encrypt network data exchange between parties, true always so sniffing dont work
+
+
+
+
+
+
+
+
+
+
+genesis block has settings and public keys, config is part of the blockchain network
+MSP handles the crypto operations
+anchor peers gossip -> we need an anchor peer per organization

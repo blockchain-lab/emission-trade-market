@@ -47,4 +47,6 @@ configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org2MSPanchor
 
 configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org3MSPanchors2.tx -channelID ch2 -asOrg Org3MSP
 
-THIS MAY FAIL BECAUSE PEER0 IS NOT LOCAL HOST, ETC, still will try 
+THIS MAY FAIL BECAUSE PEER0 IS NOT LOCAL HOST, ETC, still will try
+
+docker-compose up

@@ -15,7 +15,7 @@ services:
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererOrg0MSP
-      - ORDERER_GENERAL_LOCALMSPDIR=var/hyperledger/orderer/crypto/orderers/orderer0.ordererorg0/msp
+      - ORDERER_GENERAL_LOCALMSPDIR=var/hyperledger/orderer/crypto/users/Admin@ordererorg0/msp/
       - ORDERER_GENERAL_TLS_ENABLED=false
       - CONFIGTX_ORDERER_BATCHTIMEOUT=1s 
       - CONFIGTX_ORDERER_ORDERERTYPE=kafka 
@@ -82,7 +82,8 @@ services:
       - CORE_PEER_LOCALMSPID=Org1MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org1/peers/peer2.org1/msp:/etc/hyperledger/fabric/msp  
+      - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/msp  
+      - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art 
     ports:
       - 9051:7051
       - 9053:7053 

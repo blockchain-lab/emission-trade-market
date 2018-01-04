@@ -51,7 +51,7 @@ Organizations:
         ID: Org0MSP
         MSPDir: crypto-config/peerOrganizations/org0/msp/
         AnchorPeers:
-            - Host: peer0
+            - Host: 192.168.0.107
               Port: 7051
 
     - &Org1
@@ -59,24 +59,24 @@ Organizations:
         ID: Org1MSP
         MSPDir: crypto-config/peerOrganizations/org1/msp/
         AnchorPeers:
-            - Host: peer2
-              Port: 7051
+            - Host: 192.168.0.107
+              Port: 9051
 
     - &Org2
         Name: Org2MSP
         ID: Org2MSP
         MSPDir: crypto-config/peerOrganizations/org2/msp/
         AnchorPeers:
-            - Host: peer4
-              Port: 7051
+            - Host: 192.168.0.107
+              Port: 11051
 
     - &Org3
         Name: Org3MSP
         ID: Org3MSP
         MSPDir: crypto-config/peerOrganizations/org3/msp/
         AnchorPeers:
-            - Host: peer6
-              Port: 7051
+            - Host: 192.168.0.107
+              Port: 13051
 
 
 #   SECTION: Orderer

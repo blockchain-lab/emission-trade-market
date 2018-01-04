@@ -17,7 +17,7 @@ var mainControllers = function ($scope, $location, ngDialog, AuthenticationServi
             if(response.success) {
                 AuthenticationService.SetCredentials($scope.username, $scope.password);
                 ngDialog.closeAll();
-                // $location.path('/');
+                $location.path('/company');
             } else {
                 $scope.error = response.message;
                 $scope.dataLoading = false;

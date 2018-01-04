@@ -84,7 +84,7 @@ Organizations:
 Orderer: &OrdererDefaults
     OrdererType: kafka
     Addresses:
-        - orderer0:7050
+        - 192.168.0.107:7050
     BatchTimeout: 1s
     BatchSize:
         MaxMessageCount: 30
@@ -92,7 +92,7 @@ Orderer: &OrdererDefaults
         PreferredMaxBytes: 512 KB
     Kafka:
         Brokers:
-            - kafka-zookeeper:9092
+            - 192.168.0.107:9092
     Organizations:
 
 #   SECTION: Application

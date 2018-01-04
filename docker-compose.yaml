@@ -11,7 +11,7 @@ services:
       service: orderer
     environment:
       - ORDERER_GENERAL_LOGLEVEL=debug
-      - ORDERER_GENERAL_LISTENADDRESS=orderer0
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererOrg0MSP
@@ -19,7 +19,8 @@ services:
       - ORDERER_GENERAL_TLS_ENABLED=false
       - CONFIGTX_ORDERER_BATCHTIMEOUT=1s 
       - CONFIGTX_ORDERER_ORDERERTYPE=kafka 
-      - CONFIGTX_ORDERER_KAFKA_BROKERS=[kafka-zookeeper:9092] 
+      # - CONFIGTX_ORDERER_KAFKA_BROKERS=[192.168.1.135:9092] 
+      # - CONFIGTX_ORDERER_KAFKA_BROKERS=[kafka-zookeeper:9092] 
     volumes:
     - ./artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
     - ./crypto-config/ordererOrganizations/ordererorg0:/etc/hyperledger/fabric/var/hyperledger/orderer/crypto
@@ -193,7 +194,7 @@ services:
       image: hyperledger/fabric-kafka:x86_64-1.0.5
       environment:
           # - KAFKA_ADVERTISED_HOST_NAME=10.16.8.111
-          - KAFKA_ADVERTISED_HOST_NAME=127.0.0.1 
+          - KAFKA_ADVERTISED_HOST_NAME=192.168.0.107
           - KAFKA_ADVERTISED_PORT=9092
           - KAFKA_BROKER_ID=0
           - KAFKA_MESSAGE_MAX_BYTES=103809024 
@@ -201,9 +202,11 @@ services:
           - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
           - KAFKA_NUM_REPLICA_FETCHERS=1
           - KAFKA_DEFAULT_REPLICATION_FACTOR=1
-          - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+          - KAFKA_ZOOKEEPER_CONNECT=192.168.0.107:2181
       ports:
           - 9092:9092
+      networks:
+          - custom
       depends_on:
           - zookeeper
   # cli:

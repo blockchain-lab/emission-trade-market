@@ -9,7 +9,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         })*/
 
         .when('/', {
-            controller: 'MainController',
+            controller: 'MainCtrl',
             templateUrl: 'views/home.html'
         })
 

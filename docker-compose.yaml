@@ -10,7 +10,7 @@ services:
       file:   base/docker-compose-base.yaml
       service: orderer
     environment:
-      - ORDERER_GENERAL_LOGLEVEL=error
+      - ORDERER_GENERAL_LOGLEVEL=debug
       - ORDERER_GENERAL_LISTENADDRESS=orderer0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
@@ -35,17 +35,20 @@ services:
       - CORE_PEER_ADDRESS=peer0:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0:7051
       - CORE_PEER_LOCALMSPID=Org0MSP
+      - CORE_LOGGING_LEVEL=DEBUG
     extends:
       file:  base/docker-compose-base.yaml
       service: peer
     volumes:
     - /var/run/:/host/var/run/
-    - ./crypto-config/peerOrganizations/org0/peers/peer0.org0/msp:/etc/hyperledger/fabric/msp  
+    - ./crypto-config/peerOrganizations/org0/users/Admin@org0/msp/:/etc/hyperledger/fabric/msp 
+    - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art 
     ports:
       - 7051:7051
       - 7053:7053
     networks:
       - custom
+
 
   peer1:
     container_name: peer1
@@ -210,12 +213,12 @@ services:
   #   environment:
   #     - GOPATH=/opt/gopath
   #     - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-  #     - CORE_LOGGING_LEVEL=DEBUG
+  #     - CORE_LOGGING_LEVEL=error
   #     - CORE_PEER_ID=cli
   #     - CORE_PEER_ADDRESS=peer0:7051
-  #     - CORE_PEER_LOCALMSPID=Org1MSP
+  #     - CORE_PEER_LOCALMSPID=Org0MSP
   #     - CORE_PEER_TLS_ENABLED=false
-  #     - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  #     - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org0/peers/peer0.org0
   #   working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
   #   command: /bin/bash -c './scripts/script.sh ${CHANNEL_NAME} ${DELAY}; sleep $TIMEOUT'
   #   volumes:
@@ -237,3 +240,4 @@ services:
   #   networks:
   #     - custom
 
+  

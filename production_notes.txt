@@ -39,12 +39,6 @@ encrypt network data exchange between parties, true always so sniffing dont work
 
 
 
-
-
-
-
-
-
 genesis block has settings and public keys, config is part of the blockchain network
 MSP handles the crypto operations
 anchor peers gossip -> we need an anchor peer per organization

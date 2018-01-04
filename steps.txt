@@ -48,5 +48,30 @@ configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org2MSPanchor
 configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org3MSPanchors2.tx -channelID ch2 -asOrg Org3MSP
 
 THIS MAY FAIL BECAUSE PEER0 IS NOT LOCAL HOST, ETC, still will try
-
+docker kill $(docker ps -q)
+docker rm $(docker ps -a -q)
 docker-compose up
+
+To create a channel on orderer, we need to issue a transaction from client using admin MSP of the organization who is creating the channel. In our sample network, we assume that all such operations are performed by admin of organization. -> en nuestra red org0 es la autoridad
+
+CORE_PEER_LOCALMSPID=Org0MSP
+CORE_PEER_ADDRESS=peer0:7051 -> de donde viene el p0? funciona con localhost?
+
+INSTALL FACKIN GO ON THE CLIENT MACHINE
+go env GOPATH
+export GOPATH=/Users/tamycova/go
+export PATH=$GOPATH/bin:$PATH
+
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+ maybe it will be cleaner to create client container rather than using my own... no puedo loguearme en la org 0?
+
+ clone hyperledger y make pero copiar licence header en una de las files
+
+ docker exec -it peer0 bash
+   peer channel create -o docker.for.mac.localhost:7050 -c ch1 -f ./art/ch1.tx
+  CORE_PEER_MSPCONFIGPATH=/root/bcnetwork/conf/crypto-config/peerOrganizations/org0/users/Admin@org0/msp \
+
+

@@ -1,6 +1,4 @@
-var mainControllers = function ($scope, $location, ngDialog, AuthenticationService) {
-    // reset login status
-    //AuthenticationService.ClearCredentials();
+var mainControllers = function ($scope, $location, ngDialog, Auth) {
 
     $scope.openLoginDlg = function () {
         ngDialog.open({
@@ -11,17 +9,17 @@ var mainControllers = function ($scope, $location, ngDialog, AuthenticationServi
     };
 
     $scope.login = function () {
-        $scope.dataLoading = true;
 
-        AuthenticationService.Login($scope.username, $scope.password, function(response) {
-            if(response.success) {
-                AuthenticationService.SetCredentials($scope.username, $scope.password);
+        Auth.login({
+                username: $scope.username,
+                password: $scope.password
+            },
+            function(res) {
                 ngDialog.closeAll();
-                $location.path('/company');
-            } else {
-                $scope.error = response.message;
-                $scope.dataLoading = false;
-            }
+                $location.path('/'+res);
+            },
+            function () {
+                $rootScope.error = "Failed to login";
         });
     };
 };

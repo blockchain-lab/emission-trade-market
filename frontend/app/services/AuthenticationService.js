@@ -1,45 +1,42 @@
-app.factory('AuthenticationService', function ($http, $rootScope, $cookieStore, $timeout){
-    var service = {};
+app.factory('Auth', function ($http, $cookieStore, roles){
 
-    service.Login = function (username, password, callback) {
+    var currentUser = $cookieStore.get('user') || { username: '', role: roles.guest };
 
-        // Dummy authentication for testing, uses $timeout to simulate api call
-        $timeout(function(){
-            var response = { success: username === 'test' && password === 'test' };
+    $cookieStore.remove('user');
+
+    function changeUser(user) {
+        angular.extend(currentUser, user);
+    }
+
+    return {
+        getRole: function () {
+            return currentUser.role;
+        },
+
+        login: function (user, success, error) {
+            var response = { success: user.username === 'test' && user.password === 'test' };
             if(!response.success) {
                 response.message = 'Username or password is incorrect';
+            }else{
+                changeUser({ username: 'test', role: roles.company });
+                success(roles.company);
             }
-            callback(response);
-        }, 1000);
 
+        },
 
-        // Use this for real authentication
-        //$http.post('/api/authenticate', { username: username, password: password })
-        //    .success(function (response) {
-        //        callback(response);
-        //    });
+        /*login: function(user, success, error) {
+            $http.post('/', user).success(function (user) {
+                changeUser(user);
+                success(user);
+            }).error(error);
+        },*/
 
+        isLoggedIn: function (user) {
+            if(user === undefined)
+                user = currentUser;
+            return user.role === roles.company || user.role === roles.regulator;
+        },
+
+        user: currentUser
     };
-
-    service.SetCredentials = function (username, password) {
-        var authdata = username + ':' + password;
-
-        $rootScope.globals = {
-            currentUser: {
-                username: username,
-                authdata: authdata
-            }
-        };
-
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
-        $cookieStore.put('globals', $rootScope.globals);
-    };
-
-    service.ClearCredentials = function () {
-        $rootScope.globals = {};
-        $cookieStore.remove('globals');
-        $http.defaults.headers.common.Authorization = 'Basic ';
-    };
-
-    return service;
 });

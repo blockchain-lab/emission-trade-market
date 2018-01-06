@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="DoxChainApp" ng-controller="MainCtrl">
+<html lang="en" ng-app="DoxChainApp" ng-controller="LoginCtrl">
 <head>
     <meta charset="UTF-8">
     <title>DoxChain</title>
@@ -21,7 +21,15 @@
 <div>
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="#">DoxChain</a>
-        <button class="btn btn-outline-light" ng-click="openLoginDlg()">Login</button>
+        <!-- Login Form-->
+        <form class="navbar-form navbar-right" role="login" ng-hide="isLoggedin">
+            <button class="btn btn-outline-light" ng-click="openLoginDlg()">Login</button>
+        </form>
+        <!-- Logout Form -->
+        <form class="navbar-form navbar-right" role="logout" ng-show="isLoggedin">
+            <label style="color: white">Hello {{ username }}!</label>
+            <button class="btn btn-outline-light" id="logout" ng-click="logout()">Logout</button>
+        </form>
     </nav>
 
     <main role="main" class="container">
@@ -34,8 +42,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
 <script src="app/app.js"></script>
-<script src="app/services/AuthenticationService.js"></script>
-<script src="app/controllers/MainController.js"></script>
+<script src="app/services/AuthService.js"></script>
+<script src="app/controllers/LoginCtrl.js"></script>
+<script src="app/controllers/CompanyCtrl.js"></script>
+<script src="app/controllers/RegulatorCtrl.js"></script>
 <script src="app/js/routingConfig.js"></script>
 </body>
 </html>

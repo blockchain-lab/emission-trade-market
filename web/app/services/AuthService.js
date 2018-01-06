@@ -13,23 +13,11 @@ app.factory('Auth', function ($http, $cookieStore, roles){
             return currentUser.role;
         },
 
-        /*login: function (user, success, error) {
-            var response = { success: user.username === 'test' && user.password === 'test' };
-            if(!response.success) {
-                response.message = 'Username or password is incorrect';
-            }else{
-                changeUser({ username: 'test', role: roles.company });
-                success(roles.company);
-            }
-
-        },*/
-
         login: function(user, success, error) {
             $http.post('/', user).then(
                 function (user) {
-                    console.debug(JSON.stringify(user.data));
                     changeUser(user.data);
-                    success(user.data.role);},
+                    success(user.data);},
                 error
             );
         },
@@ -38,6 +26,24 @@ app.factory('Auth', function ($http, $cookieStore, roles){
             if(user === undefined)
                 user = currentUser;
             return user.role === roles.company || user.role === roles.regulator;
+        },
+
+        logout: function (success, error) {
+            /*$http.post('/logout').then(
+                function(){
+                    changeUser({
+                        username: '',
+                        role: roles.guest
+                    });
+                    success();
+                },
+                error
+            );*/
+            changeUser({
+                username: '',
+                role: roles.guest
+            });
+            success();
         },
 
         user: currentUser

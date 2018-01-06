@@ -4,19 +4,19 @@ app.config(['$routeProvider', 'roles', function ($routeProvider, roles) {
 
     $routeProvider
         .when('/regulator', {
-            controller: 'MainCtrl',
+            controller: 'RegulatorCtrl',
             templateUrl: 'views/regulator.html',
             access: roles.regulator
         })
 
         .when('/company', {
-            controller: 'MainCtrl',
+            controller: 'CompanyCtrl',
             templateUrl: 'views/company.html',
             access: roles.company
         })
 
         .when('/', {
-            controller: 'MainCtrl',
+            controller: 'LoginCtrl',
             templateUrl: 'views/home.html',
             access: roles.guest
         })

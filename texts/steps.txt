@@ -1,0 +1,90 @@
+127.0.0.1 peer0
+127.0.0.1 peer1
+127.0.0.1 peer2
+127.0.0.1 peer3
+127.0.0.1 peer4
+127.0.0.1 peer5
+127.0.0.1 peer6
+127.0.0.1 peer7
+127.0.0.1 peer8
+127.0.0.1 orderer0
+127.0.0.1 kafka-zookeeper 
+
+
+
+install binary specifics -> curl -sSL https://goo.gl/byy2Qj | bash -s 1.0.5
+docker images -> are there images missing????
+export PATH=<path to download location>/bin:$PATH
+
+docker ps
+
+cli continer for example in general in production you never need that
+strangely name container chaincode, chaincode doesnt run inside the peer is isolated with diff permissions the only thing running inside is the chaincode 
+
+not optimized for production, not optimized, not secured, used solo ordering so no crash tolerance, fast way to show everything is working
+
+cryptogen generate --config=./crypto-config.yaml
+export FABRIC_CFG_PATH=$PWD
+./bin/configtxgen -profile FourOrgsOrdererGenesis -outputBlock ./artifacts/genesis.block
+THESE CONFIGS RUN ON THE CLIENT SIDE
+configtxgen -profile FourOrgsOrdererGenesis -inspectBlock ./artifacts/genesis.block
+./bin/configtxgen -profile Channel1 -outputCreateChannelTx ./artifacts/ch1.tx -channelID ch1
+./bin/configtxgen -profile Channel2 -outputCreateChannelTx ./artifacts/ch2.tx -channelID ch2
+configtxgen -profile Channel1 -inspectChannelCreateTx ./artifacts/ch1.tx
+configtxgen -profile Channel2 -inspectChannelCreateTx ./artifacts/ch2.tx
+
+CHANNEL 1 IS 012 AND CHANNEL 2 IS 023
+
+./bin/configtxgen -profile Channel1 -outputAnchorPeersUpdate ./artifacts/Org0MSPanchors1.tx -channelID ch1 -asOrg Org0MSP
+./bin/configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org0MSPanchors2.tx -channelID ch2 -asOrg Org0MSP
+
+
+./bin/configtxgen -profile Channel1 -outputAnchorPeersUpdate ./artifacts/Org1MSPanchors1.tx -channelID ch1 -asOrg Org1MSP
+
+
+./bin/configtxgen -profile Channel1 -outputAnchorPeersUpdate ./artifacts/Org2MSPanchors1.tx -channelID ch1 -asOrg Org2MSP
+./bin/configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org2MSPanchors2.tx -channelID ch2 -asOrg Org2MSP
+
+./bin/configtxgen -profile Channel2 -outputAnchorPeersUpdate ./artifacts/Org3MSPanchors2.tx -channelID ch2 -asOrg Org3MSP
+
+THIS MAY FAIL BECAUSE PEER0 IS NOT LOCAL HOST, ETC, still will try
+docker kill $(docker ps -q)
+docker rm $(docker ps -a -q)
+docker-compose up
+
+To create a channel on orderer, we need to issue a transaction from client using admin MSP of the organization who is creating the channel. In our sample network, we assume that all such operations are performed by admin of organization. -> en nuestra red org0 es la autoridad
+
+CORE_PEER_LOCALMSPID=Org0MSP
+CORE_PEER_ADDRESS=peer0:7051 -> de donde viene el p0? funciona con localhost?
+
+INSTALL FACKIN GO ON THE CLIENT MACHINE
+go env GOPATH
+export GOPATH=/Users/tamycova/go
+export PATH=$GOPATH/bin:$PATH
+
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+ maybe it will be cleaner to create client container rather than using my own... no puedo loguearme en la org 0?
+
+ clone hyperledger y make pero copiar licence header en una de las files
+
+ docker exec -it peer0 bash
+  docker exec -it peer2 bash
+    docker exec -it peer4 bash
+      docker exec -it peer6 bash
+ docker exec -it cli bash
+peer channel join -b ch1.block
+
+   peer channel create -o docker.for.mac.localhost:7050 -c ch1 -f ./art/ch1.tx
+
+   peer channel fetch oldest -o docker.for.mac.localhost:7050 
+
+  CORE_PEER_MSPCONFIGPATH=/root/bcnetwork/conf/crypto-config/peerOrganizations/org0/users/Admin@org0/msp \
+
+ipconfig getifaddr en0 -> use this ip in kafka advertised
+
+To join a channel, you need the genesis block for that channel. An org may retrieve that block directly from the orderer using the `peer channel fetch` command, or, it may receive the block out of band from another party (like the regulator in this example). Someone with administrative rights for the peer must invoke the join channel command.
+
+Im going to give access to all the peers to the artifacts, so I dont have to give the block to them out of band, bc fetching doesnt work :(

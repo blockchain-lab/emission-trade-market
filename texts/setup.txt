@@ -1,11 +1,8 @@
+-------- FIRST TIME -------------
 install binary specifics -> curl -sSL https://goo.gl/byy2Qj | bash -s 1.0.5
 export PATH=<path to download location>/bin:$PATH
 See documentation for fabric prerequirements and install 
-
-docker kill $(docker ps -q)
-docker rm $(docker ps -a -q)
-
+-------- FOLLOWING TIMES ---------
 # CHANNEL 1 IS 012 AND CHANNEL 2 IS 023
-sh localhost_setup.sh 
-
-docker-compose up
+Line 5 of init.sh replace the old ip to the current ip
+sh start.sh

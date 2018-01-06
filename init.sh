@@ -2,6 +2,7 @@ rm -rf artifacts
 rm -rf crypto-config
 mkdir artifacts
 HOSTIP=$(ipconfig getifaddr en0)
+sed -i '' 's/REPLACEWITHOLDIP/'"$(ipconfig getifaddr en0)"'/g' *.yaml
 ./bin/cryptogen generate --config=./crypto-config.yaml
 export FABRIC_CFG_PATH=$PWD
 ./bin/configtxgen -profile FourOrgsOrdererGenesis -outputBlock ./artifacts/genesis.block

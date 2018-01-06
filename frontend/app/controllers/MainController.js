@@ -1,4 +1,4 @@
-var mainControllers = function ($scope, $location, ngDialog, Auth) {
+var mainControllers = function ($scope, $location, $rootScope, ngDialog, Auth) {
 
     $scope.openLoginDlg = function () {
         ngDialog.open({
@@ -16,7 +16,7 @@ var mainControllers = function ($scope, $location, ngDialog, Auth) {
             },
             function(res) {
                 ngDialog.closeAll();
-                $location.path('/'+res);
+                $location.path('/'+res.role);
             },
             function () {
                 $rootScope.error = "Failed to login";

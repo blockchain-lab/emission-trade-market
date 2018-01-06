@@ -13,7 +13,7 @@ app.factory('Auth', function ($http, $cookieStore, roles){
             return currentUser.role;
         },
 
-        login: function (user, success, error) {
+        /*login: function (user, success, error) {
             var response = { success: user.username === 'test' && user.password === 'test' };
             if(!response.success) {
                 response.message = 'Username or password is incorrect';
@@ -22,14 +22,17 @@ app.factory('Auth', function ($http, $cookieStore, roles){
                 success(roles.company);
             }
 
-        },
-
-        /*login: function(user, success, error) {
-            $http.post('/', user).success(function (user) {
-                changeUser(user);
-                success(user);
-            }).error(error);
         },*/
+
+        login: function(user, success, error) {
+            $http.post('/', user).then(
+                function (user) {
+                    console.debug(JSON.stringify(user.data));
+                    changeUser(user.data);
+                    success(user.data.role);},
+                error
+            );
+        },
 
         isLoggedIn: function (user) {
             if(user === undefined)

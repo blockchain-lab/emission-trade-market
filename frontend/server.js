@@ -1,4 +1,7 @@
-var express = require('express');
+var express = require('express'),
+    util = require('util'),
+    bodyParser = require('body-parser');
+
 var app = express();
 
 var roles = {
@@ -7,7 +10,16 @@ var roles = {
     company:   'company'
 };
 
+var users = [
+    {username: 'admin', password: '123', role: 'regulator'},
+    {username: 'user1', password: '123', role: 'company'},
+    {username: 'user2', password: '123', role: 'company'}];
+
 app.listen(8080);
+
+// Require body-parser (to receive post data from clients)
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
@@ -15,12 +27,23 @@ app.use('/assets', express.static(__dirname + '/assets'));
 app.use('/views', express.static(__dirname + '/views'));
 app.use('/app', express.static(__dirname + '/app'));
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
+    res.sendfile('index.html'); // load the single view file (angular will handle the page changes on the front-end)
+});
 
+app.post('/', function (req, res) {
     var role = roles.guest, username = '';
-    if(req.user) {
-        role = req.user.role;
-        username = req.user.username;
+
+    //console.log(util.inspect(req.body));
+
+    if (req.body) {
+        username = req.body.username;
+        var i;
+        for (i = 0; i < users.length; i++){
+            if(req.body.username == users[i]['username'] && req.body.password == users[i]['password']){
+                role = users[i]['role'];
+            }
+        }
     }
 
     res.cookie('user', JSON.stringify({
@@ -28,5 +51,6 @@ app.get('*', function(req, res) {
         'role': role
     }));
 
-    res.sendfile('index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    console.log(JSON.stringify({username: username, role: role}));
+    res.send({username: username, role: role});
 });

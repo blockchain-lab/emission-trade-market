@@ -6,7 +6,7 @@ const util = require('util');
 // https://jira.hyperledger.org/browse/FAB-2331
 // https://fabric-sdk-node.github.io/
 // https://github.com/hyperledger/fabric-sdk-node
-// 
+// https://www.youtube.com/watch?v=dzwR0dwzXNs&list=PLfuKAwZlKV0_--JYykteXjKyq0GA9j_i1&index=21
 var Chaincode = class {
         Init(stub) {
                 return stub.putState('dummyKey', Buffer.from('dummyValue'))

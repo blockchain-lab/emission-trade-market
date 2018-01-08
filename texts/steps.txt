@@ -1,3 +1,4 @@
+/etc/hosts
 127.0.0.1 peer0
 127.0.0.1 peer1
 127.0.0.1 peer2
@@ -9,8 +10,7 @@
 127.0.0.1 peer8
 127.0.0.1 orderer0
 127.0.0.1 kafka-zookeeper 
-
-
+only if vms ..
 
 install binary specifics -> curl -sSL https://goo.gl/byy2Qj | bash -s 1.0.5
 docker images -> are there images missing????
@@ -75,9 +75,12 @@ export PATH=$PATH:$GOROOT/bin
     docker exec -it peer4 bash
       docker exec -it peer6 bash
  docker exec -it cli bash
-peer channel join -b ch1.block
+peer channel join -b ch1_oldest.block
+CORE_LOGGING_LEVEL=DEBUG
 
    peer channel create -o docker.for.mac.localhost:7050 -c ch1 -f ./art/ch1.tx
+
+    peer channel fetch oldest -o docker.for.mac.localhost:7050 -c ch1
 
    peer channel fetch oldest -o docker.for.mac.localhost:7050 
 
@@ -88,3 +91,5 @@ ipconfig getifaddr en0 -> use this ip in kafka advertised
 To join a channel, you need the genesis block for that channel. An org may retrieve that block directly from the orderer using the `peer channel fetch` command, or, it may receive the block out of band from another party (like the regulator in this example). Someone with administrative rights for the peer must invoke the join channel command.
 
 Im going to give access to all the peers to the artifacts, so I dont have to give the block to them out of band, bc fetching doesnt work :(
+
+EVERY PEER WILL HAVE ADMIN RIGHTS... THEN THEY CAN JOIN THE CHANNELS

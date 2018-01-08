@@ -51,7 +51,7 @@ Organizations:
         ID: Org0MSP
         MSPDir: crypto-config/peerOrganizations/org0/msp/
         AnchorPeers:
-            - Host: 192.168.0.114
+            - Host: 192.168.0.101
               Port: 7051
 
     - &Org1
@@ -59,7 +59,7 @@ Organizations:
         ID: Org1MSP
         MSPDir: crypto-config/peerOrganizations/org1/msp/
         AnchorPeers:
-            - Host: 192.168.0.114
+            - Host: 192.168.0.101
               Port: 9051
 
     - &Org2
@@ -67,7 +67,7 @@ Organizations:
         ID: Org2MSP
         MSPDir: crypto-config/peerOrganizations/org2/msp/
         AnchorPeers:
-            - Host: 192.168.0.114
+            - Host: 192.168.0.101
               Port: 11051
 
     - &Org3
@@ -75,7 +75,7 @@ Organizations:
         ID: Org3MSP
         MSPDir: crypto-config/peerOrganizations/org3/msp/
         AnchorPeers:
-            - Host: 192.168.0.114
+            - Host: 192.168.0.101
               Port: 13051
 
 
@@ -84,7 +84,7 @@ Organizations:
 Orderer: &OrdererDefaults
     OrdererType: kafka
     Addresses:
-        - 192.168.0.114:7050
+        - 192.168.0.101:7050
     BatchTimeout: 1s
     BatchSize:
         MaxMessageCount: 30
@@ -92,7 +92,7 @@ Orderer: &OrdererDefaults
         PreferredMaxBytes: 512 KB
     Kafka:
         Brokers:
-            - 192.168.0.114:9092
+            - 192.168.0.101:9092
     Organizations:
 
 #   SECTION: Application

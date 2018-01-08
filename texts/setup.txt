@@ -4,5 +4,6 @@ export PATH=<path to download location>/bin:$PATH
 See documentation for fabric prerequirements and install 
 -------- FOLLOWING TIMES ---------
 # CHANNEL 1 IS 012 AND CHANNEL 2 IS 023
-Line 5 of init.sh replace the old ip to the current ip
-sh start.sh
+Line 5 of scripts_host/init.sh replace the old ip to the current ip
+sh network_up.sh
+sh channels_up.sh

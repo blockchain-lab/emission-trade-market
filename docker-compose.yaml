@@ -40,7 +40,9 @@ services:
       service: peer
     volumes:
     - /var/run/:/host/var/run/
-    - ./crypto-config/peerOrganizations/org0/users/Admin@org0/msp/:/etc/hyperledger/fabric/msp 
+    # - ./crypto-config/peerOrganizations/org0/users/Admin@org0/msp/:/etc/hyperledger/fabric/msp 
+    - ./crypto-config/peerOrganizations/org0/users/Admin@org0/msp/:/etc/hyperledger/fabric/admin
+    -  ./crypto-config/peerOrganizations/org0/peers/peer0.org0/msp/:/etc/hyperledger/fabric/user
     - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art
     - ./scripts_containers:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts
  
@@ -63,7 +65,8 @@ services:
       - CORE_PEER_LOCALMSPID=Org0MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org0/users/Admin@org0/msp/:/etc/hyperledger/fabric/msp 
+      - ./crypto-config/peerOrganizations/org0/users/Admin@org0/msp/:/etc/hyperledger/fabric/admin
+      -  ./crypto-config/peerOrganizations/org0/peers/peer1.org0/msp/:/etc/hyperledger/fabric/user
     ports:
       - 8051:7051
       - 8053:7053
@@ -82,7 +85,8 @@ services:
       - CORE_PEER_LOCALMSPID=Org1MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/msp  
+      - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/admin
+      -  ./crypto-config/peerOrganizations/org1/peers/peer2.org1/msp/:/etc/hyperledger/fabric/user
       - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art 
     ports:
       - 9051:7051
@@ -102,7 +106,8 @@ services:
       - CORE_PEER_LOCALMSPID=Org1MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/msp  
+      - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/admin
+      -  ./crypto-config/peerOrganizations/org1/peers/peer3.org1/msp/:/etc/hyperledger/fabric/user
       - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art  
     ports:
       - 10051:7051
@@ -122,7 +127,8 @@ services:
       - CORE_PEER_LOCALMSPID=Org2MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org2/users/Admin@org2/msp/:/etc/hyperledger/fabric/msp   
+      - ./crypto-config/peerOrganizations/org2/users/Admin@org2/msp/:/etc/hyperledger/fabric/admin
+      - ./crypto-config/peerOrganizations/org2/peers/peer4.org2/msp/:/etc/hyperledger/fabric/user 
       - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art 
     ports:
       - 11051:7051
@@ -142,7 +148,8 @@ services:
       - CORE_PEER_LOCALMSPID=Org2MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org2/users/Admin@org2/msp/:/etc/hyperledger/fabric/msp   
+      - ./crypto-config/peerOrganizations/org2/users/Admin@org2/msp/:/etc/hyperledger/fabric/admin
+      - ./crypto-config/peerOrganizations/org2/peers/peer5.org2/msp/:/etc/hyperledger/fabric/user    
       - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art    
     ports:
       - 12051:7051
@@ -162,7 +169,8 @@ services:
       - CORE_PEER_LOCALMSPID=Org3MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org3/users/Admin@org3/msp/:/etc/hyperledger/fabric/msp   
+      - ./crypto-config/peerOrganizations/org3/users/Admin@org3/msp/:/etc/hyperledger/fabric/admin
+      - ./crypto-config/peerOrganizations/org3/peers/peer6.org3/msp/:/etc/hyperledger/fabric/user    
       - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art
     ports:
       - 13051:7051
@@ -182,8 +190,9 @@ services:
       - CORE_PEER_LOCALMSPID=Org3MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org3/users/Admin@org3/msp/:/etc/hyperledger/fabric/msp    
+      - ./crypto-config/peerOrganizations/org3/users/Admin@org3/msp/:/etc/hyperledger/fabric/admin
       - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art
+      - ./crypto-config/peerOrganizations/org3/peers/peer7.org3/msp/:/etc/hyperledger/fabric/user  
     ports:
       - 14051:7051
       - 14053:7053 
@@ -200,7 +209,7 @@ services:
       image: hyperledger/fabric-kafka:x86_64-1.0.5
       environment:
           # - KAFKA_ADVERTISED_HOST_NAME=10.16.8.111
-          - KAFKA_ADVERTISED_HOST_NAME=192.168.0.101
+          - KAFKA_ADVERTISED_HOST_NAME=192.168.0.100
           - KAFKA_ADVERTISED_PORT=9092
           - KAFKA_BROKER_ID=0
           - KAFKA_MESSAGE_MAX_BYTES=103809024 
@@ -208,7 +217,7 @@ services:
           - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
           - KAFKA_NUM_REPLICA_FETCHERS=1
           - KAFKA_DEFAULT_REPLICATION_FACTOR=1
-          - KAFKA_ZOOKEEPER_CONNECT=192.168.0.101:2181
+          - KAFKA_ZOOKEEPER_CONNECT=192.168.0.100:2181
       ports:
           - 9092:9092
       networks:
@@ -224,7 +233,7 @@ services:
   #     - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
   #     - CORE_LOGGING_LEVEL=error
   #     - CORE_PEER_ID=cli
-  #     - CORE_PEER_ADDRESS=192.168.0.101:7051
+  #     - CORE_PEER_ADDRESS=192.168.0.100:7051
   #     - CORE_PEER_LOCALMSPID=Org0MSP
   #     - CORE_PEER_TLS_ENABLED=false
   #     - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org0/users/Admin@org0/msp/

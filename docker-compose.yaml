@@ -10,7 +10,7 @@ services:
       file:   base/docker-compose-base.yaml
       service: orderer
     environment:
-      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LOGLEVEL=ERROR
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
@@ -209,7 +209,7 @@ services:
       image: hyperledger/fabric-kafka:x86_64-1.0.5
       environment:
           # - KAFKA_ADVERTISED_HOST_NAME=10.16.8.111
-          - KAFKA_ADVERTISED_HOST_NAME=192.168.0.100
+          - KAFKA_ADVERTISED_HOST_NAME=145.94.222.154
           - KAFKA_ADVERTISED_PORT=9092
           - KAFKA_BROKER_ID=0
           - KAFKA_MESSAGE_MAX_BYTES=103809024 
@@ -217,46 +217,46 @@ services:
           - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
           - KAFKA_NUM_REPLICA_FETCHERS=1
           - KAFKA_DEFAULT_REPLICATION_FACTOR=1
-          - KAFKA_ZOOKEEPER_CONNECT=192.168.0.100:2181
+          - KAFKA_ZOOKEEPER_CONNECT=145.94.222.154:2181
       ports:
           - 9092:9092
       networks:
           - custom
       depends_on:
           - zookeeper
-  # cli:
-  #   container_name: cli
-  #   image: hyperledger/fabric-tools
-  #   tty: true
-  #   environment:
-  #     - GOPATH=/opt/gopath
-  #     - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-  #     - CORE_LOGGING_LEVEL=error
-  #     - CORE_PEER_ID=cli
-  #     - CORE_PEER_ADDRESS=192.168.0.100:7051
-  #     - CORE_PEER_LOCALMSPID=Org0MSP
-  #     - CORE_PEER_TLS_ENABLED=false
-  #     - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org0/users/Admin@org0/msp/
-  #   working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
-  #   # command: /bin/bash -c './scripts/script.sh ${CHANNEL_NAME} ${DELAY}; sleep $TIMEOUT'
-  #   volumes:
-  #       - /var/run/:/host/var/run/
-  #       # - ./../chaincode/:/opt/gopath/src/github.com/hyperledger/fabric/examples/chaincode/go
-  #       - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
-  #       # - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
-  #       - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art
+  cli:
+    container_name: cli
+    image: hyperledger/fabric-tools
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=error
+      - CORE_PEER_ID=cli
+      - CORE_PEER_ADDRESS=145.94.222.154:7051
+      - CORE_PEER_LOCALMSPID=Org0MSP
+      - CORE_PEER_TLS_ENABLED=false
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org0/users/Admin@org0/msp/
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    # command: /bin/bash -c './scripts/script.sh ${CHANNEL_NAME} ${DELAY}; sleep $TIMEOUT'
+    volumes:
+        - /var/run/:/host/var/run/
+        # - ./../chaincode/:/opt/gopath/src/github.com/hyperledger/fabric/examples/chaincode/go
+        - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        # - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
+        - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art
 
-  #   depends_on:
-  #     - orderer0
-  #     - peer0
-  #     - peer1
-  #     - peer2
-  #     - peer3
-  #     - peer4
-  #     - peer5
-  #     - peer6
-  #     - peer7
-  #   networks:
-  #     - custom
+    depends_on:
+      - orderer0
+      - peer0
+      - peer1
+      - peer2
+      - peer3
+      - peer4
+      - peer5
+      - peer6
+      - peer7
+    networks:
+      - custom
 
   

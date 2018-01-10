@@ -1,0 +1,226 @@
+Last login: Wed Jan 10 16:29:25 on ttys001
+[?1034hwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ [Kwlan-145-94-222-154:~ tamycova$ GIT ¡¡[K[K[K[K[K[Kgi[K[Kcd o[Kcd[K[Kemission-trade-market/
+wlan-145-94-222-154:emission-trade-market tamycova$ ls
+artifacts		docker-compose.yaml
+base			fabric
+bin			network_up.sh
+channels_up.sh		scripts_containers
+configtx.yaml		scripts_host
+crypto-config		texts
+crypto-config.yaml
+wlan-145-94-222-154:emission-trade-market tamycova$ sh channels_up.s h
+^C^C^CError: genesis block file not found open ch1_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+^C^CError: genesis block file not found open ch2_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+^C^C
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycoova$ [K[Awlan-145-94-222-154:emission-trade-maarket tamycova$ [K[Awlan-145-94-222-154:emission-tradde-market tamycova$ [K[Awlan-145-94-222-154:emissiion-trade-market tamycova$$ [K[A[Awlan-145-94-222-154:emiission-trade-market tammycova$ [K[A[Awlan-145-94-222-154::emission-trade-markket tamycova$ [K[A[Awlan-145-94-222-1544:emission-trade-maarket tamycova$ [K[A[Awlan-145-94-222-1554:emission-trade--market tamycova$  [K[A[A[Awlan-145-94-222-1154:emission-tradde-market tamycovva$ [K[A[A[Awlan-145-94-222-1554:emission-trade--market tamycova$  [K[A[A[Awlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-markett tamycova$ [K[Awlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$  [K[Awlan-145-94-222-154:emission-trade-market tamycova$$ [K[Awlan-145-94-222-154:emission-trade-market tamycovaa$ [K[Awlan-145-94-222-154:emission-trade-market tamycovva$ [K[Awlan-145-94-222-154:emission-trade-market tamycoova$ [K[Awlan-145-94-222-154:emission-trade-market tamyccova$ [K[Awlan-145-94-222-154:emission-trade-market tamyycova$ [K[Awlan-145-94-222-154:emission-trade-market tammycova$ [K[Awlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-markket tamycova$ [K[Awlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ sh  channels_up.sh[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csh  channels_up.sh[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ sh  channels_up.sh
+Error: can't read the block: &{FORBIDDEN}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch2_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: can't read the block: &{FORBIDDEN}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch2_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: can't read the block: &{FORBIDDEN}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch1_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: can't read the block: &{FORBIDDEN}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch1_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+wlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ echo $( docker exec -it peer4 sh -c "peer channel list")[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+wlan-145-94-222-154:emission-trade-market tamycova$ echo $(ddocker exec -it peer4 sh -c "peer channel list")[A[C[C[C[Csh channels_up.sh[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecho $(docker exec -it peer4 sh -c "peer channel list")[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdo[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdoc[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdock[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocke[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker [1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker e[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+wlan-145-94-222-154:emission-trade-market tamycova$ docker eexec -it peer4 sh -c "peer channel list"
+wlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamyccova$ [K[Awlan-145-94-222-154:emission-trade-market ttamycova$ [K[Awlan-145-94-222-154:emissioon-trade-market tamycova$  [K[A[Awlan-145-94-222-154:emission-trade-mmarket tamycova$ [K[Awlan-145-94-222-154:emission-trade-market tamycova$ docker exec -it peeer4 sh -c "peer channel list"[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecho $(docker exec -it peer4 sh -c "peer channel list")[A[C[C[C[C[C[C[C[C[C[C[C[C[C[Csh channels_up.sh [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kh
+wlan-145-94-222-154:emission-trade-market tamycova$ sh channels_up.sh [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kh
+wlan-145-94-222-154:emission-trade-market tamycova$ sh channels_up.sh [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kh
+wlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$  [K[Awlan-145-94-222-154:emission-trade-market tamycova$  [K[Awlan-145-94-222-154:emission-trade-market tamycova$$ [K[Awlan-145-94-222-154:emission-trade-market tamycovaa$ [K[Awlan-145-94-222-154:emission-trade-market tamycovva$ 

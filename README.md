@@ -6,23 +6,23 @@ Download prerequisits and setup fabric network:
 ./startFabric.sh
 ./createPeerAdminCard.sh
 ```
-install the composer runtime 
+Install the composer runtime: 
 ```
 composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName emission-network
 ```
-deploy the emission network
+Deploy the emission network:
 ```
 composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile emission-network@0.0.1.bna --file networkadmin.card
 ```
- import the network administrator identity as a usable business network card
+Import the network administrator identity as a usable business network card:
 ```
 composer card import --file networkadmin.card
 ```
-ping to see that network is running properly
+Ping to see that network is running properly:
 ```
 composer network ping --card admin@emission-network
 ```
-To create the REST API
+To create the REST API:
 ```
 composer-rest-server
 ```

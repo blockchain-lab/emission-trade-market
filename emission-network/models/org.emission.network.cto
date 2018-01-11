@@ -12,11 +12,10 @@ participant Company identified by companyID {
 
 asset Ett identified by ettID {
   o String ettID
-  o Company owner
+  --> Company owner
 }
 
 transaction ChangeEttOwner {
-  --> Company oldOwner
   --> Company newOwner
   --> Ett ett
 }

@@ -2,10 +2,9 @@
 
 Download prerequisits and setup fabric network:
 ```
-cd fabric-tools
-  ./downloadFabric.sh
-  ./startFabric.sh
-  ./createPeerAdminCard.sh
+./downloadFabric.sh
+./startFabric.sh
+./createPeerAdminCard.sh
 ```
 install the composer runtime 
 ```

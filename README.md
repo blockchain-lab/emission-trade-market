@@ -1,11 +1,10 @@
 ## How to run:
 
-Download prerequisits and setup fabric network: 
+ Start fabric and create peer admin card:
 ```
-cd ~/fabric-tools
-  ./downloadFabric.sh
-  ./startFabric.sh
-  ./createPeerAdminCard.sh
+./downloadFabric.sh
+./startFabric.sh
+./createPeerAdminCard.sh
 ```
 Install the composer runtime: 
 ```

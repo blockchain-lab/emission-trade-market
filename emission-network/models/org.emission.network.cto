@@ -1,0 +1,22 @@
+/**
+ * Model definitions
+ */
+
+namespace org.emission.network
+
+participant Company identified by companyID {
+  o String companyID
+  o String name
+  o Integer etts
+}
+
+asset Ett identified by ettID {
+  o String ettID
+  o Company owner
+}
+
+transaction ChangeEttOwner {
+  --> Company oldOwner
+  --> Company newOwner
+  --> Ett ett
+}

@@ -1,4 +1,4 @@
-# How to run:
+## How to run:
 
 Download prerequisits and setup fabric network:
 ```
@@ -9,9 +9,9 @@ cd fabric-tools
 ```
 install the composer runtime 
 ```
-composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName tutorial-network
+composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName emission-network
 ```
-deploy the business network
+deploy the emission network
 ```
 composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile emission-network@0.0.1.bna --file networkadmin.card
 ```
@@ -21,7 +21,7 @@ composer card import --file networkadmin.card
 ```
 ping to see that network is running properly
 ```
-composer network ping --card admin@tutorial-network```
+composer network ping --card admin@emission-network
 ```
 To create the REST API
 ```

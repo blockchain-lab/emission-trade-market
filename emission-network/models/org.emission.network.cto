@@ -7,12 +7,19 @@ namespace org.emission.network
 participant Company identified by companyID {
   o String companyID
   o String name
-  o Integer etts
+  --> Ett ett 
 }
 
 asset Ett identified by ettID {
   o String ettID
+  o Integer limit
   --> Company owner
+}
+
+transaction Trade {
+  o Integer emissionToTrade
+  --> Company buyer
+  --> Company seller
 }
 
 transaction ChangeEttOwner {

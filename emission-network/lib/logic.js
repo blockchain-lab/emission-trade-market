@@ -1,7 +1,34 @@
 'use strict';
 /**
- * Transction processor functions
+ * ChangeEttOwner transaction
+ * @param {org.emission.network.Trade} Transaction
+ * @transaction
  */
+function Trade(transaction) {
+	var assetRegistry;
+
+    // get buyer and seller and ettToSell
+    var buyer = transaction.buyer;
+    var seller = transaction.seller;
+  	var emToTrade = transaction.emissionToTrade;
+    
+  	// Check if company can trade ett
+    if(seller.ett.limit < emToTrade) {
+        throw "Cannot trade emission: Seller do not have enough emission";
+        return;        
+    }
+
+    // decrease emission of buyer and inrease emission of owner
+    buyer.ett.limit += emToTrade;
+   	seller.ett.limit -= emToTrade;
+    
+    // update asset registriy
+    return  getAssetRegistry('org.emission.network.Ett')
+      .then(function (assetRegistry) {
+          console.log("update company balance!");
+          return assetRegistry.updateAll([buyer.ett, seller.ett]);
+      }); 
+}
 
 /**
  * ChangeEttOwner transaction
@@ -11,28 +38,34 @@
 function ChangeEttOwner(transaction) {
     var assetRegistry;
 
-    // ger previous and new owner 
-    var prevOwner = transaction.ett.owner;
+    var ett = transaction.ett;
+    var prevOwner = ett.owner;
+
+    // undefine previous owner of ett if one exists
+    if(prevOwner !== undefined && prevOwner.ett !== undefined) {
+        ett.owner.ett = undefined;
+    }   
     var newOwner = transaction.newOwner;
 
     // set owner of ett to new owner 
     ett.owner = newOwner;
     
-    // decrease and inrease balance of owners
-    prevOwner.etts = prevOwner.etts - 1;
-    newOwner.etts = newOwner.etts + 1;
-    
     // update asset registriy
+ 	// TODO : Error: Cannot update type: Participant to Asset
     return getAssetRegistry('org.emission.network.Ett')
-        .then(function(ar) {
-            console.log("update Ett owner!");
-            return setRegistry.update(ett.owner);
+        .then(function(assetRegistry) {
+            console.log("update ett");
+            return assetRegistry.update(ett);
         })
         .then(function() {
-            return  getAssetRegistry('org.emission.network.Company')
-            .then(function (assetRegistry) {
-                console.log("update company balance!");
-                return assetRegistry.updateAll([prevOwner.etts, newOwner.etts]);
+            return  getParticipantRegistry('org.emission.network.Company')
+            .then(function (partRegistry) {
+                console.log("update company");
+                if(prevOwner !== undefined) {
+                    return partRegistry.updateAll([newOwner, prevOwner]);
+                } else {
+                    return partRegistry.update(newOwner);
+                }
             });  
         });
 }

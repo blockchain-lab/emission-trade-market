@@ -13,7 +13,7 @@ rule CompanyAccessOwnRecord {
 }
 
 // Company have read only access to other Company
-rule ResidentReadAccessResidents {
+rule CompaniesReadAccessCompanies {
     description: "Allow Company read access to other Company"
     participant: "org.emission.network.Company"
     operation: READ
@@ -22,7 +22,7 @@ rule ResidentReadAccessResidents {
 }
 
 // Company have read access to all ett assets
-rule ResidentAccessEnergyRecord {
+rule CompanyAccessEttRecord {
     description: "Allow Company read access to all ett assets"
     participant: "org.emission.network.Company"
     operation: READ

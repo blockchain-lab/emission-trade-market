@@ -46,9 +46,10 @@ Specify the following when asked:
 Rest server is now running!
 
 
-To stop running fabric network:
+To stop and teardown running fabric network:
 ```
 ./stopFabric.sh
+./teardownFabric.sh
 ```
 
 

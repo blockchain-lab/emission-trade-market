@@ -1,0 +1,23 @@
+Last login: Thu Jan 11 11:40:43 on ttys004
+[?1034hwlan-145-94-221-208:~ tamycova$ ls
+Applications			LIGHT				Projects			bashrc				fabric-samples
+Desktop				Library				Public				bin				fabric-tools
+DistributedAlgorithmsLabs	Maps.GeoInfo			SoftwareAnalytics		block				go
+Documents			Movies				The L word			composer-logs			good-swaps
+Downloads			Music				VirtualBox VMs			crypto-config			tutorial
+Dropbox				NeuralRealms			artifacts			emission-trade-market		u.sh
+GTD_Visualization		Pictures			bash_profile			equchain			usage.txt
+wlan-145-94-221-208:~ tamycova$ cd DistributedAlgorithmsLabs/
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ ls
+Lab1					Lab3					rmiresgistry start windows lab1.bat	rmiresgistry start windows lab3.bat
+Lab2					README.md				rmiresgistry start windows lab2.bat
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ cd la[K[KLab3
+wlan-145-94-221-208:Lab3 tamycova$ LS
+Lab3.iml	out		src		test
+wlan-145-94-221-208:Lab3 tamycova$ CD SR[K[K[K[K[Kcd src
+wlan-145-94-221-208:src tamycova$ ls
+Client.class		Client.policy		Server.class		Server.policy		ServerInterface.java	set.py
+Client.java		Main.java		Server.java		ServerInterface.class	reg.sh
+wlan-145-94-221-208:src tamycova$ rmiregistry 2003[K[K''[K[K011
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20011
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20011

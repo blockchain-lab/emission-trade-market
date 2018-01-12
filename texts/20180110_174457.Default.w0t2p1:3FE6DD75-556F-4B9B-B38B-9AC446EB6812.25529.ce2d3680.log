@@ -1,0 +1,60 @@
+Last login: Wed Jan 10 16:59:17 on ttys002
+[?1034hwlan-145-94-222-154:~ tamycova$ cl[K[Kdocker exec cli[Ki  -it sh [K[K[Kbasg
+oci runtime error: exec failed: container_linux.go:265: starting container process caused "exec: \"-it\": executable file not found in $PATH"
+
+wlan-145-94-222-154:~ tamycova$ docker exec cli --it basg[Kh
+oci runtime error: exec failed: container_linux.go:265: starting container process caused "exec: \"-it\": executable file not found in $PATH"
+
+wlan-145-94-222-154:~ tamycova$ docker exec cli --it bash[C[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K-i[Kit  cli bash
+]0;root@45e39e2e4182: /opt/gopath/src/github.com/hyperledger/fabric/peerroot@45e39e2e4182:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer# ^C
+]0;root@45e39e2e4182: /opt/gopath/src/github.com/hyperledger/fabric/peerroot@45e39e2e4182:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer# ^C
+]0;root@45e39e2e4182: /opt/gopath/src/github.com/hyperledger/fabric/peerroot@45e39e2e4182:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer# wlan-145-94-222-154:~ tamycova$ 
+wlan-145-94-222-154:~ tamycova$ 
+wlan-145-94-222-154:~ tamycova$ 
+wlan-145-94-222-154:~ tamycova$ 
+wlan-145-94-222-154:~ tamycova$ 
+wlan-145-94-222-154:~ tamycova$ 
+wlan-145-94-222-154:~ tamycova$ 
+wlan-145-94-222-154:~ tamycova$ docker exec -it ccli bash
+]0;root@673d816f38f1: /opt/gopath/src/github.com/hyperledger/fabric/peerroot@673d816f38f1:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer# ls
+[0m[01;34mart[0m  [01;34mcrypto[0m  [01;34mscripts[0m
+]0;root@673d816f38f1: /opt/gopath/src/github.com/hyperledger/fabric/peerroot@673d816f38f1:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer# cd scripts
+]0;root@673d816f38f1: /opt/gopath/src/github.com/hyperledger/fabric/peer/scriptsroot@673d816f38f1:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer/scripts# ls
+chain.go  install_chaincode.sh
+]0;root@673d816f38f1: /opt/gopath/src/github.com/hyperledger/fabric/peer/scriptsroot@673d816f38f1:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer/scripts# vi ins   cha   install_chaincodde.sh 
+bash: vi: command not found
+]0;root@673d816f38f1: /opt/gopath/src/github.com/hyperledger/fabric/peer/scriptsroot@673d816f38f1:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer/scripts# sh install_chaindo e.sh
+sh: 0: Can't open install_chaindoe.sh
+]0;root@673d816f38f1: /opt/gopath/src/github.com/hyperledger/fabric/peer/scriptsroot@673d816f38f1:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer/scripts# sh install_chaindoee.sh[Aerledger/fabric/peer/scripts# sh install_chaindind
+[Aerledger/fabric/peer/scripts# sh install_chaindcdo[1@e[Aledger/fabric/peer/scripts# sh install_chaincod[1@odo[1P
+install_chaincode.sh: 1: install_chaincode.sh: Syntax error: "(" unexpected
+]0;root@673d816f38f1: /opt/gopath/src/github.com/hyperledger/fabric/peer/scriptsroot@673d816f38f1:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer/scripts# sh install_chaincodde.sh     [A[A]0;root@673d816f38f1: /opt/gopath/src/github.com/hyperledger/fabric/peer/scriptsroot@673d816f38f1:/opt/gopath/src/github.com/hype
+[K[Aerledger/fabric/peer/scripts# sh install_chainc[K
+[K[Aerledger/fabric/peer/scripts# sh install_chainc                 wlan-145-94-222-154:~ tamycova$ docker exec -it ccli bash
+]0;root@1e9d8d8188ef: /opt/gopath/src/github.com/hyperledger/fabric/peerroot@1e9d8d8188ef:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer# LS
+bash: LS: command not found
+]0;root@1e9d8d8188ef: /opt/gopath/src/github.com/hyperledger/fabric/peerroot@1e9d8d8188ef:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer# ls
+[0m[01;34mart[0m  [01;34mscripts[0m
+]0;root@1e9d8d8188ef: /opt/gopath/src/github.com/hyperledger/fabric/peerroot@1e9d8d8188ef:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer# c ls
+[0m[01;34mart[0m  [01;34mscripts[0m
+]0;root@1e9d8d8188ef: /opt/gopath/src/github.com/hyperledger/fabric/peerroot@1e9d8d8188ef:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer# cd scripts
+]0;root@1e9d8d8188ef: /opt/gopath/src/github.com/hyperledger/fabric/peer/scriptsroot@1e9d8d8188ef:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer/scripts# ls
+chain.go  install_chaincode.sh
+]0;root@1e9d8d8188ef: /opt/gopath/src/github.com/hyperledger/fabric/peer/scriptsroot@1e9d8d8188ef:/opt/gopath/src/github.com/hyp
+erledger/fabric/peer/scripts# wlan-145-94-222-154:~ tamycova$ 

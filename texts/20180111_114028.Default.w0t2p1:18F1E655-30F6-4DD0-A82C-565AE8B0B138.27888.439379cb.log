@@ -1,0 +1,9 @@
+Last login: Thu Jan 11 11:39:46 on ttys002
+[?1034hwlan-145-94-221-208:~ tamycova$ cd DistributedAlgorithmsLabs/
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ l[KcdL[K Lab3
+wlan-145-94-221-208:Lab3 tamycova$ ls
+Lab3.iml	out		src		test
+wlan-145-94-221-208:Lab3 tamycova$ cd src
+wlan-145-94-221-208:src tamycova$ rmiregistry 2003[C03[C[C[K5
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20005
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20005

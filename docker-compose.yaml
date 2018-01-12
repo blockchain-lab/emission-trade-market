@@ -53,6 +53,26 @@ services:
       - custom
 
 
+  # peer1:
+  #   container_name: peer1
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer
+  #   environment:
+  #     - CORE_PEER_ID=peer1
+  #     - CORE_PEER_ADDRESS=peer1:7051
+  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1:7051
+  #     - CORE_PEER_LOCALMSPID=Org0MSP
+  #   volumes:
+  #     - /var/run/:/host/var/run/
+  #     - ./crypto-config/peerOrganizations/org0/users/Admin@org0/msp/:/etc/hyperledger/fabric/admin
+  #     -  ./crypto-config/peerOrganizations/org0/peers/peer1.org0/msp/:/etc/hyperledger/fabric/user
+  #   ports:
+  #     - 8051:7051
+  #     - 8053:7053
+  #   networks:
+  #     - custom
+
   peer1:
     container_name: peer1
     extends:
@@ -62,16 +82,38 @@ services:
       - CORE_PEER_ID=peer1
       - CORE_PEER_ADDRESS=peer1:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1:7051
-      - CORE_PEER_LOCALMSPID=Org0MSP
+      - CORE_PEER_LOCALMSPID=Org1MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org0/users/Admin@org0/msp/:/etc/hyperledger/fabric/admin
-      -  ./crypto-config/peerOrganizations/org0/peers/peer1.org0/msp/:/etc/hyperledger/fabric/user
+      - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/admin
+      -  ./crypto-config/peerOrganizations/org1/peers/peer1.org1/msp/:/etc/hyperledger/fabric/user
+      - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art 
     ports:
-      - 8051:7051
-      - 8053:7053
+      - 9051:7051
+      - 9053:7053 
     networks:
       - custom
+
+  # peer3:
+  #   container_name: peer3
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer
+  #   environment:
+  #     - CORE_PEER_ID=peer3
+  #     - CORE_PEER_ADDRESS=peer3:7051
+  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3:7051
+  #     - CORE_PEER_LOCALMSPID=Org1MSP
+  #   volumes:
+  #     - /var/run/:/host/var/run/
+  #     - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/admin
+  #     -  ./crypto-config/peerOrganizations/org1/peers/peer3.org1/msp/:/etc/hyperledger/fabric/user
+  #     - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art  
+  #   ports:
+  #     - 10051:7051
+  #     - 10053:7053 
+  #   networks:
+  #     - custom
 
   peer2:
     container_name: peer2
@@ -82,18 +124,39 @@ services:
       - CORE_PEER_ID=peer2
       - CORE_PEER_ADDRESS=peer2:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer2:7051
-      - CORE_PEER_LOCALMSPID=Org1MSP
+      - CORE_PEER_LOCALMSPID=Org2MSP
     volumes:
       - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/admin
-      -  ./crypto-config/peerOrganizations/org1/peers/peer2.org1/msp/:/etc/hyperledger/fabric/user
+      - ./crypto-config/peerOrganizations/org2/users/Admin@org2/msp/:/etc/hyperledger/fabric/admin
+      - ./crypto-config/peerOrganizations/org2/peers/peer2.org2/msp/:/etc/hyperledger/fabric/user 
       - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art 
     ports:
-      - 9051:7051
-      - 9053:7053 
+      - 11051:7051
+      - 11053:7053 
     networks:
-      - custom
+      - custom 
 
+  # peer5:
+  #   container_name: peer5
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer
+  #   environment:
+  #     - CORE_PEER_ID=peer5
+  #     - CORE_PEER_ADDRESS=peer5:7051
+  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer5:7051
+  #     - CORE_PEER_LOCALMSPID=Org2MSP
+  #   volumes:
+  #     - /var/run/:/host/var/run/
+  #     - ./crypto-config/peerOrganizations/org2/users/Admin@org2/msp/:/etc/hyperledger/fabric/admin
+  #     - ./crypto-config/peerOrganizations/org2/peers/peer5.org2/msp/:/etc/hyperledger/fabric/user    
+  #     - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art    
+  #   ports:
+  #     - 12051:7051
+  #     - 12053:7053   
+  #   networks:
+  #     - custom 
+  
   peer3:
     container_name: peer3
     extends:
@@ -103,74 +166,12 @@ services:
       - CORE_PEER_ID=peer3
       - CORE_PEER_ADDRESS=peer3:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3:7051
-      - CORE_PEER_LOCALMSPID=Org1MSP
-    volumes:
-      - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/admin
-      -  ./crypto-config/peerOrganizations/org1/peers/peer3.org1/msp/:/etc/hyperledger/fabric/user
-      - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art  
-    ports:
-      - 10051:7051
-      - 10053:7053 
-    networks:
-      - custom
-
-  peer4:
-    container_name: peer4
-    extends:
-      file:  base/docker-compose-base.yaml
-      service: peer
-    environment:
-      - CORE_PEER_ID=peer4
-      - CORE_PEER_ADDRESS=peer4:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer4:7051
-      - CORE_PEER_LOCALMSPID=Org2MSP
-    volumes:
-      - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org2/users/Admin@org2/msp/:/etc/hyperledger/fabric/admin
-      - ./crypto-config/peerOrganizations/org2/peers/peer4.org2/msp/:/etc/hyperledger/fabric/user 
-      - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art 
-    ports:
-      - 11051:7051
-      - 11053:7053 
-    networks:
-      - custom 
-
-  peer5:
-    container_name: peer5
-    extends:
-      file:  base/docker-compose-base.yaml
-      service: peer
-    environment:
-      - CORE_PEER_ID=peer5
-      - CORE_PEER_ADDRESS=peer5:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer5:7051
-      - CORE_PEER_LOCALMSPID=Org2MSP
-    volumes:
-      - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org2/users/Admin@org2/msp/:/etc/hyperledger/fabric/admin
-      - ./crypto-config/peerOrganizations/org2/peers/peer5.org2/msp/:/etc/hyperledger/fabric/user    
-      - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art    
-    ports:
-      - 12051:7051
-      - 12053:7053   
-    networks:
-      - custom 
-  
-  peer6:
-    container_name: peer6
-    extends:
-      file:  base/docker-compose-base.yaml
-      service: peer
-    environment:
-      - CORE_PEER_ID=peer6
-      - CORE_PEER_ADDRESS=peer6:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer6:7051
       - CORE_PEER_LOCALMSPID=Org3MSP
+      - CORE_LOGGING_LEVEL=DEBUG
     volumes:
       - /var/run/:/host/var/run/
       - ./crypto-config/peerOrganizations/org3/users/Admin@org3/msp/:/etc/hyperledger/fabric/admin
-      - ./crypto-config/peerOrganizations/org3/peers/peer6.org3/msp/:/etc/hyperledger/fabric/user    
+      - ./crypto-config/peerOrganizations/org3/peers/peer3.org3/msp/:/etc/hyperledger/fabric/user    
       - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art
     ports:
       - 13051:7051
@@ -178,26 +179,26 @@ services:
     networks:
       - custom
 
-  peer7:
-    container_name: peer7
-    extends:
-      file:  base/docker-compose-base.yaml
-      service: peer
-    environment:
-      - CORE_PEER_ID=peer7
-      - CORE_PEER_ADDRESS=peer7:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer7:7051
-      - CORE_PEER_LOCALMSPID=Org3MSP
-    volumes:
-      - /var/run/:/host/var/run/
-      - ./crypto-config/peerOrganizations/org3/users/Admin@org3/msp/:/etc/hyperledger/fabric/admin
-      - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art
-      - ./crypto-config/peerOrganizations/org3/peers/peer7.org3/msp/:/etc/hyperledger/fabric/user  
-    ports:
-      - 14051:7051
-      - 14053:7053 
-    networks:
-      - custom
+  # peer7:
+  #   container_name: peer7
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer
+  #   environment:
+  #     - CORE_PEER_ID=peer7
+  #     - CORE_PEER_ADDRESS=peer7:7051
+  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer7:7051
+  #     - CORE_PEER_LOCALMSPID=Org3MSP
+  #   volumes:
+  #     - /var/run/:/host/var/run/
+  #     - ./crypto-config/peerOrganizations/org3/users/Admin@org3/msp/:/etc/hyperledger/fabric/admin
+  #     - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art
+  #     - ./crypto-config/peerOrganizations/org3/peers/peer7.org3/msp/:/etc/hyperledger/fabric/user  
+  #   ports:
+  #     - 14051:7051
+  #     - 14053:7053 
+  #   networks:
+  #     - custom
   
   zookeeper:
       # image: hyperledger/fabric-zookeeper:x86_64-1.0.0-rc2-snapshot-b8e189e
@@ -238,24 +239,20 @@ services:
       - CORE_PEER_TLS_ENABLED=false
       - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org0/users/Admin@org0/msp/
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
-    # command: /bin/bash -c './scripts/script.sh ${CHANNEL_NAME} ${DELAY}; sleep $TIMEOUT'
     volumes:
         - /var/run/:/host/var/run/
-        # - ./../chaincode/:/opt/gopath/src/github.com/hyperledger/fabric/examples/chaincode/go
-        - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
-        # - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
         - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/art
-
+        - ./scripts_containers:/opt/gopath/src/scripts
+        - ./crypto-config/peerOrganizations/org0/users/Admin@org0/msp/:/etc/hyperledger/fabric/admin0
+        - ./crypto-config/peerOrganizations/org1/users/Admin@org1/msp/:/etc/hyperledger/fabric/admin1
+        - ./crypto-config/peerOrganizations/org2/users/Admin@org2/msp/:/etc/hyperledger/fabric/admin2
+        - ./crypto-config/peerOrganizations/org3/users/Admin@org3/msp/:/etc/hyperledger/fabric/admin3
     depends_on:
       - orderer0
       - peer0
       - peer1
       - peer2
       - peer3
-      - peer4
-      - peer5
-      - peer6
-      - peer7
     networks:
       - custom
 

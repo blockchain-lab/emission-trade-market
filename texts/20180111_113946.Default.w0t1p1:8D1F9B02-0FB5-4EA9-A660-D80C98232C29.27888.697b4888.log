@@ -1,0 +1,18 @@
+Last login: Thu Jan 11 11:32:12 on ttys001
+[?1034hwlan-145-94-221-208:~ tamycova$ cd[K[Kls
+Applications			LIGHT				Projects			bashrc				fabric-samples
+Desktop				Library				Public				bin				fabric-tools
+DistributedAlgorithmsLabs	Maps.GeoInfo			SoftwareAnalytics		block				go
+Documents			Movies				The L word			composer-logs			good-swaps
+Downloads			Music				VirtualBox VMs			crypto-config			tutorial
+Dropbox				NeuralRealms			artifacts			emission-trade-market		u.sh
+GTD_Visualization		Pictures			bash_profile			equchain			usage.txt
+wlan-145-94-221-208:~ tamycova$ cd Dis[KstributedAlgorithmsLabs/
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ ls
+Lab1					Lab3					rmiresgistry start windows lab1.bat	rmiresgistry start windows lab3.bat
+Lab2					README.md				rmiresgistry start windows lab2.bat
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ cd Lab3
+wlan-145-94-221-208:Lab3 tamycova$ cd src
+wlan-145-94-221-208:src tamycova$ rmiregistry 2003[K[K05[K05[K1
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20001
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20001

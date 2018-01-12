@@ -1,0 +1,135 @@
+Last login: Wed Jan 10 17:45:31 on ttys004
+[?1034hwlan-145-94-221-208:~ tamycova$ ls
+Applications			VirtualBox VMs
+Desktop				artifacts
+DistributedAlgorithmsLabs	bash_profile
+Documents			bashrc
+Downloads			bin
+Dropbox				block
+GTD_Visualization		composer-logs
+LIGHT				crypto-config
+Library				emission-trade-market
+Maps.GeoInfo			equchain
+Movies				fabric-samples
+Music				fabric-tools
+NeuralRealms			go
+Pictures			good-swaps
+Projects			tutorial
+Public				u.sh
+SoftwareAnalytics		usage.txt
+The L word
+wlan-145-94-221-208:~ tamycova$ cd DistributedAlgorithmsLabs/
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ ls
+Lab1					rmiresgistry start windows lab1.bat
+Lab2					rmiresgistry start windows lab2.bat
+Lab3					rmiresgistry start windows lab3.bat
+README.md
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ git branch
+  BSS_alg[m
+  Lab2[m
+  lab2dist[m
+* [32mlab3[m
+  master[m
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ git pull
+remote: Counting objects: 16, done.[K
+remote: Compressing objects:  20% (1/5)   [Kremote: Compressing objects:  40% (2/5)   [Kremote: Compressing objects:  60% (3/5)   [Kremote: Compressing objects:  80% (4/5)   [Kremote: Compressing objects: 100% (5/5)   [Kremote: Compressing objects: 100% (5/5), done.[K
+remote: Total 16 (delta 10), reused 15 (delta 9), pack-reused 0[K
+Unpacking objects:   6% (1/16)   Unpacking objects:  12% (2/16)   Unpacking objects:  18% (3/16)   Unpacking objects:  25% (4/16)   Unpacking objects:  31% (5/16)   Unpacking objects:  37% (6/16)   Unpacking objects:  43% (7/16)   Unpacking objects:  50% (8/16)   Unpacking objects:  56% (9/16)   Unpacking objects:  62% (10/16)   Unpacking objects:  68% (11/16)   Unpacking objects:  75% (12/16)   Unpacking objects:  81% (13/16)   Unpacking objects:  87% (14/16)   Unpacking objects:  93% (15/16)   Unpacking objects: 100% (16/16)   Unpacking objects: 100% (16/16), done.
+From https://github.com/tamycova/DistributedAlgorithmsLabs
+   4ac2f19..4c5ba41  lab3       -> origin/lab3
+Updating 4ac2f19..4c5ba41
+Fast-forward
+ Lab3/src/Client.class          | Bin [31m6575[m -> [32m7945[m bytes
+ Lab3/src/Client.java           |  31 [32m+++++++++++++++++++++++++++++++[m
+ Lab3/src/Main.java             |  22 [32m+++++++++++++++++++++[m[31m-[m
+ Lab3/src/Server.class          | Bin [31m3322[m -> [32m3415[m bytes
+ Lab3/src/ServerInterface.class | Bin [31m418[m -> [32m458[m bytes
+ Lab3/test/MainTest.java        |   6 [32m++++[m[31m--[m
+ 6 files changed, 56 insertions(+), 3 deletions(-)
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ ipconfig getifaddr en0
+145.94.221.208
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ git pull
+Already up-to-date.
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ [Kwlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ [Kwlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ ls
+Lab1					Lab3					rmiresgistry start windows lab1.bat	rmiresgistry start windows lab3.bat
+Lab2					README.md				rmiresgistry start windows lab2.bat
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ cd lab[K[K[KLab3
+wlan-145-94-221-208:Lab3 tamycova$ cd stc[K[Krc
+wlan-145-94-221-208:src tamycova$ rmiregistry 2003
+java.rmi.server.ExportException: Port already in use: 2003; nested exception is: 
+	java.net.BindException: Address already in use
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:341)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:249)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:212)
+	at sun.rmi.registry.RegistryImpl.setup(RegistryImpl.java:152)
+	at sun.rmi.registry.RegistryImpl.<init>(RegistryImpl.java:137)
+	at sun.rmi.registry.RegistryImpl$5.run(RegistryImpl.java:383)
+	at sun.rmi.registry.RegistryImpl$5.run(RegistryImpl.java:381)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.registry.RegistryImpl.main(RegistryImpl.java:380)
+Caused by: java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:330)
+	... 10 more
+wlan-145-94-221-208:src tamycova$ rmiregistry 2003[C[1P0034003[1P0033003
+java.rmi.server.ExportException: Port already in use: 3003; nested exception is: 
+	java.net.BindException: Address already in use
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:341)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:249)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:212)
+	at sun.rmi.registry.RegistryImpl.setup(RegistryImpl.java:152)
+	at sun.rmi.registry.RegistryImpl.<init>(RegistryImpl.java:137)
+	at sun.rmi.registry.RegistryImpl$5.run(RegistryImpl.java:383)
+	at sun.rmi.registry.RegistryImpl$5.run(RegistryImpl.java:381)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.registry.RegistryImpl.main(RegistryImpl.java:380)
+Caused by: java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:330)
+	... 10 more
+wlan-145-94-221-208:src tamycova$ rmiregistry 3003[1P0034003
+java.rmi.server.ExportException: Port already in use: 4003; nested exception is: 
+	java.net.BindException: Address already in use
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:341)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:249)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:212)
+	at sun.rmi.registry.RegistryImpl.setup(RegistryImpl.java:152)
+	at sun.rmi.registry.RegistryImpl.<init>(RegistryImpl.java:137)
+	at sun.rmi.registry.RegistryImpl$5.run(RegistryImpl.java:383)
+	at sun.rmi.registry.RegistryImpl$5.run(RegistryImpl.java:381)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.registry.RegistryImpl.main(RegistryImpl.java:380)
+Caused by: java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:330)
+	... 10 more
+wlan-145-94-221-208:src tamycova$ rmiregistry 4003[C[1P0032003[C[C03
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20003
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20003

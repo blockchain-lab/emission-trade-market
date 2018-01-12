@@ -1,0 +1,10 @@
+Last login: Thu Jan 11 11:40:28 on ttys003
+[?1034hwlan-145-94-221-208:~ tamycova$ cd r[KDistributedAlgorithmsLabs/
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ ls
+Lab1					Lab3					rmiresgistry start windows lab1.bat	rmiresgistry start windows lab3.bat
+Lab2					README.md				rmiresgistry start windows lab2.bat
+wlan-145-94-221-208:DistributedAlgorithmsLabs tamycova$ cdd L[K[K[K Lab3
+wlan-145-94-221-208:Lab3 tamycova$ l[Kcd st[Krc
+wlan-145-94-221-208:src tamycova$ rmiregistry 2003[K[K007
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20007
+^Cwlan-145-94-221-208:src tamycova$ rmiregistry 20007

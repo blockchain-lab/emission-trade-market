@@ -1,0 +1,710 @@
+Last login: Thu Jan 11 11:46:06 on ttys005
+[?1034hT:~ tamycova$ [KT:~ tamycova$ [KT:~ tamycova$ git clone https://github.com/tamycova/VolVis
+Cloning into 'VolVis'...
+remote: Counting objects: 3, done.[K
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0[K
+Unpacking objects:  33% (1/3)   Unpacking objects:  66% (2/3)   Unpacking objects: 100% (3/3)   Unpacking objects: 100% (3/3), done.
+Checking connectivity... done.
+T:~ tamycova$ ls[K[Kcd VolVis/
+T:VolVis tamycova$ ls
+README.md	VolVis		data		info
+T:VolVis tamycova$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31m.gitignore[m
+	[31mVolVis/[m
+	[31mdata/[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+T:VolVis tamycova$ git add -A
+T:VolVis tamycova$ git commit -m "init project"
+[master 0323ee7] init project
+ 11 files changed, 323404 insertions(+)
+ create mode 100644 .gitignore
+ create mode 160000 VolVis
+ create mode 100755 data/backpack8_small.fld
+ create mode 100755 data/bonsai.fld
+ create mode 100755 data/carp8.fld
+ create mode 100755 data/christmastree128x124x128.dat
+ create mode 100755 data/orange.fld
+ create mode 100755 data/pig8.fld
+ create mode 100755 data/stent8.fld
+ create mode 100755 data/tomato.fld
+ create mode 100755 data/tooth.fld
+T:VolVis tamycova$ git push
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
+Writing objects:   7% (1/13)   Writing objects:  15% (2/13)   Writing objects:  23% (3/13)   Writing objects:  30% (4/13)   Writing objects:  30% (4/13), 1.07 MiB | 695.00 KiB/s   Writing objects:  38% (5/13), 1.07 MiB | 695.00 KiB/s   Writing objects:  38% (5/13), 2.73 MiB | 667.00 KiB/s   Writing objects:  38% (5/13), 3.86 MiB | 842.00 KiB/s   Writing objects:  46% (6/13), 5.70 MiB | 1.09 MiB/s   Writing objects:  46% (6/13), 9.41 MiB | 1.39 MiB/s   Writing objects:  53% (7/13), 9.41 MiB | 1.39 MiB/s   Writing objects:  61% (8/13), 9.96 MiB | 1.36 MiB/s   Writing objects:  61% (8/13), 11.28 MiB | 1.19 MiB/s   Writing objects:  61% (8/13), 13.93 MiB | 1.38 MiB/s   Writing objects:  69% (9/13), 13.93 MiB | 1.38 MiB/s   Writing objects:  69% (9/13), 18.58 MiB | 2.04 MiB/s   Writing objects:  76% (10/13), 18.58 MiB | 2.04 MiB/s   Writing objects:  76% (10/13), 18.96 MiB | 1.76 MiB/s   Writing objects:  76% (10/13), 21.33 MiB | 1.81 MiB/s   Writing objects:  84% (11/13), 23.23 MiB | 1.87 MiB/s   Writing objects:  84% (11/13), 25.36 MiB | 1.61 MiB/s   Writing objects:  84% (11/13), 29.61 MiB | 2.17 MiB/s   Writing objects:  92% (12/13), 29.61 MiB | 2.17 MiB/s   Writing objects:  92% (12/13), 30.08 MiB | 1.62 MiB/s   Writing objects:  92% (12/13), 32.03 MiB | 1.66 MiB/s   Writing objects: 100% (13/13), 34.23 MiB | 1.68 MiB/s   Writing objects: 100% (13/13), 35.58 MiB | 1.92 MiB/s, done.
+Total 13 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/1)   [Kremote: Resolving deltas: 100% (1/1)   [Kremote: Resolving deltas: 100% (1/1), done.[K
+To https://github.com/tamycova/VolVis
+   cb8d043..0323ee7  master -> master
+T:VolVis tamycova$ ls
+README.md	build		build.xml	data		info		lib		manifest.mf	nbproject	src		test
+T:VolVis tamycova$ git add -A
+gi  T:VolVis tamycova$ git commit -m "fix repo"
+[master 84be4ae] fix repo
+ 649 files changed, 596683 insertions(+), 1 deletion(-)
+ delete mode 160000 VolVis
+ create mode 100755 build.xml
+ create mode 100755 build/built-jar.properties
+ create mode 100755 build/classes/.netbeans_automatic_build
+ create mode 100755 build/classes/.netbeans_update_resources
+ create mode 100755 build/classes/gui/RaycastRendererPanel$1.class
+ create mode 100755 build/classes/gui/RaycastRendererPanel$2.class
+ create mode 100755 build/classes/gui/RaycastRendererPanel$3.class
+ create mode 100755 build/classes/gui/RaycastRendererPanel$4.class
+ create mode 100755 build/classes/gui/RaycastRendererPanel$5.class
+ create mode 100755 build/classes/gui/RaycastRendererPanel.class
+ create mode 100755 build/classes/gui/RaycastRendererPanel.form
+ create mode 100755 build/classes/gui/TransferFunction2DEditor$1.class
+ create mode 100755 build/classes/gui/TransferFunction2DEditor$2.class
+ create mode 100755 build/classes/gui/TransferFunction2DEditor.class
+ create mode 100755 build/classes/gui/TransferFunction2DEditor.form
+ create mode 100755 build/classes/gui/TransferFunction2DView$1.class
+ create mode 100755 build/classes/gui/TransferFunction2DView$2.class
+ create mode 100755 build/classes/gui/TransferFunction2DView$SelectionHandler.class
+ create mode 100755 build/classes/gui/TransferFunction2DView$TriangleWidgetHandler.class
+ create mode 100755 build/classes/gui/TransferFunction2DView.class
+ create mode 100755 build/classes/gui/TransferFunction2DView.form
+ create mode 100755 build/classes/gui/TransferFunctionEditor$1.class
+ create mode 100755 build/classes/gui/TransferFunctionEditor.class
+ create mode 100755 build/classes/gui/TransferFunctionEditor.form
+ create mode 100755 build/classes/gui/TransferFunctionView$1.class
+ create mode 100755 build/classes/gui/TransferFunctionView$2.class
+ create mode 100755 build/classes/gui/TransferFunctionView$ControlPointHandler.class
+ create mode 100755 build/classes/gui/TransferFunctionView$SelectionHandler.class
+ create mode 100755 build/classes/gui/TransferFunctionView.class
+ create mode 100755 build/classes/gui/TransferFunctionView.form
+ create mode 100755 build/classes/gui/VolVisApplication$1.class
+ create mode 100755 build/classes/gui/VolVisApplication$2.class
+ create mode 100755 build/classes/gui/VolVisApplication$3.class
+ create mode 100755 build/classes/gui/VolVisApplication.class
+ create mode 100755 build/classes/gui/VolVisApplication.form
+ create mode 100755 build/classes/util/TFChangeListener.class
+ create mode 100755 build/classes/util/TrackballInteractor.class
+ create mode 100755 build/classes/util/VectorMath.class
+ create mode 100755 build/classes/volume/GradientVolume.class
+ create mode 100755 build/classes/volume/Volume.class
+ create mode 100755 build/classes/volume/VolumeIO.class
+ create mode 100755 build/classes/volume/VoxelGradient.class
+ create mode 100755 build/classes/volvis/RaycastRenderer.class
+ create mode 100755 build/classes/volvis/Renderer.class
+ create mode 100755 build/classes/volvis/TFColor.class
+ create mode 100755 build/classes/volvis/TransferFunction$ControlPoint.class
+ create mode 100755 build/classes/volvis/TransferFunction.class
+ create mode 100755 build/classes/volvis/TransferFunction2D.class
+ create mode 100755 build/classes/volvis/Visualization$MouseMotionListener.class
+ create mode 100755 build/classes/volvis/Visualization$MousePressListener.class
+ create mode 100755 build/classes/volvis/Visualization$MouseWheelHandler.class
+ create mode 100755 build/classes/volvis/Visualization.class
+ create mode 100755 lib/javadoc/allclasses-frame.html
+ create mode 100755 lib/javadoc/allclasses-noframe.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/DelegatedUpstreamSurfaceHookMutableSize.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/DelegatedUpstreamSurfaceHookWithSurfaceSize.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/MutableGraphicsConfiguration.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/NativeWindowVersion.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/UpstreamSurfaceHookMutableSize.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/awt/AWTGraphicsConfiguration.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/awt/AWTGraphicsDevice.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/awt/AWTGraphicsScreen.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/awt/AWTWindowClosingProtocol.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/awt/JAWTWindow.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/awt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/awt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/awt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/egl/EGLGraphicsDevice.EGLDisplayLifecycleCallback.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/egl/EGLGraphicsDevice.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/egl/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/egl/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/egl/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/macosx/MacOSXGraphicsDevice.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/macosx/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/macosx/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/macosx/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/swt/SWTAccessor.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/swt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/swt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/swt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/windows/WindowsGraphicsDevice.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/windows/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/windows/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/windows/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/x11/X11GraphicsConfiguration.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/x11/X11GraphicsDevice.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/x11/X11GraphicsScreen.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/x11/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/x11/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/nativewindow/x11/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/Display.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/MonitorDevice.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/MonitorMode.SizeAndRRate.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/MonitorMode.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/NewtFactory.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/NewtVersion.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/Screen.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/Window.FocusRunnable.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/Window.ReparentOperation.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/Window.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/awt/NewtCanvasAWT.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/awt/applet/JOGLNewtApplet1Run.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/awt/applet/JOGLNewtAppletBase.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/awt/applet/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/awt/applet/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/awt/applet/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/awt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/awt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/awt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/InputEvent.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/KeyAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/KeyEvent.NonPrintableRange.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/KeyEvent.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/KeyListener.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/MonitorEvent.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/MonitorModeListener.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/MouseAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/MouseEvent.PointerClass.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/MouseEvent.PointerType.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/MouseEvent.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/MouseListener.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/NEWTEvent.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/NEWTEventConsumer.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/NEWTEventFiFo.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/NEWTEventListener.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/OutputEvent.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/TraceKeyAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/TraceMouseAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/TraceWindowAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/WindowAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/WindowEvent.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/WindowListener.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/WindowUpdateEvent.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/awt/AWTAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/awt/AWTKeyAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/awt/AWTMouseAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/awt/AWTWindowAdapter.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/awt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/awt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/awt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/event/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/opengl/GLWindow.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/opengl/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/opengl/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/opengl/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/swt/NewtCanvasSWT.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/swt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/swt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/swt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/util/EDTUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/util/MainThread.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/util/MonitorModeUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/util/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/util/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/newt/util/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/FBObject.Attachment.Type.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/FBObject.Attachment.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/FBObject.ColorAttachment.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/FBObject.Colorbuffer.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/FBObject.RenderAttachment.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/FBObject.TextureAttachment.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/FBObject.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/GLAutoDrawableDelegate.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/GLEventListenerState.ReshapeGLEventListener.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/GLEventListenerState.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/GLExtensions.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/GLRendererQuirks.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/GLStateKeeper.Listener.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/GLStateKeeper.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/GenericGLCapabilitiesChooser.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/JoglVersion.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CGannotation.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CGcontext.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CGeffect.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CGparameter.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CGpass.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CGprogram.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CGstate.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CGstateassignment.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CGtechnique.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CgDynamicLibraryBundleInfo.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CgException.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CgGL.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/CgProcAddressTable.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/cg/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/FixedPoint.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/FloatUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/Quaternion.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/VectorUtil.Winding.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/VectorUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/Vert2fImmutable.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/Vert3fImmutable.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/geom/AABBox.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/geom/Frustum.Location.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/geom/Frustum.Plane.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/geom/Frustum.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/geom/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/geom/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/geom/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/math/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/swt/GLCanvas.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/swt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/swt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/swt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/Animator.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/AnimatorBase.AnimatorImpl.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/AnimatorBase.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/FPSAnimator.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLArrayDataClient.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLArrayDataEditable.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLArrayDataServer.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLArrayDataWrapper.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLBuffers.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLDrawableUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLPixelBuffer.GLPixelAttributes.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLPixelBuffer.GLPixelBufferProvider.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLPixelBuffer.SingletonGLPixelBufferProvider.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLPixelBuffer.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLPixelStorageModes.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/GLReadBufferUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/Gamma.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/ImmModeSink.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/PMVMatrix.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/TGAWriter.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/AudioSink.AudioDataFormat.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/AudioSink.AudioDataType.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/AudioSink.AudioFrame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/AudioSink.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/AudioSinkFactory.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/GLMediaPlayer.GLMediaEventListener.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/GLMediaPlayer.State.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/GLMediaPlayer.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/GLMediaPlayerFactory.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/av/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/AWTGLPixelBuffer.AWTGLPixelBufferProvider.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/AWTGLPixelBuffer.SingleAWTGLPixelBufferProvider.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/AWTGLPixelBuffer.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/AWTGLReadBufferUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/ImageUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/Overlay.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/Screenshot.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/TextRenderer.DefaultRenderDelegate.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/TextRenderer.RenderDelegate.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/TextRenderer.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/TextureRenderer.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/awt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/gl2/GLUT.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/gl2/TileRenderer.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/gl2/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/gl2/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/gl2/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/ShaderCode.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/ShaderProgram.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/ShaderState.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/ShaderUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/fixedfunc/FixedFuncUtil.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/fixedfunc/ShaderSelectionMode.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/fixedfunc/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/fixedfunc/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/fixedfunc/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/sdk/CompileShader.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/sdk/CompileShaderNVidia.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/sdk/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/sdk/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/glsl/sdk/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/packrect/BackingStoreManager.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/packrect/Level.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/packrect/LevelSet.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/packrect/Rect.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/packrect/RectVisitor.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/packrect/RectanglePacker.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/packrect/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/packrect/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/packrect/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/Texture.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/TextureCoords.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/TextureData.ColorSpace.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/TextureData.Flusher.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/TextureData.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/TextureIO.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/TextureSequence.TexSeqEventListener.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/TextureSequence.TextureFrame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/TextureSequence.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/awt/AWTTextureData.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/awt/AWTTextureIO.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/awt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/awt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/awt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/DDSImage.ImageInfo.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/DDSImage.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/JPEGImage.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/LEDataInputStream.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/LEDataOutputStream.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/NetPbmTextureWriter.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/PNGImage.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/SGIImage.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/TGAImage.Header.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/TGAImage.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/TextureProvider.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/TextureWriter.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/awt/IIOTextureProvider.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/awt/IIOTextureWriter.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/awt/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/awt/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/awt/package-tree.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/package-frame.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/package-summary.html
+ create mode 100755 lib/javadoc/com/jogamp/opengl/util/texture/spi/package-tree.html
+ create mode 100755 lib/javadoc/constant-values.html
+ create mode 100755 lib/javadoc/deprecated-list.html
+ create mode 100755 lib/javadoc/help-doc.html
+ create mode 100755 lib/javadoc/index-all.html
+ create mode 100755 lib/javadoc/index.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/AbstractGraphicsConfiguration.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/AbstractGraphicsDevice.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/AbstractGraphicsScreen.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/Capabilities.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/CapabilitiesChooser.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/CapabilitiesImmutable.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/DefaultCapabilitiesChooser.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/DefaultGraphicsConfiguration.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/DefaultGraphicsDevice.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/DefaultGraphicsScreen.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/GraphicsConfigurationFactory.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/MutableSurface.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/NativeSurface.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/NativeWindow.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/NativeWindowException.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/NativeWindowFactory.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/OffscreenLayerOption.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/OffscreenLayerSurface.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/ProxySurface.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/SurfaceUpdatedListener.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/ToolkitLock.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/UpstreamSurfaceHook.MutableSize.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/UpstreamSurfaceHook.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/VisualIDHolder.VIDComparator.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/VisualIDHolder.VIDType.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/VisualIDHolder.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/WindowClosingProtocol.WindowClosingMode.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/WindowClosingProtocol.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/package-frame.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/package-summary.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/package-tree.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/Dimension.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/DimensionImmutable.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/Insets.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/InsetsImmutable.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/Point.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/PointImmutable.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/Rectangle.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/RectangleImmutable.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/SurfaceSize.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/package-frame.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/package-summary.html
+ create mode 100755 lib/javadoc/javax/media/nativewindow/util/package-tree.html
+ create mode 100755 lib/javadoc/javax/media/opengl/DebugGL2.html
+ create mode 100755 lib/javadoc/javax/media/opengl/DebugGL3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/DebugGL3bc.html
+ create mode 100755 lib/javadoc/javax/media/opengl/DebugGL4.html
+ create mode 100755 lib/javadoc/javax/media/opengl/DebugGL4bc.html
+ create mode 100755 lib/javadoc/javax/media/opengl/DebugGLES1.html
+ create mode 100755 lib/javadoc/javax/media/opengl/DebugGLES2.html
+ create mode 100755 lib/javadoc/javax/media/opengl/DebugGLES3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/DefaultGLCapabilitiesChooser.html
+ create mode 100755 lib/javadoc/javax/media/opengl/FPSCounter.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL2.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL2ES1.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL2ES2.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL2ES3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL2GL3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL3ES3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL3bc.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL4.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL4ES3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GL4bc.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLAnimatorControl.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLArrayData.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLAutoDrawable.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLBase.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLCapabilities.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLCapabilitiesChooser.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLCapabilitiesImmutable.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLContext.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLDebugListener.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLDebugMessage.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLDrawable.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLDrawableFactory.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLES1.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLES2.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLES3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLEventListener.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLException.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLFBODrawable.Resizeable.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLFBODrawable.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLOffscreenAutoDrawable.FBO.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLOffscreenAutoDrawable.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLPbuffer.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLPipelineFactory.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLProfile.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLRunnable.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLRunnable2.html
+ create mode 100755 lib/javadoc/javax/media/opengl/GLUniformData.html
+ create mode 100755 lib/javadoc/javax/media/opengl/Threading.html
+ create mode 100755 lib/javadoc/javax/media/opengl/TraceGL2.html
+ create mode 100755 lib/javadoc/javax/media/opengl/TraceGL3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/TraceGL3bc.html
+ create mode 100755 lib/javadoc/javax/media/opengl/TraceGL4.html
+ create mode 100755 lib/javadoc/javax/media/opengl/TraceGL4bc.html
+ create mode 100755 lib/javadoc/javax/media/opengl/TraceGLES1.html
+ create mode 100755 lib/javadoc/javax/media/opengl/TraceGLES2.html
+ create mode 100755 lib/javadoc/javax/media/opengl/TraceGLES3.html
+ create mode 100755 lib/javadoc/javax/media/opengl/awt/AWTGLAutoDrawable.html
+ create mode 100755 lib/javadoc/javax/media/opengl/awt/ComponentEvents.html
+ create mode 100755 lib/javadoc/javax/media/opengl/awt/GLCanvas.html
+ create mode 100755 lib/javadoc/javax/media/opengl/awt/GLJPanel.html
+ create mode 100755 lib/javadoc/javax/media/opengl/awt/package-frame.html
+ create mode 100755 lib/javadoc/javax/media/opengl/awt/package-summary.html
+ create mode 100755 lib/javadoc/javax/media/opengl/awt/package-tree.html
+ create mode 100755 lib/javadoc/javax/media/opengl/fixedfunc/GLLightingFunc.html
+ create mode 100755 lib/javadoc/javax/media/opengl/fixedfunc/GLMatrixFunc.html
+ create mode 100755 lib/javadoc/javax/media/opengl/fixedfunc/GLPointerFunc.html
+ create mode 100755 lib/javadoc/javax/media/opengl/fixedfunc/GLPointerFuncUtil.html
+ create mode 100755 lib/javadoc/javax/media/opengl/fixedfunc/package-frame.html
+ create mode 100755 lib/javadoc/javax/media/opengl/fixedfunc/package-summary.html
+ create mode 100755 lib/javadoc/javax/media/opengl/fixedfunc/package-tree.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/GLU.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/GLUnurbs.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/GLUquadric.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/GLUtessellator.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/GLUtessellatorCallback.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/GLUtessellatorCallbackAdapter.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/gl2/GLUgl2.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/gl2/package-frame.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/gl2/package-summary.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/gl2/package-tree.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/gl2es1/GLUgl2es1.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/gl2es1/package-frame.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/gl2es1/package-summary.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/gl2es1/package-tree.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/package-frame.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/package-summary.html
+ create mode 100755 lib/javadoc/javax/media/opengl/glu/package-tree.html
+ create mode 100755 lib/javadoc/javax/media/opengl/package-frame.html
+ create mode 100755 lib/javadoc/javax/media/opengl/package-summary.html
+ create mode 100755 lib/javadoc/javax/media/opengl/package-tree.html
+ create mode 100755 lib/javadoc/overview-frame.html
+ create mode 100755 lib/javadoc/overview-summary.html
+ create mode 100755 lib/javadoc/overview-tree.html
+ create mode 100755 lib/javadoc/package-list
+ create mode 100755 lib/javadoc/resources/background.gif
+ create mode 100755 lib/javadoc/resources/tab.gif
+ create mode 100755 lib/javadoc/resources/titlebar.gif
+ create mode 100755 lib/javadoc/resources/titlebar_end.gif
+ create mode 100755 lib/javadoc/serialized-form.html
+ create mode 100755 lib/javadoc/stylesheet.css
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-android-armv6.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-linux-i586.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/gluegen-rt-android-natives-windows-i586.jar
+ create mode 100755 lib/jogl/gluegen-rt-android.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-android-armv6.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-linux-i586.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/gluegen-rt-natives-windows-i586.jar
+ create mode 100755 lib/jogl/gluegen-rt.jar
+ create mode 100755 lib/jogl/gluegen-test-util.jar
+ create mode 100755 lib/jogl/gluegen.jar
+ create mode 100755 lib/jogl/joal-android-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/joal-android-natives-android-armv6.jar
+ create mode 100755 lib/jogl/joal-android-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/joal-android-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/joal-android-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/joal-android-natives-linux-i586.jar
+ create mode 100755 lib/jogl/joal-android-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/joal-android-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/joal-android-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/joal-android-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/joal-android-natives-windows-i586.jar
+ create mode 100755 lib/jogl/joal-android.jar
+ create mode 100755 lib/jogl/joal-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/joal-natives-android-armv6.jar
+ create mode 100755 lib/jogl/joal-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/joal-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/joal-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/joal-natives-linux-i586.jar
+ create mode 100755 lib/jogl/joal-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/joal-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/joal-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/joal-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/joal-natives-windows-i586.jar
+ create mode 100755 lib/jogl/joal-test-android.jar
+ create mode 100755 lib/jogl/joal-test.jar
+ create mode 100755 lib/jogl/joal.jar
+ create mode 100755 lib/jogl/jocl-android-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/jocl-android-natives-android-armv6.jar
+ create mode 100755 lib/jogl/jocl-android-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/jocl-android-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/jocl-android-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/jocl-android-natives-linux-i586.jar
+ create mode 100755 lib/jogl/jocl-android-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/jocl-android-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/jocl-android-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/jocl-android-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/jocl-android-natives-windows-i586.jar
+ create mode 100755 lib/jogl/jocl-android.jar
+ create mode 100755 lib/jogl/jocl-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/jocl-natives-android-armv6.jar
+ create mode 100755 lib/jogl/jocl-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/jocl-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/jocl-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/jocl-natives-linux-i586.jar
+ create mode 100755 lib/jogl/jocl-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/jocl-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/jocl-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/jocl-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/jocl-natives-windows-i586.jar
+ create mode 100755 lib/jogl/jocl-test-android.jar
+ create mode 100755 lib/jogl/jocl-test.jar
+ create mode 100755 lib/jogl/jocl.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-android-armv6.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-linux-i586.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-android-natives-windows-i586.jar
+ create mode 100755 lib/jogl/jogl-all-android.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-android-armv6.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-linux-i586.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-mobile-natives-windows-i586.jar
+ create mode 100755 lib/jogl/jogl-all-mobile.jar
+ create mode 100755 lib/jogl/jogl-all-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/jogl-all-natives-android-armv6.jar
+ create mode 100755 lib/jogl/jogl-all-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/jogl-all-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/jogl-all-natives-linux-i586.jar
+ create mode 100755 lib/jogl/jogl-all-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/jogl-all-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/jogl-all-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-natives-windows-i586.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-android-aarch64.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-android-armv6.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-linux-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-linux-armv6.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-linux-armv6hf.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-linux-i586.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-macosx-universal.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-solaris-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-solaris-i586.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-windows-amd64.jar
+ create mode 100755 lib/jogl/jogl-all-noawt-natives-windows-i586.jar
+ create mode 100755 lib/jogl/jogl-all-noawt.jar
+ create mode 100755 lib/jogl/jogl-all.jar
+ create mode 100755 lib/jogl/jogl-test-android.jar
+ create mode 100755 lib/jogl/jogl-test.jar
+ create mode 100755 lib/jtransforms-2.3.jar
+ create mode 100755 manifest.mf
+ create mode 100755 nbproject/build-impl.xml
+ create mode 100755 nbproject/genfiles.properties
+ create mode 100755 nbproject/private/config.properties
+ create mode 100755 nbproject/private/private.properties
+ create mode 100755 nbproject/private/private.xml
+ create mode 100755 nbproject/project.properties
+ create mode 100755 nbproject/project.xml
+ create mode 100755 src/gui/RaycastRendererPanel.form
+ create mode 100755 src/gui/RaycastRendererPanel.java
+ create mode 100755 src/gui/TransferFunction2DEditor.form
+ create mode 100755 src/gui/TransferFunction2DEditor.java
+ create mode 100755 src/gui/TransferFunction2DView.form
+ create mode 100755 src/gui/TransferFunction2DView.java
+ create mode 100755 src/gui/TransferFunctionEditor.form
+ create mode 100755 src/gui/TransferFunctionEditor.java
+ create mode 100755 src/gui/TransferFunctionView.form
+ create mode 100755 src/gui/TransferFunctionView.java
+ create mode 100755 src/gui/VolVisApplication.form
+ create mode 100755 src/gui/VolVisApplication.java
+ create mode 100755 src/util/TFChangeListener.java
+ create mode 100755 src/util/TrackballInteractor.java
+ create mode 100755 src/util/VectorMath.java
+ create mode 100755 src/volume/GradientVolume.java
+ create mode 100755 src/volume/Volume.java
+ create mode 100755 src/volume/VolumeIO.java
+ create mode 100755 src/volume/VoxelGradient.java
+ create mode 100755 src/volvis/RaycastRenderer.java
+ create mode 100755 src/volvis/Renderer.java
+ create mode 100755 src/volvis/TFColor.java
+ create mode 100755 src/volvis/TransferFunction.java
+ create mode 100755 src/volvis/TransferFunction2D.java
+ create mode 100755 src/volvis/Visualization.java
+T:VolVis tamycova$ git push
+Counting objects: 636, done.
+Delta compression using up to 4 threads.
+Compressing objects:   0% (1/633)   Compressing objects:   1% (7/633)   Compressing objects:   2% (13/633)   Compressing objects:   3% (19/633)   Compressing objects:   4% (26/633)   Compressing objects:   5% (32/633)   Compressing objects:   6% (38/633)   Compressing objects:   7% (45/633)   Compressing objects:   8% (51/633)   Compressing objects:   9% (57/633)   Compressing objects:  10% (64/633)   Compressing objects:  11% (70/633)   Compressing objects:  12% (76/633)   Compressing objects:  13% (83/633)   Compressing objects:  14% (89/633)   Compressing objects:  15% (95/633)   Compressing objects:  16% (102/633)   Compressing objects:  17% (108/633)   Compressing objects:  18% (114/633)   Compressing objects:  19% (121/633)   Compressing objects:  20% (127/633)   Compressing objects:  21% (133/633)   Compressing objects:  22% (140/633)   Compressing objects:  23% (146/633)   Compressing objects:  24% (152/633)   Compressing objects:  25% (159/633)   Compressing objects:  26% (165/633)   Compressing objects:  27% (171/633)   Compressing objects:  28% (178/633)   Compressing objects:  29% (184/633)   Compressing objects:  30% (190/633)   Compressing objects:  31% (197/633)   Compressing objects:  32% (203/633)   Compressing objects:  33% (209/633)   Compressing objects:  34% (216/633)   Compressing objects:  35% (222/633)   Compressing objects:  36% (228/633)   Compressing objects:  37% (235/633)   Compressing objects:  38% (241/633)   Compressing objects:  39% (247/633)   Compressing objects:  40% (254/633)   Compressing objects:  41% (260/633)   Compressing objects:  42% (266/633)   Compressing objects:  43% (273/633)   Compressing objects:  44% (279/633)   Compressing objects:  45% (285/633)   Compressing objects:  46% (292/633)   Compressing objects:  47% (298/633)   Compressing objects:  48% (304/633)   Compressing objects:  49% (311/633)   Compressing objects:  50% (317/633)   Compressing objects:  51% (323/633)   Compressing objects:  52% (330/633)   Compressing objects:  53% (336/633)   Compressing objects:  54% (342/633)   Compressing objects:  55% (349/633)   Compressing objects:  56% (355/633)   Compressing objects:  57% (361/633)   Compressing objects:  58% (368/633)   Compressing objects:  59% (374/633)   Compressing objects:  60% (380/633)   Compressing objects:  61% (387/633)   Compressing objects:  62% (393/633)   Compressing objects:  63% (399/633)   Compressing objects:  64% (406/633)   Compressing objects:  65% (412/633)   Compressing objects:  66% (418/633)   Compressing objects:  67% (425/633)   Compressing objects:  68% (431/633)   Compressing objects:  69% (437/633)   Compressing objects:  70% (444/633)   Compressing objects:  71% (450/633)   Compressing objects:  72% (456/633)   Compressing objects:  73% (463/633)   Compressing objects:  74% (469/633)   Compressing objects:  75% (475/633)   Compressing objects:  76% (482/633)   Compressing objects:  77% (488/633)   Compressing objects:  78% (494/633)   Compressing objects:  79% (501/633)   Compressing objects:  80% (507/633)   Compressing objects:  81% (513/633)   Compressing objects:  82% (520/633)   Compressing objects:  83% (526/633)   Compressing objects:  84% (532/633)   Compressing objects:  85% (539/633)   Compressing objects:  86% (545/633)   Compressing objects:  87% (551/633)   Compressing objects:  88% (558/633)   Compressing objects:  89% (564/633)   Compressing objects:  90% (570/633)   Compressing objects:  91% (577/633)   Compressing objects:  92% (583/633)   Compressing objects:  93% (589/633)   Compressing objects:  94% (596/633)   Compressing objects:  95% (602/633)   Compressing objects:  96% (608/633)   Compressing objects:  97% (615/633)   Compressing objects:  98% (621/633)   Compressing objects:  98% (623/633)   Compressing objects:  99% (627/633)   Compressing objects: 100% (633/633)   Compressing objects: 100% (633/633), done.
+Writing objects:   0% (1/636)   Writing objects:   1% (7/636)   Writing objects:   2% (13/636)   Writing objects:   3% (20/636)   Writing objects:   4% (26/636)   Writing objects:   5% (32/636)   Writing objects:   6% (39/636)   Writing objects:   7% (45/636)   Writing objects:   8% (51/636)   Writing objects:   9% (58/636)   Writing objects:  10% (64/636)   Writing objects:  11% (70/636)   Writing objects:  12% (77/636)   Writing objects:  13% (84/636)   Writing objects:  14% (90/636)   Writing objects:  15% (96/636)   Writing objects:  16% (103/636)   Writing objects:  17% (110/636)   Writing objects:  18% (115/636)   Writing objects:  19% (121/636)   Writing objects:  20% (130/636)   Writing objects:  21% (134/636)   Writing objects:  22% (140/636)   Writing objects:  23% (147/636)   Writing objects:  24% (153/636)   Writing objects:  25% (159/636)   Writing objects:  26% (167/636)   Writing objects:  27% (172/636)   Writing objects:  28% (180/636)   Writing objects:  29% (185/636)   Writing objects:  30% (191/636)   Writing objects:  31% (198/636)   Writing objects:  32% (204/636)   Writing objects:  33% (210/636)   Writing objects:  34% (217/636)   Writing objects:  35% (223/636)   Writing objects:  36% (229/636)   Writing objects:  37% (236/636)   Writing objects:  38% (242/636)   Writing objects:  39% (249/636)   Writing objects:  40% (255/636)   Writing objects:  41% (261/636)   Writing objects:  42% (268/636)   Writing objects:  43% (274/636)   Writing objects:  44% (280/636)   Writing objects:  45% (287/636)   Writing objects:  46% (293/636)   Writing objects:  47% (299/636)   Writing objects:  48% (306/636)   Writing objects:  49% (312/636)   Writing objects:  50% (318/636)   Writing objects:  51% (325/636)   Writing objects:  52% (331/636)   Writing objects:  53% (338/636)   Writing objects:  54% (344/636)   Writing objects:  55% (350/636)   Writing objects:  56% (357/636)   Writing objects:  57% (363/636)   Writing objects:  58% (369/636)   Writing objects:  59% (376/636)   Writing objects:  60% (383/636)   Writing objects:  61% (388/636)   Writing objects:  62% (395/636)   Writing objects:  63% (401/636)   Writing objects:  63% (404/636), 1.07 MiB | 558.00 KiB/s   Writing objects:  64% (408/636), 1.07 MiB | 558.00 KiB/s   Writing objects:  65% (415/636), 1.07 MiB | 558.00 KiB/s   Writing objects:  66% (420/636), 1.07 MiB | 558.00 KiB/s   Writing objects:  67% (427/636), 1.07 MiB | 558.00 KiB/s   Writing objects:  68% (433/636), 1.07 MiB | 558.00 KiB/s   Writing objects:  69% (439/636), 1.07 MiB | 558.00 KiB/s   Writing objects:  70% (446/636), 1.07 MiB | 558.00 KiB/s   Writing objects:  70% (449/636), 1.07 MiB | 558.00 KiB/s   Writing objects:  70% (449/636), 1.60 MiB | 501.00 KiB/s   Writing objects:  71% (453/636), 1.60 MiB | 501.00 KiB/s   Writing objects:  72% (458/636), 1.60 MiB | 501.00 KiB/s   Writing objects:  73% (466/636), 1.60 MiB | 501.00 KiB/s   Writing objects:  74% (471/636), 1.60 MiB | 501.00 KiB/s   Writing objects:  75% (477/636), 1.60 MiB | 501.00 KiB/s   Writing objects:  76% (484/636), 1.60 MiB | 501.00 KiB/s   Writing objects:  77% (490/636), 1.60 MiB | 501.00 KiB/s   Writing objects:  78% (497/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  79% (503/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  80% (509/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  81% (516/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  82% (522/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  83% (528/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  84% (536/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  85% (541/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  86% (547/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  87% (554/636), 2.32 MiB | 628.00 KiB/s   Writing objects:  87% (559/636), 3.95 MiB | 843.00 KiB/s   Writing objects:  88% (560/636), 3.95 MiB | 843.00 KiB/s   Writing objects:  89% (567/636), 4.70 MiB | 907.00 KiB/s   Writing objects:  89% (568/636), 6.31 MiB | 1018.00 KiB/s   Writing objects:  89% (568/636), 7.94 MiB | 1.40 MiB/s   Writing objects:  89% (569/636), 9.54 MiB | 1.56 MiB/s   Writing objects:  89% (570/636), 10.31 MiB | 1.55 MiB/s   Writing objects:  90% (573/636), 10.31 MiB | 1.55 MiB/s   Writing objects:  91% (579/636), 10.31 MiB | 1.55 MiB/s   Writing objects:  92% (586/636), 11.16 MiB | 1.55 MiB/s   Writing objects:  92% (588/636), 11.91 MiB | 1.54 MiB/s   Writing objects:  93% (592/636), 11.91 MiB | 1.54 MiB/s   Writing objects:  93% (596/636), 13.86 MiB | 1.60 MiB/s   Writing objects:  93% (596/636), 15.80 MiB | 1.68 MiB/s   Writing objects:  94% (598/636), 15.80 MiB | 1.68 MiB/s   Writing objects:  94% (600/636), 18.41 MiB | 1.78 MiB/s   Writing objects:  94% (600/636), 21.29 MiB | 2.03 MiB/s   Writing objects:  94% (601/636), 22.98 MiB | 2.24 MiB/s   Writing objects:  94% (601/636), 24.25 MiB | 2.02 MiB/s   Writing objects:  94% (601/636), 29.57 MiB | 2.63 MiB/s   Writing objects:  95% (605/636), 29.57 MiB | 2.63 MiB/s   Writing objects:  96% (611/636), 29.57 MiB | 2.63 MiB/s   Writing objects:  97% (618/636), 29.57 MiB | 2.63 MiB/s   Writing objects:  98% (624/636), 29.57 MiB | 2.63 MiB/s   Writing objects:  99% (630/636), 29.57 MiB | 2.63 MiB/s   Writing objects: 100% (636/636), 29.57 MiB | 2.63 MiB/s   Writing objects: 100% (636/636), 32.24 MiB | 2.70 MiB/s, done.
+Total 636 (delta 423), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/423)   [Kremote: Resolving deltas:   2% (9/423)   [Kremote: Resolving deltas:   3% (15/423)   [Kremote: Resolving deltas:  21% (89/423)   [Kremote: Resolving deltas:  57% (242/423)   [Kremote: Resolving deltas:  60% (255/423)   [Kremote: Resolving deltas:  71% (301/423)   [Kremote: Resolving deltas:  80% (341/423)   [Kremote: Resolving deltas:  82% (348/423)   [Kremote: Resolving deltas:  84% (359/423)   [Kremote: Resolving deltas:  88% (375/423)   [Kremote: Resolving deltas:  89% (379/423)   [Kremote: Resolving deltas:  91% (386/423)   [Kremote: Resolving deltas:  92% (390/423)   [Kremote: Resolving deltas:  95% (402/423)   [Kremote: Resolving deltas:  96% (409/423)   [Kremote: Resolving deltas:  97% (411/423)   [Kremote: Resolving deltas:  98% (415/423)   [Kremote: Resolving deltas:  99% (419/423)   [Kremote: Resolving deltas: 100% (423/423)   [Kremote: Resolving deltas: 100% (423/423), done.[K
+To https://github.com/tamycova/VolVis
+   0323ee7..84be4ae  master -> master
+T:VolVis tamycova$ [KT:VolVis tamycova$ [KT:VolVis tamycova$ [KT:VolVis tamycova$ 

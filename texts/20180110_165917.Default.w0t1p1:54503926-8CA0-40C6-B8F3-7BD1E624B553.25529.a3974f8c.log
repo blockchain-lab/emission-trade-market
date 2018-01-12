@@ -223,4 +223,785 @@ wlan-145-94-222-154:emission-trade-market tamycova$ docker eexec -it peer4 sh -
 wlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamyccova$ [K[Awlan-145-94-222-154:emission-trade-market ttamycova$ [K[Awlan-145-94-222-154:emissioon-trade-market tamycova$  [K[A[Awlan-145-94-222-154:emission-trade-mmarket tamycova$ [K[Awlan-145-94-222-154:emission-trade-market tamycova$ docker exec -it peeer4 sh -c "peer channel list"[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecho $(docker exec -it peer4 sh -c "peer channel list")[A[C[C[C[C[C[C[C[C[C[C[C[C[C[Csh channels_up.sh [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kh
 wlan-145-94-222-154:emission-trade-market tamycova$ sh channels_up.sh [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kh
 wlan-145-94-222-154:emission-trade-market tamycova$ sh channels_up.sh [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kh
-wlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$  [K[Awlan-145-94-222-154:emission-trade-market tamycova$  [K[Awlan-145-94-222-154:emission-trade-market tamycova$$ [K[Awlan-145-94-222-154:emission-trade-market tamycovaa$ [K[Awlan-145-94-222-154:emission-trade-market tamycovva$ 
+wlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$ [Kwlan-145-94-222-154:emission-trade-market tamycova$  [K[Awlan-145-94-222-154:emission-trade-market tamycova$  [K[Awlan-145-94-222-154:emission-trade-market tamycova$$ [K[Awlan-145-94-222-154:emission-trade-market tamycovaa$ [K[Awlan-145-94-222-154:emission-trade-market tamycovva$ sh channels_up.sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh channels_up.sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+Error: No such container: sh
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh channels_up.sh[C[C[C[C[Ksh channels_up.sh[1P.sh[1P.sh[1P.sh[1P.sh[1P.sh[1P.sh[1P.sh[1P.sh[1P.sh[1P.sh[1P.shi.shn.shs.sht.sha.shl.shl.sh
+./scripts/install_chaincode.sh: 1: ./scripts/install_chaincode.sh: Syntax error: "(" unexpected
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install.sh
+./scripts/install_chaincode.sh: 1: ./scripts/install_chaincode.sh: Syntax error: "(" unexpected
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install.sh
+./scripts/install_chaincode.sh: 1: ./scripts/install_chaincode.sh: Syntax error: "(" unexpected
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install.sh
+./scripts/install_chaincode.sh: 1: ./scripts/install_chaincode.sh: Syntax error: "(" unexpected
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install.sh
+./scripts/install_chaincode.sh: 1: ./scripts/install_chaincode.sh: Syntax error: "(" unexpected
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install.sh
+./scripts/install_chaincode.sh: 1: ./scripts/install_chaincode.sh: Syntax error: "(" unexpected
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install.sh
+./scripts/install_chaincode.sh: 1: ./scripts/install_chaincode.sh: Syntax error: "(" unexpected
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install.sh
+./scripts/install_chaincode.sh: 1: ./scripts/install_chaincode.sh: Syntax error: "(" unexpected
+wlan-145-94-222-154:emission-trade-market tamycovva$ VI INSTALL[K[K[K[K[K[K[K[K[K[Kcd scri[K[K[K[K[K[K[Ksh install.sh
+./scripts/install_chaincode.sh: 1: ./scripts/install_chaincode.sh: Syntax error: "(" unexpected
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install.sh_.sha.shl.sht.sh
+install_alt.sh: line 15: peer: command not found
+install_alt.sh: line 15: peer: command not found
+install_alt.sh: line 15: peer: command not found
+install_alt.sh: line 15: peer: command not found
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh
+sh: 1: Bad substitution
+sh: 1: Bad substitution
+sh: 1: Bad substitution
+sh: 1: Bad substitution
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh
+[31m2018-01-10 17:04:46.534 UTC [main] main -> ERRO 001[0m Cannot run peer because cannot init crypto, missing /etc/hyperledger/fabric/admin/ folder
+[31m2018-01-10 17:04:46.677 UTC [main] main -> ERRO 001[0m Cannot run peer because cannot init crypto, missing /etc/hyperledger/fabric/admin/ folder
+[31m2018-01-10 17:04:46.802 UTC [main] main -> ERRO 001[0m Cannot run peer because cannot init crypto, missing /etc/hyperledger/fabric/admin/ folder
+[31m2018-01-10 17:04:46.959 UTC [main] main -> ERRO 001[0m Cannot run peer because cannot init crypto, missing /etc/hyperledger/fabric/admin/ folder
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh[4P.sh[C[C[C[C[C[C[Cchannels_up.sh
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh channels_up.sh[C[C[C[C[C[C[Cinstall_alt.sh
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: ./art/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: ./art/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: ./art/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: ./art/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: ./scripts/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: ./scripts/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: ./scripts/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: ./scripts/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: /opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: /opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: /opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: Error getting chaincode code chaincode: path to chaincode does not exist: /opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/chain.go
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh[C[C[C[C[Ksh install_alt.sh[C[C[C[C[C[C[Cchannels_up.sh[C[C[C[C[C[C[Cinstall_alt.sh[C[C[C[C[C[C[Cchannels_up.sh
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh channels_up.sh[C[C[C[C[C[C[Cinstall_alt.sh
+install_alt.sh: line 11: syntax error: unexpected end of file
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh
+install_alt.sh: line 8: syntax error: unexpected end of file
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh
+install_alt.sh: line 7: syntax error: unexpected end of file
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh
+Error: open scripts/chain.go: no such file or directory
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: open scripts/chain.go: no such file or directory
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: open scripts/chain.go: no such file or directory
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: open scripts/chain.go: no such file or directory
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh
+Error: open scripts/: no such file or directory
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: open scripts/: no such file or directory
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: open scripts/: no such file or directory
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+Error: open scripts/: no such file or directory
+Usage:
+  peer chaincode install [flags]
+
+Flags:
+  -c, --ctor string      Constructor message for the chaincode in JSON format (default "{}")
+  -l, --lang string      Language the chaincode is written in (default "golang")
+  -n, --name string      Name of the chaincode
+  -p, --path string      Path to chaincode
+  -v, --version string   Version of the chaincode specified in install/instantiate/upgrade commands
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh install_alt.sh[C[C[C[C[C[C[Cchannels_up.sh[C[C[C[C[C[C[Cinstall_alt.sh[C[C[C[C[C[C[Cchannels_up.sh[C[C[C[C[C[C[Cinstall_alt.sh[C[C[C[C[C[C[Cchannels_up.sh
+Error: Got unexpected status: SERVICE_UNAVAILABLE
+Usage:
+  peer channel create [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+  -t, --timeout int        Channel creation timeout (default 5)
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: Got unexpected status: SERVICE_UNAVAILABLE
+Usage:
+  peer channel create [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+  -t, --timeout int        Channel creation timeout (default 5)
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: can't read the block: &{NOT_FOUND}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch1_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: can't read the block: &{NOT_FOUND}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch1_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: can't read the block: &{NOT_FOUND}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch1_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: can't read the block: &{NOT_FOUND}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch2_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: can't read the block: &{NOT_FOUND}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch2_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: can't read the block: &{NOT_FOUND}
+Usage:
+  peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: genesis block file not found open ch2_oldest.block: no such file or directory
+Usage:
+  peer channel join [flags]
+
+Flags:
+  -b, --blockpath string   Path to file containing genesis block
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: Got unexpected status: BAD_REQUEST
+Usage:
+  peer channel update [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: Got unexpected status: BAD_REQUEST
+Usage:
+  peer channel update [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: Got unexpected status: BAD_REQUEST
+Usage:
+  peer channel update [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: Got unexpected status: BAD_REQUEST
+Usage:
+  peer channel update [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: Got unexpected status: BAD_REQUEST
+Usage:
+  peer channel update [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+Error: Got unexpected status: BAD_REQUEST
+Usage:
+  peer channel update [flags]
+
+Flags:
+  -c, --channelID string   In case of a newChain command, the channel ID to create.
+  -f, --file string        Configuration transaction file generated by a tool such as configtxgen for submitting to orderer
+
+Global Flags:
+      --cafile string              Path to file containing PEM-encoded trusted certificate(s) for the ordering endpoint
+      --logging-level string       Default logging level and overrides, see core.yaml for full syntax
+  -o, --orderer string             Ordering service endpoint
+      --test.coverprofile string   Done (default "coverage.cov")
+      --tls                        Use TLS when communicating with the orderer endpoint
+  -v, --version                    Display current version of fabric peer server
+
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh channels_up.sh
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh channels_up.sh
+[36m2018-01-10 17:30:39.794 UTC [msp] GetLocalMSP -> DEBU 001[0m Returning existing local MSP
+[36m2018-01-10 17:30:39.794 UTC [msp] GetDefaultSigningIdentity -> DEBU 002[0m Obtaining default signing identity
+2018-01-10 17:30:39.800 UTC [channelCmd] InitCmdFactory -> INFO 003[0m Endorser and orderer connections initialized
+[36m2018-01-10 17:30:39.800 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2018-01-10 17:30:39.800 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+[36m2018-01-10 17:30:39.801 UTC [msp] GetLocalMSP -> DEBU 006[0m Returning existing local MSP
+[36m2018-01-10 17:30:39.801 UTC [msp] GetDefaultSigningIdentity -> DEBU 007[0m Obtaining default signing identity
+[36m2018-01-10 17:30:39.801 UTC [msp/identity] Sign -> DEBU 008[0m Sign: plaintext: 0A88060A0F08021A0608BF9BD9D20522...E4CA35381F9012080A02120012021200 
+[36m2018-01-10 17:30:39.801 UTC [msp/identity] Sign -> DEBU 009[0m Sign: digest: A681A24CD70FF3F495FCD9089728BA9A1BB97527CC847F68A8CF02F4321894AC 
+[36m2018-01-10 17:30:39.811 UTC [channelCmd] readBlock -> DEBU 00a[0m Received block: 0
+2018-01-10 17:30:39.813 UTC [main] main -> INFO 00b[0m Exiting.....
+[36m2018-01-10 17:30:40.002 UTC [msp] GetLocalMSP -> DEBU 001[0m Returning existing local MSP
+[36m2018-01-10 17:30:40.003 UTC [msp] GetDefaultSigningIdentity -> DEBU 002[0m Obtaining default signing identity
+2018-01-10 17:30:40.007 UTC [channelCmd] InitCmdFactory -> INFO 003[0m Endorser and orderer connections initialized
+[36m2018-01-10 17:30:40.009 UTC [msp/identity] Sign -> DEBU 004[0m Sign: plaintext: 0AD4060A5B08011A0B08C09BD9D20510...C8F8A2BA4EC81A080A000A000A000A00 
+[36m2018-01-10 17:30:40.009 UTC [msp/identity] Sign -> DEBU 005[0m Sign: digest: F5EE44CB163D27BFC2C0AC631FD790AA56C54D8B594E76B76FF9E5A9367AF4F3 
+2018-01-10 17:30:40.150 UTC [channelCmd] executeJoin -> INFO 006[0m Peer joined the channel!
+2018-01-10 17:30:40.150 UTC [main] main -> INFO 007[0m Exiting.....
+[36m2018-01-10 17:30:41.268 UTC [msp] GetLocalMSP -> DEBU 001[0m Returning existing local MSP
+[36m2018-01-10 17:30:41.268 UTC [msp] GetDefaultSigningIdentity -> DEBU 002[0m Obtaining default signing identity
+2018-01-10 17:30:41.271 UTC [channelCmd] InitCmdFactory -> INFO 003[0m Endorser and orderer connections initialized
+[36m2018-01-10 17:30:41.274 UTC [msp] GetLocalMSP -> DEBU 004[0m Returning existing local MSP
+[36m2018-01-10 17:30:41.274 UTC [msp] GetDefaultSigningIdentity -> DEBU 005[0m Obtaining default signing identity
+[36m2018-01-10 17:30:41.275 UTC [msp] GetLocalMSP -> DEBU 006[0m Returning existing local MSP
+[36m2018-01-10 17:30:41.275 UTC [msp] GetDefaultSigningIdentity -> DEBU 007[0m Obtaining default signing identity
+[36m2018-01-10 17:30:41.275 UTC [msp/identity] Sign -> DEBU 008[0m Sign: plaintext: 0AD7050A074F7267334D535012CB052D...2A0641646D696E732A0641646D696E73 
+[36m2018-01-10 17:30:41.276 UTC [msp/identity] Sign -> DEBU 009[0m Sign: digest: ECC337FBD2755FB386BB4907BF1B444BC70E833DEF87A0EE3DB37EA7B9521486 
+[36m2018-01-10 17:30:41.277 UTC [msp] GetLocalMSP -> DEBU 00a[0m Returning existing local MSP
+[36m2018-01-10 17:30:41.277 UTC [msp] GetDefaultSigningIdentity -> DEBU 00b[0m Obtaining default signing identity
+[36m2018-01-10 17:30:41.277 UTC [msp] GetLocalMSP -> DEBU 00c[0m Returning existing local MSP
+[36m2018-01-10 17:30:41.277 UTC [msp] GetDefaultSigningIdentity -> DEBU 00d[0m Obtaining default signing identity
+[36m2018-01-10 17:30:41.278 UTC [msp/identity] Sign -> DEBU 00e[0m Sign: plaintext: 0A88060A0F08021A0608C19BD9D20522...D79229064F3E5A5CF57A71A06F48644B 
+[36m2018-01-10 17:30:41.278 UTC [msp/identity] Sign -> DEBU 00f[0m Sign: digest: 20C9A3283C99D0D063B8ECD54118A3DB39BC212DC125A786737CCDD570054580 
+2018-01-10 17:30:41.314 UTC [main] main -> INFO 010[0m Exiting.....
+wlan-145-94-222-154:emission-trade-market tamycovva$ sh channels_up.sh[C[C[C[C[C[C[Cinstall_alt.sh
+wlan-145-94-222-154:emission-trade-market tamycovva$ 

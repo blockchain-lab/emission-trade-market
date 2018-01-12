@@ -1,0 +1,200 @@
+Last login: Thu Jan 11 14:46:04 on ttys001
+[?1034hwlan-145-94-223-153:~ tamycova$ cd emission-trade-market/
+wlan-145-94-223-153:emission-trade-market tamycova$ ls
+artifacts		crypto-config		install_chaincode.sh
+base			crypto-config.yaml	network_up.sh
+bin			docker-compose.yaml	scripts_containers
+channels_up.sh		install.sh		scripts_host
+configtx.yaml		install_alt.sh		texts
+wlan-145-94-223-153:emission-trade-market tamycova$ git pyy[K[K[K[K[K[K[Kgit status
+On branch one-channel-cli
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   artifacts/Org0MSPanchors1.tx[m
+	[31mmodified:   artifacts/Org1MSPanchors1.tx[m
+	[31mmodified:   artifacts/Org2MSPanchors1.tx[m
+	[31mmodified:   artifacts/Org3MSPanchors2.tx[m
+	[31mmodified:   artifacts/ch1.tx[m
+	[31mmodified:   artifacts/ch2.tx[m
+	[31mmodified:   artifacts/genesis.block[m
+	[31mmodified:   channels_up.sh[m
+	[31mmodified:   crypto-config.yaml[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/ca/ca.ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/msp/admincerts/Admin@ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/msp/cacerts/ca.ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/msp/tlscacerts/tlsca.ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/orderers/orderer0.ordererorg0/msp/admincerts/Admin@ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/orderers/orderer0.ordererorg0/msp/cacerts/ca.ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/orderers/orderer0.ordererorg0/msp/signcerts/orderer0.ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/orderers/orderer0.ordererorg0/msp/tlscacerts/tlsca.ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/orderers/orderer0.ordererorg0/tls/ca.crt[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/orderers/orderer0.ordererorg0/tls/server.crt[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/orderers/orderer0.ordererorg0/tls/server.key[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/tlsca/tlsca.ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/users/Admin@ordererorg0/msp/admincerts/Admin@ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/users/Admin@ordererorg0/msp/cacerts/ca.ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/users/Admin@ordererorg0/msp/signcerts/Admin@ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/users/Admin@ordererorg0/msp/tlscacerts/tlsca.ordererorg0-cert.pem[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/users/Admin@ordererorg0/tls/ca.crt[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/users/Admin@ordererorg0/tls/server.crt[m
+	[31mmodified:   crypto-config/ordererOrganizations/ordererorg0/users/Admin@ordererorg0/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/ca/ca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/msp/admincerts/Admin@org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/msp/cacerts/ca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/msp/tlscacerts/tlsca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/peers/peer0.org0/msp/admincerts/Admin@org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/peers/peer0.org0/msp/cacerts/ca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/peers/peer0.org0/msp/signcerts/peer0.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/peers/peer0.org0/msp/tlscacerts/tlsca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/peers/peer0.org0/tls/ca.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/peers/peer0.org0/tls/server.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/peers/peer0.org0/tls/server.key[m
+	[31mdeleted:    crypto-config/peerOrganizations/org0/peers/peer1.org0/msp/admincerts/Admin@org0-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org0/peers/peer1.org0/msp/cacerts/ca.org0-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org0/peers/peer1.org0/msp/signcerts/peer1.org0-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org0/peers/peer1.org0/msp/tlscacerts/tlsca.org0-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org0/peers/peer1.org0/tls/ca.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org0/peers/peer1.org0/tls/server.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org0/peers/peer1.org0/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/tlsca/tlsca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/Admin@org0/msp/admincerts/Admin@org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/Admin@org0/msp/cacerts/ca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/Admin@org0/msp/signcerts/Admin@org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/Admin@org0/msp/tlscacerts/tlsca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/Admin@org0/tls/ca.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/Admin@org0/tls/server.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/Admin@org0/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/User1@org0/msp/admincerts/User1@org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/User1@org0/msp/cacerts/ca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/User1@org0/msp/signcerts/User1@org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/User1@org0/msp/tlscacerts/tlsca.org0-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/User1@org0/tls/ca.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/User1@org0/tls/server.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org0/users/User1@org0/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/ca/ca.org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/msp/admincerts/Admin@org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/msp/cacerts/ca.org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/msp/tlscacerts/tlsca.org1-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer2.org1/msp/admincerts/Admin@org1-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer2.org1/msp/cacerts/ca.org1-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer2.org1/msp/signcerts/peer2.org1-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer2.org1/msp/tlscacerts/tlsca.org1-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer2.org1/tls/ca.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer2.org1/tls/server.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer2.org1/tls/server.key[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer3.org1/msp/admincerts/Admin@org1-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer3.org1/msp/cacerts/ca.org1-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer3.org1/msp/signcerts/peer3.org1-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer3.org1/msp/tlscacerts/tlsca.org1-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer3.org1/tls/ca.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer3.org1/tls/server.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org1/peers/peer3.org1/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/tlsca/tlsca.org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/Admin@org1/msp/admincerts/Admin@org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/Admin@org1/msp/cacerts/ca.org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/Admin@org1/msp/signcerts/Admin@org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/Admin@org1/msp/tlscacerts/tlsca.org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/Admin@org1/tls/ca.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/Admin@org1/tls/server.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/Admin@org1/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/User1@org1/msp/admincerts/User1@org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/User1@org1/msp/cacerts/ca.org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/User1@org1/msp/signcerts/User1@org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/User1@org1/msp/tlscacerts/tlsca.org1-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/User1@org1/tls/ca.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/User1@org1/tls/server.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org1/users/User1@org1/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/ca/ca.org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/msp/admincerts/Admin@org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/msp/cacerts/ca.org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/msp/tlscacerts/tlsca.org2-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer4.org2/msp/admincerts/Admin@org2-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer4.org2/msp/cacerts/ca.org2-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer4.org2/msp/signcerts/peer4.org2-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer4.org2/msp/tlscacerts/tlsca.org2-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer4.org2/tls/ca.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer4.org2/tls/server.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer4.org2/tls/server.key[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer5.org2/msp/admincerts/Admin@org2-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer5.org2/msp/cacerts/ca.org2-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer5.org2/msp/signcerts/peer5.org2-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer5.org2/msp/tlscacerts/tlsca.org2-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer5.org2/tls/ca.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer5.org2/tls/server.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org2/peers/peer5.org2/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/tlsca/tlsca.org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/Admin@org2/msp/admincerts/Admin@org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/Admin@org2/msp/cacerts/ca.org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/Admin@org2/msp/signcerts/Admin@org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/Admin@org2/msp/tlscacerts/tlsca.org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/Admin@org2/tls/ca.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/Admin@org2/tls/server.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/Admin@org2/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/User1@org2/msp/admincerts/User1@org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/User1@org2/msp/cacerts/ca.org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/User1@org2/msp/signcerts/User1@org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/User1@org2/msp/tlscacerts/tlsca.org2-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/User1@org2/tls/ca.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/User1@org2/tls/server.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org2/users/User1@org2/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/ca/ca.org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/msp/admincerts/Admin@org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/msp/cacerts/ca.org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/msp/tlscacerts/tlsca.org3-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer6.org3/msp/admincerts/Admin@org3-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer6.org3/msp/cacerts/ca.org3-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer6.org3/msp/signcerts/peer6.org3-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer6.org3/msp/tlscacerts/tlsca.org3-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer6.org3/tls/ca.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer6.org3/tls/server.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer6.org3/tls/server.key[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer7.org3/msp/admincerts/Admin@org3-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer7.org3/msp/cacerts/ca.org3-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer7.org3/msp/signcerts/peer7.org3-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer7.org3/msp/tlscacerts/tlsca.org3-cert.pem[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer7.org3/tls/ca.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer7.org3/tls/server.crt[m
+	[31mdeleted:    crypto-config/peerOrganizations/org3/peers/peer7.org3/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/tlsca/tlsca.org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/Admin@org3/msp/admincerts/Admin@org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/Admin@org3/msp/cacerts/ca.org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/Admin@org3/msp/signcerts/Admin@org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/Admin@org3/msp/tlscacerts/tlsca.org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/Admin@org3/tls/ca.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/Admin@org3/tls/server.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/Admin@org3/tls/server.key[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/User1@org3/msp/admincerts/User1@org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/User1@org3/msp/cacerts/ca.org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/User1@org3/msp/signcerts/User1@org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/User1@org3/msp/tlscacerts/tlsca.org3-cert.pem[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/User1@org3/tls/ca.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/User1@org3/tls/server.crt[m
+	[31mmodified:   crypto-config/peerOrganizations/org3/users/User1@org3/tls/server.key[m
+	[31mmodified:   docker-compose.yaml[m
+	[31mmodified:   texts/20180110_165917.Default.w0t1p1:54503926-8CA0-40C6-B8F3-7BD1E624B553.25529.a3974f8c.log[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31minstall.sh[m
+	[31minstall_alt.sh[m
+	[31minstall_chaincode.sh[m
+	[31mscripts_containers/[m
+	[31mtexts/20180110_174457.Default.w0t2p1:3FE6DD75-556F-4B9B-B38B-9AC446EB6812.25529.ce2d3680.log[m
+	[31mtexts/20180110_174531.Default.w0t3p1:B3C53296-06C4-429A-8527-2533857CD0B4.25529.c7281a24.log[m
+	[31mtexts/20180111_113212.Default.w0t0p1:CC51EF52-EBA6-4D53-ACBE-A27440D406AD.27888.423b2190.log[m
+	[31mtexts/20180111_113946.Default.w0t1p1:8D1F9B02-0FB5-4EA9-A660-D80C98232C29.27888.697b4888.log[m
+	[31mtexts/20180111_114028.Default.w0t2p1:18F1E655-30F6-4DD0-A82C-565AE8B0B138.27888.439379cb.log[m
+	[31mtexts/20180111_114043.Default.w0t3p1:0FBE9BFC-7E78-4281-B7B0-E93258D443E9.27888.d0486b23.log[m
+	[31mtexts/20180111_114606.Default.w0t4p1:A1A0BDFB-96A7-474C-A89C-0D9860754986.27888.f5da998b.log[m
+	[31mtexts/20180111_144603.Default.w0t0p1:28CDF0E4-E523-4BD4-B8F1-C6703C088DFD.38776.a72595c3.log[m
+	[31mtexts/20180112_142408.Default.w0t0p1:5A5DAB27-0AC6-4785-84FA-B00B7485DB19.38776.ea020324.log[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+wlan-145-94-223-153:emission-trade-market tamycova$ i[Kgit branch
+  custom-network[m
+  master[m
+* [32mone-channel-cli[m
+wlan-145-94-223-153:emission-trade-market tamycova$ git add -A

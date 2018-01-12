@@ -3,7 +3,7 @@
 */
 
 // Company have access only to their own account
-rule CompanyAccessOwnRecord {
+rule CompaniesAccessOwnRecord {
     description: "Allow Company to access only their profile"
     participant(p): "org.emission.network.Company"
     operation: READ, UPDATE, DELETE
@@ -22,14 +22,34 @@ rule CompaniesReadAccessCompanies {
 }
 
 // Company have read access to all ett assets
-rule CompanyAccessEttRecord {
-    description: "Allow Company read access to all ett assets"
+rule CompaniesAccessEttRecord {
+    description: "Allow Companies read access to all ett assets"
     participant: "org.emission.network.Company"
     operation: READ
     resource: "org.emission.network.Ett"
     action: ALLOW
 }
 
+// Regulator has full access to everything 
+rule RegulatorAccessEverything {
+    description: "Allow Regulator full access to everything"
+    participant: "org.emission.network.Regulator"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
+/* TODO
+// Allow regulator to perform GiveEtt transaction
+rule RegulatorAccessGiveEtt {
+    description: "Allow regulator to perform GiveEtt transaction"
+    participant(m): "org.emisison.network.Regulator"
+    operation: ALL
+    resource(v): "org.emission.network.Ett"
+    transaction(tx): "org.emission.network.GiveEtt"
+    condition: (v.owner.getIdentifier() == m.getIdentifier())
+    action: ALLOW
+}
+*/
 rule SystemACL {
   description:  "System ACL to permit all access"
   participant: "org.hyperledger.composer.system.Participant"

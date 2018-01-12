@@ -69,3 +69,19 @@ function ChangeEttOwner(transaction) {
             });  
         });
 }
+
+
+/**
+* GiveEtt transaction
+* @param {org.emission.network.GiveEtt} Transaction
+* @transaction
+*/
+function GiveEtt(transaction) {
+    var assetRegistry;
+        
+    
+    
+    
+  }
+  
+  

@@ -10,6 +10,10 @@ participant Company identified by companyID {
   --> Ett ett 
 }
 
+participant Regulator identified by regulatorID {
+  o String regulatorID
+}
+
 asset Ett identified by ettID {
   o String ettID
   o Integer limit
@@ -20,6 +24,11 @@ transaction Trade {
   o Integer emissionToTrade
   --> Company buyer
   --> Company seller
+}
+
+transaction GiveEtt {
+  --> Company owner
+  --> Ett ett  
 }
 
 transaction ChangeEttOwner {

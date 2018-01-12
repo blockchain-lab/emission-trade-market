@@ -1,6 +1,6 @@
 'use strict';
 /**
- * ChangeEttOwner transaction
+ * Trade transaction
  * @param {org.emission.network.Trade} Transaction
  * @transaction
  */

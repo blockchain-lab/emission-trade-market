@@ -10,8 +10,9 @@ Install the composer runtime:
 ```
 composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName emission-network
 ```
-Deploy the emission network:
+Deploy the emission network in the ```emission-network``` folder:
 ```
+cd emission-network/
 composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile emission-network@0.0.1.bna --file networkadmin.card
 ```
 Import the network administrator identity as a usable business network card:

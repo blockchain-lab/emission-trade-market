@@ -27,6 +27,12 @@ To create the REST API:
 composer-rest-server
 ```
 
+To stop running fabric network:
+```
+./stopFabric.sh
+```
+
+
 For more info check out https://hyperledger.github.io/composer/tutorials/developer-tutorial.html
 
 

@@ -1,5 +1,18 @@
 ## How to run:
 
+Generate a business network archive (!!!Do it only after chaing the composer, otherwise skip it)
+First, navigate to the neywork-network directory.
+```
+composer archive create -t dir -n .
+```
+
+To kill running containers and remove previous Fabric chaincode images: 
+```
+docker kill $(docker ps -q)
+docker rm $(docker ps -aq)
+docker rmi $(docker images dev-* -q)
+```
+
  Start fabric and create peer admin card:
 ```
 ./downloadFabric.sh
@@ -30,16 +43,19 @@ composer-rest-server
 Specify the following when asked:
 ```
 ? Enter the name of the business network card to use: admin@emission-network
-? Specify if you want namespaces in the generated REST API: always use namespaces
+? Specify if you want namespaces in the generated REST API: never use namespaces
 ? Specify if you want to enable authentication for the REST API using Passport: No
 ? Specify if you want to enable event publication over WebSockets: Yes
 ? Specify if you want to enable TLS security for the REST API: No
 
 ```
+Rest server is now running!
 
-To stop running fabric network:
+
+To stop and teardown running fabric network:
 ```
 ./stopFabric.sh
+./teardownFabric.sh
 ```
 
 

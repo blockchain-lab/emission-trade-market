@@ -27,6 +27,15 @@ To create the REST API:
 ```
 composer-rest-server
 ```
+Specify the following when asked:
+```
+? Enter the name of the business network card to use: admin@emission-network
+? Specify if you want namespaces in the generated REST API: always use namespaces
+? Specify if you want to enable authentication for the REST API using Passport: No
+? Specify if you want to enable event publication over WebSockets: Yes
+? Specify if you want to enable TLS security for the REST API: No
+
+```
 
 To stop running fabric network:
 ```

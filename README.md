@@ -10,8 +10,9 @@ Install the composer runtime:
 ```
 composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName emission-network
 ```
-Deploy the emission network:
+Deploy the emission network in the ```emission-network``` folder:
 ```
+cd emission-network/
 composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile emission-network@0.0.1.bna --file networkadmin.card
 ```
 Import the network administrator identity as a usable business network card:
@@ -26,6 +27,21 @@ To create the REST API:
 ```
 composer-rest-server
 ```
+Specify the following when asked:
+```
+? Enter the name of the business network card to use: admin@emission-network
+? Specify if you want namespaces in the generated REST API: always use namespaces
+? Specify if you want to enable authentication for the REST API using Passport: No
+? Specify if you want to enable event publication over WebSockets: Yes
+? Specify if you want to enable TLS security for the REST API: No
+
+```
+
+To stop running fabric network:
+```
+./stopFabric.sh
+```
+
 
 For more info check out https://hyperledger.github.io/composer/tutorials/developer-tutorial.html
 

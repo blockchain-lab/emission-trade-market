@@ -1,0 +1,14 @@
+- After modifying business-network files:
+    - inside business-network:
+        - yo hyperledger-composer:businessnetwork   (tutorial-network as network name)
+        - cd tutorial-network && composer archive create -t dir -n . (move .bna file to the multiorg directory)
+- Always:
+    - inside multiorg:
+        - ./byfn.sh -m down
+        - ./byfn.sh -m generate
+        - ./byfn.sh -m up -s couchdb -a (beautiful print should show that bynf execution completed)
+        - sh composer.sh (on a separate terminal)
+
+The final product, is two business network cards X and Y, the administrator of Org1 and Org 2 respectively. Each organization has 2 peers.  
+
+To run the server, composer-rest-server command and choose either X@tutorial-network for Org0 or Y@tutorial-network for Org1.

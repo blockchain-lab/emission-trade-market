@@ -1,5 +1,12 @@
 ## How to run:
 
+To kill running containers and remove previous Fabric chaincode images: 
+```
+docker kill $(docker ps -q)
+docker rm $(docker ps -aq)
+docker rmi $(docker images dev-* -q)
+```
+
  Start fabric and create peer admin card:
 ```
 ./downloadFabric.sh
@@ -36,6 +43,8 @@ Specify the following when asked:
 ? Specify if you want to enable TLS security for the REST API: No
 
 ```
+Rest server is now running!
+
 
 To stop running fabric network:
 ```

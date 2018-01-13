@@ -1,0 +1,25 @@
+query selectAllCompanies {
+  description: "Select all companies"
+  statement:
+      SELECT org.emission.network.Company
+}
+
+query selectEtt {
+  description: "Select all Ett assets"
+  statement:
+      SELECT org.emission.network.Ett
+}
+
+
+query selectEttByID {
+  description: "Select ett by id"
+  statement:
+      SELECT org.emission.network.Ett WHERE (_$ettID == ettID)
+}
+
+query selectCompanyByID {
+  description: "Select Company by id"
+  statement:
+      SELECT org.emission.network.Company  WHERE (_$companyID == companyID)
+}
+

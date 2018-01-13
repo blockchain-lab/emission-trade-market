@@ -30,5 +30,5 @@
         }
     ],
     "channel": "mychannel",
-    "timeout": 300
+    "timeout": 3000
 }

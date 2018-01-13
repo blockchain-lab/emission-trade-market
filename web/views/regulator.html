@@ -1,6 +1,22 @@
 <div class="container-fluid">
-    <h1>Administration</h1>
-    <tr>
-        <th >
-    </tr>
+    <h1 class="page-header">Administration</h1>
+    <button class="button" ng-click="openUpdateDlg()">Update assets</button>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Company ID</th>
+            <th>Consumed Emission Units</th>
+            <th>Emission Limit</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat="asset in allAssets">
+        <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ asset.companyID }}</td>
+            <td>0</td>
+            <td>{{ asset.limit }}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>

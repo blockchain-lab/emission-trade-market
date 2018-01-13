@@ -1,23 +1,24 @@
+- Always inside network:
+    - sh deploy_network.sh(beautiful print should show that bynf execution completed)
+    - sh deploy_composer.sh (on a separate terminal)
+    
 - After modifying business-network files in emission-network folder:
     - composer archive create -t dir -n . (move .bna file to the multiorg directory)
-- Always:
-    - inside multiorg:
-        - ./byfn.sh -m down
-        - ./byfn.sh -m generate
-        - ./byfn.sh -m up -s couchdb -a (beautiful print should show that bynf execution completed)
-        - sh composer.sh (on a separate terminal)
 
-The final product, is two business network cards X and Y, the administrator of Org1 and Org 2 respectively. Each organization has 2 peers.  
+The final product, is two business network cards X and Y, the administrator of Org1 and Org 2 respectively. Each organization has 2 peers. To run a second server with Y on a different port:
 
-To run the server, composer-rest-server command and choose either X@emission-network for Org0 or Y@emission-network for Org1.
-
-composer-rest-server -c X@emission-network -n "never" -p 3000
 composer-rest-server -c Y@emission-network -n "never" -p 3001
 
 The Network Admin card is a card that provides access to the deployed business network. The default is that the credentials you supply either by -A/-S or -A/-C when you deploy or start a business network is then bound to in instance of the inbuilt NetworkAdmin Participant type with a name usually the same as that specified in the -A part. To access a business network you have to use an identity that is mapped to a participant.
 
+- Other commands
 yo hyperledger-composer:angular
 cd angular-app && npm start (or yarn install)
 docker logs peer0.org1.example.com
-**currently switching npm to yarn and blockchain explorar, at least we can see shit happening in the blockchain**
+**currently exploring blockchain explorer**
 docker exec -it peer0.org1.example.com sh -c "peer channel --help"
+
+- If doing it for the first time, run this inside network to create the bin folder for your architecture
+export VERSION=${1:-1.0.5}
+export ARCH=$(echo "$(uname -s|tr '[:upper:]' '[:lower:]'|sed 's/mingw64_nt.*/windows/')-$(uname -m | sed 's/x86_64/amd64/g')" | awk '{print tolower($0)}')
+curl https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric/${ARCH}-${VERSION}/hyperledger-fabric-${ARCH}-${VERSION}.tar.gz | tar xz

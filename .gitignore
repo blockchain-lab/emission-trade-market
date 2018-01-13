@@ -1,3 +1,8 @@
 cryptogen
 configtxgen
 /crypto-config
+/composer-logs
+/channel-artifacts
+/X
+/Y
+*.card

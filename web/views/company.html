@@ -1,77 +1,59 @@
-<h1 class="page-header">Transaction</h1>
-<div>
-    <p class="font-weight-normal">Available Emission Units on the market:</p>
-    <h1>0</h1>
-    <hr>
+<div class="container">
+    <h1 class="page-header">Transaction</h1>
     <div class="row">
-        <div class="col-4">
-            <p class="font-weight-normal">On-sale Emission Units:</p>
-            <h1 >0</h1>
+        <div class="col-6">
+            <p class="font-weight-normal">Available Emission Units on the market:</p>
+            <h1>0</h1>
         </div>
-        <div class="col-4">
-            <p class="font-weight-normal">Emission Limit:</p>
-            <h1 style='vertical-align:middle; display:inline;' id="emusLimit">0</h1>
-        </div>
-        <div class="col-4">
-            <p class="font-weight-normal">Released Emission Units:</p>
-            <h1 style='vertical-align:middle; display:inline;' id="balance">0</h1>
+        <div class="col-6">
+            <p class="font-weight-normal">Price per Emission Unit:</p>
+            <h1>0</h1>
         </div>
     </div>
     <hr>
+    <div class="row">
+        <div class="col-3">
+            <p class="font-weight-normal">On-sale Emission Units:</p>
+            <h1>0</h1>
+        </div>
+        <div class="col-3">
+            <p class="font-weight-normal">Emission Limit:</p>
+            <h1>0</h1>
+        </div>
+        <div class="col-3">
+            <p class="font-weight-normal">Consumed Emission Units:</p>
+            <h1>0</h1>
+        </div>
+        <div class="col-3">
+            <p class="font-weight-normal">Unused Emission Units:</p>
+            <h1>0</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <div class="card card-body">
+                <h2 class="card-title">Buy</h2>
+                <p class="card-text">Buy Emission Units</p>
+                <div class="form-group">
+                    <label>Emission</label>
+                    <input id="form-buy" class="form-control" placeholder="Amount">
+                </div>
+                <button id="btn-buy" class="btn btn-primary" type="submit">Buy</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card card-body">
+                <h2 class="card-title">Sell</h2>
+                <p class="card-text">Sell Emission Units</p>
+                <div class="form-group">
+                    <label>Emission</label>
+                    <input id="form-sell" class="form-control" placeholder="Amount">
+                </div>
+                <button id="btn-sell" class="btn btn-primary" type="submit">Sell</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
-
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">Transaction</h1>
-        <div class="row">
-            <div class="col-xs-3" style="padding: 3%">
-                <p class="font-weight-normal">Available Emission Units on the market:</p>
-                <h1 style='vertical-align:middle; display:inline;' id="marketEmus">000</h1>
-            </div>
-            <hr class="blackline">
-            <div class="row">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <p class="font-weight-normal">On-sale Emission Units:</p>
-                    <h1 style='vertical-align:middle; display:inline;' id="emusOnSale">000</h1>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <p class="font-weight-normal">Emission Limit:</p>
-                    <h1 style='vertical-align:middle; display:inline;' id="emusLimit">000</h1>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <p class="font-weight-normal">Released Emission Units:</p>
-                    <h1 style='vertical-align:middle; display:inline;' id="balance">000</h1>
-                </div>
-            </div>
-        </div>
-        <hr class="blackline">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">Buy</h2>
-                        <p class="card-text">Buy emission from the emission market.</p>
-                        <div class="form-group">
-                            <label>Emission</label>
-                            <input id="form-buy" class="form-control" placeholder="Amount">
-                        </div>
-                        <button id="btn-buy" class="btn btn-primary" type="submit">Buy</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">Sell</h2>
-                        <p class="card-text">Sell emission to the emission market.</p>
-                        <div class="form-group">
-                            <label>Emission</label>
-                            <input id="form-sell" class="form-control" placeholder="Amount">
-                        </div>
-                        <button id="btn-sell" class="btn btn-primary" type="submit">Sell</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>

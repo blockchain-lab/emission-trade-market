@@ -1,10 +1,12 @@
 ## How to run:
+--------------------------------------------------------------------------
+Generate a business network archive (Do it only after changing the composer, otherwise skip it)
 
-Generate a business network archive (!!!Do it only after chaing the composer, otherwise skip it)
 First, navigate to the neywork-network directory.
 ```
 composer archive create -t dir -n .
 ```
+-------------------------------------------------------------------------
 
 To kill running containers and remove previous Fabric chaincode images: 
 ```

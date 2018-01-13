@@ -1,0 +1,32 @@
+Searching 46704 files for "CORE_LOGGING_LEVEL"
+
+/Users/tamycova/emission-trade-market/fabric-scripts/hlfv11/composer/docker-compose-dev.yml:
+   37      image: hyperledger/fabric-peer:$ARCH-1.1.0-preview
+   38      environment:
+   39:       - CORE_LOGGING_LEVEL=debug
+   40        - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+   41        - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+
+/Users/tamycova/emission-trade-market/fabric-scripts/hlfv11/composer/docker-compose.yml:
+   37      image: hyperledger/fabric-peer:$ARCH-1.1.0-preview
+   38      environment:
+   39:       - CORE_LOGGING_LEVEL=debug
+   40        - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+   41        - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+
+/Users/tamycova/emission-trade-market/network/multiorg/docker-compose-cli.yaml:
+   58        - GOPATH=/opt/gopath
+   59        - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+   60:       - CORE_LOGGING_LEVEL=DEBUG
+   61        - CORE_PEER_ID=cli
+   62        - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+
+/Users/tamycova/emission-trade-market/network/multiorg/base/peer-base.yaml:
+   15        # https://docs.docker.com/compose/networking/
+   16        - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=${COMPOSE_PROJECT_NAME}_byfn
+   17:       #- CORE_LOGGING_LEVEL=ERROR
+   18:       - CORE_LOGGING_LEVEL=DEBUG
+   19        - CORE_PEER_TLS_ENABLED=true
+   20        - CORE_PEER_GOSSIP_USELEADERELECTION=true
+
+5 matches across 4 files

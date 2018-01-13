@@ -12,3 +12,14 @@
 The final product, is two business network cards X and Y, the administrator of Org1 and Org 2 respectively. Each organization has 2 peers.  
 
 To run the server, composer-rest-server command and choose either X@tutorial-network for Org0 or Y@tutorial-network for Org1.
+
+composer-rest-server -c X@tutorial-network -n "never" -p 3000
+composer-rest-server -c Y@tutorial-network -n "never" -p 3001
+
+The Network Admin card is a card that provides access to the deployed business network. The default is that the credentials you supply either by -A/-S or -A/-C when you deploy or start a business network is then bound to in instance of the inbuilt NetworkAdmin Participant type with a name usually the same as that specified in the -A part. To access a business network you have to use an identity that is mapped to a participant.
+
+yo hyperledger-composer:angular
+cd angular-app && npm start (or yarn install)
+docker logs peer0.org1.example.com
+**currently switching npm to yarn and blockchain explorar, at least we can see shit happening in the blockchain**
+docker exec -it peer0.org1.example.com sh -c "peer channel --help"

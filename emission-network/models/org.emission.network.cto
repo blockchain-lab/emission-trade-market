@@ -35,3 +35,10 @@ transaction ChangeEttOwner {
   --> Company newOwner
   --> Ett ett
 }
+
+event TradeEvent {
+  o String message
+  --> Company seller
+  --> Company buyer 
+  --> Ett ett
+}

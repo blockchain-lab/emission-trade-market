@@ -1,6 +1,7 @@
 var express = require('express'),
     util = require('util'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongo = require('mongodb');
 
 var app = express();
 
@@ -15,6 +16,22 @@ var users = [
     {username: 'user1', password: '123', role: 'company'},
     {username: 'user2', password: '123', role: 'company'}];
 
+//mongodb
+var MongoClient = mongo.MongoClient;
+var url = "mongodb://localhost:27017/doxchain";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Database created!");
+  var dbo = db.db("doxchain");
+  dbo.createCollection("users", function(err, res) {
+    if (err) throw err;
+    console.log("Collection created!");
+    db.close();
+  });
+});
+
+//app
 app.listen(8080);
 
 // Require body-parser (to receive post data from clients)

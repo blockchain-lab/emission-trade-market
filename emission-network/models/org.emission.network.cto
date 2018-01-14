@@ -7,7 +7,9 @@ namespace org.emission.network
 participant Company identified by companyID {
   o String companyID
   o String name
-  --> Ett ett 
+  o Integer emissionConsumed
+  o Integer emissionLimit
+  --> Ett ett // TODO: returns string instead of object "resource:org.emission.network.Ett#1"
 }
 
 participant Regulator identified by regulatorID {
@@ -16,29 +18,42 @@ participant Regulator identified by regulatorID {
 
 asset Ett identified by ettID {
   o String ettID
-  o Integer limit
+  o Integer emission
   --> Company owner
 }
 
+asset Market identified by marketID {  
+    o String marketID
+    o Integer emission
+    --> Ett[] etts
+}
+
+/* 
 transaction Trade {
-  o Integer emissionToTrade
+  o Integer emission
   --> Company buyer
   --> Company seller
 }
-
-transaction GiveEtt {
-  --> Company owner
-  --> Ett ett  
-}
+*/
 
 transaction ChangeEttOwner {
   --> Company newOwner
   --> Ett ett
 }
 
+transaction Buy {
+  o Integer emission
+  o String buyerID
+}
+
+transaction Sell {
+  o Integer emission
+  o String sellerID
+}
+
 event TradeEvent {
   o String message
+  o Integer emission
   --> Company seller
   --> Company buyer 
-  --> Ett ett
 }

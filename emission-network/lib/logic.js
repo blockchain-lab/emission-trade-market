@@ -39,22 +39,27 @@ function trade(buyer, seller, emission) {
 }
 
 // add ett to market
-function addToMarket(ett, market) {
+function addToMarket(ett, transaction, market) {
     console.log("addToMarket: ", ett, market);
 
-    var marketEtt = market.etts.find(function (e) {
-        return e;
-    });
-    if (marketEtt != undefined) {
+    var marketEtt = false;
+  	var i;
+    for(i = 0; i < market.etts.length; i++){
+      if (market.etts[i].toString().split("{")[1] == ett.toString().split("{")[1]){
+      	marketEtt = true;
+        break;
+      }
+    }
+    if (marketEtt) {
         console.log("ett already in market; increasing its emission");
-        marketEtt.emission += ett.emission;
+        marketEtt.emission += transaction.emission;
     } else {
       	console.log("pushed ett to market");
         market.etts.push(ett);
     }
 
     // increase emission of market
-    market.emission += ett.emission;
+    market.emission += transaction.emission;
 
     console.log("added to market ", ett);
 }
@@ -103,7 +108,7 @@ function Sell(transaction) {
 
                             var ett = results[0];
                             console.log("ETT RESULTS = ", ett);
-                            ett.emission = emission;
+                            ett.emission += emission;
 
                             return getAssetRegistry('org.emission.network.Market')
                                 .then(function (registry) {
@@ -111,7 +116,7 @@ function Sell(transaction) {
                                         .then(function (market) {
                                             console.log("update Market", market);
 
-                                            addToMarket(ett, market);
+                                            addToMarket(ett, transaction, market);
 
                                             promises.push(registry.update(market));
                                         })

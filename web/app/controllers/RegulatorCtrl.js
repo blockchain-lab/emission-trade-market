@@ -1,8 +1,7 @@
 var temp = [];
 var removed_id;
+var removed_name = "";
 var isDeleteCalled = false;
-var companyList = [];
-var ettList = [];
 
 var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
 
@@ -22,12 +21,12 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
     refreshPage();
 
     $scope.openAddEttDlg = function () {
-        // ngDialog.open({
-        //     template: 'addEttDlg',
-        //     className: 'ngdialog-theme-default',
-        //     controller: 'RegulatorCtrl'
-        // });
-        $http.post('/adduser');
+        ngDialog.open({
+            template: 'addEttDlg',
+            className: 'ngdialog-theme-default',
+            controller: 'RegulatorCtrl'
+        });
+
     };
 
     $scope.openAddCompanyDlg = function () {
@@ -46,8 +45,9 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         });
     };
 
-    $scope.openDeleteDlg = function (id) {
+    $scope.openDeleteDlg = function (id, name) {
         removed_id = id;
+        removed_name = name;
         ngDialog.open({
             template: 'deleteDlg',
             className: 'ngdialog-theme-default',
@@ -80,7 +80,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         },
         function(res) {
             temp.push(res);
-            // $http.post('/adduser');
+            $http.post('/adduser', {companyname: $scope.companyName});
             ngDialog.closeAll();
         },
         function (res) {
@@ -112,6 +112,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         Regulator.delete(removed_id,
         function(res) {
             isDeleteCalled = true;
+            $http.post('/deleteuser', {companyname: removed_name});
             ngDialog.closeAll();
         },
         function (res) {

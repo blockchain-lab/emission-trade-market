@@ -7,6 +7,8 @@ function trade(buyer, seller, emission) {
     var assetRegistry;
     var ett = seller.ett;
 
+    console.log("Trade", buyer, seller, emission);
+
     // Check if seller can sell ett
     if (seller.emissionLimit < emission) {
         throw "Cannot trade emission: Seller do not have enough emission";
@@ -54,7 +56,7 @@ function addToMarket(ett, transaction, market) {
         console.log("ett already in market; increasing its emission");
         marketEtt.emission += transaction.emission;
     } else {
-      	console.log("pushed ett to market");
+        console.log("pushed ett to market");
         market.etts.push(ett);
     }
 
@@ -98,12 +100,12 @@ function Sell(transaction) {
 
                     // decrease emissionLimit from seller and give to his ett 
                     seller.emissionLimit -= emission;
-              
-  					var id = seller.ett.getIdentifier()
 
-                    console.log("emission id", id); 
+                    var id = seller.ett.getIdentifier()
 
-                    return query('selectEttByID', { ettID: id }) 
+                    console.log("emission id", id);
+
+                    return query('selectEttByID', { ettID: id })
                         .then(function (results) {
 
                             var ett = results[0];
@@ -128,9 +130,9 @@ function Sell(transaction) {
 
                                             promises.push(registry.update(seller));
                                         })
-                                })        
+                                })
                                 .then(function () {
-                                    return getAssetRegistry('org.emission.network.Ett')// TODO : Error: Expected a Resource or Concept.
+                                    return getAssetRegistry('org.emission.network.Ett')
                                         .then(function (registry) {
                                             console.log("ett reg ", registry.getAll());
                                             console.log("update Ett emission", ett.emission);
@@ -143,7 +145,7 @@ function Sell(transaction) {
                                     // we have to return all the promises
                                     return Promise.all(promises);
                                 });
-                            })
+                        })
                 })
         })
 };
@@ -160,34 +162,63 @@ function Buy(transaction) {
     return query('selectCompanyByID', { companyID: transaction.buyerID })
         .then(function (company) {
 
-            var promises = [];       
+            var market, marketEtts;
+            var promises = [];
             var buyer = company;
             var emissionToBuy = transaction.emission;
 
             return query('selectMarketByID', { marketID: baseMarketID })
                 .then(function (results) {
-         
-                    var market = results[0];
-                    var marketEtts = market.etts;
+
+                    market = results[0];
+                    marketEtts = market.etts;
+              
+                    console.log("market etts", marketEtts);
 
                     var i = 0;
                     // keep on buying emission from market until all is bought
                     while (emissionToBuy > 0) {
                         var ett = marketEtts[i];
-                        var bought = trade(buyer, ett.owner, emissionToBuy);
-                        emissionToBuy -= bought;
-                    }
+                        
+                        query('selectEttByID', { ettID: ett.getIdentifier() })
+                            .then(function (results) {
 
-                    removeFromMarket(ett, market);
+                                // get the seller of the ett id on the market
+                                query('selectCompanyByID', { companyID: ett.owner.getIdentifier() })
+                                    .then(function (results) {
+                                        var seller = results[0];
+                                        console.log("Seller = ", seller);
 
-                    promises.push(assetRegistry.update(market));
+                                        var bought = trade(buyer, seller, emissionToBuy); // TODO: retrieve ett.owner from reference
+                                        emissionToBuy -= bought;
+
+                                         removeFromMarket(ett, market);  
+                                    })
+                            })
+                    }                             
                 })
                 .then(function () {
                     return getAssetRegistry('org.emission.network.Market')
-                        .then(function (assetRegistry) {
+                        .then(function (registry) {
                             console.log("update Market");
 
-                            promises.push(assetRegistry.update(market));
+                            promises.push(registry.update(market));
+                        })
+                })
+                .then(function () {
+                    return getAssetRegistry('org.emission.network.Ett')
+                        .then(function (registry) {
+                            console.log("update Ett");
+
+                            promises.push(registry.updateAll(marketEtts));
+                        })
+                })
+                .then(function () {
+                    return getParticipantRegistry('org.emission.network.Company')
+                        .then(function (registry) {
+                            console.log("update Company");
+
+                            promises.push(registry.update(buyer));
                         })
                 })
                 .then(function () {

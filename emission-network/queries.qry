@@ -13,7 +13,7 @@ query selectEtt {
 query selectEttsInMarket {
   description: "selects all ett in the market"
   statement:
-    SELECT org.emission.network.Ett FROM org.emission.network.Market.etts // TODO returns undefined
+    SELECT org.emission.network.Ett FROM org.emission.network.Market.etts 
 }
 
 

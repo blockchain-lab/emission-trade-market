@@ -30,3 +30,12 @@ and Ett#A should have 50 emission
 Market should be updated
 
 --
+
+
+Buy:
+
+{
+  "$class": "org.emission.network.Buy",
+  "emission": 100,
+  "buyerID": "1"
+}

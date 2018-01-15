@@ -28,13 +28,11 @@ asset Market identified by marketID {
     --> Ett[] etts
 }
 
-
 transaction Trade {
   o Integer emission
   --> Company buyer
   --> Company seller
 }
-
 
 transaction ChangeEttOwner {
   --> Company newOwner

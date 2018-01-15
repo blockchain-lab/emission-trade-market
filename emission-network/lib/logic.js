@@ -24,19 +24,19 @@ function trade(buyer, seller, emission) {
     seller.emissionLimit -= emission;
     buyer.emissionLimit += emission;
 
-    // if emission is 0 then this ett should not be removed from market
-    if (ett.emission <= 0) {
-        removeFromMarket(ett);
-    }
-
     // update asset registriy
-    return getAssetRegistry('org.emission.network.Ett')
+   /* return getAssetRegistry('org.emission.network.Ett')
         .then(function (assetRegistry) {
             console.log("update company balance!");
             // TradeEvent(transaction); // TODO: emit event differently ?
 
-            return assetRegistry.updateAll([buyer.ett, seller.ett]);
-        });
+            return assetRegistry.updateAll([buyer.ett, seller.ett])
+                .then(function () {
+                    console.log("emission = " + emission);
+                    return emission;
+                }) 
+        });*/
+    return emission;
 
 }
 
@@ -157,7 +157,7 @@ function Buy(transaction) {
     return query('selectCompanyByID', { companyID: transaction.buyerID })
         .then(function (company) {
 
-            var market, marketEtts;
+            var market, ett, marketEtts;
             var promises = [];
             var buyer = company;
             var emissionToBuy = transaction.emission;
@@ -167,60 +167,70 @@ function Buy(transaction) {
 
                     market = results[0];
                     marketEtts = market.etts;
-              
+
                     console.log("market etts", marketEtts);
 
                     var i = 0;
                     // keep on buying emission from market until all is bought
-                    while (emissionToBuy > 0) {
-                        var ett = marketEtts[i];
-                        
-                        query('selectEttByID', { ettID: ett.getIdentifier() })
-                            .then(function (results) {
+                    //   if (emissionToBuy > 0) { 
+                    var mEtt = marketEtts[i];
 
-                                // get the seller of the ett id on the market
-                                query('selectCompanyByID', { companyID: ett.owner.getIdentifier() })
-                                    .then(function (results) {
-                                        var seller = results[0];
-                                        console.log("Seller = ", seller);
+                    return query('selectEttByID', { ettID: mEtt.getIdentifier() })
+                        .then(function (results) {
 
-                                        var bought = trade(buyer, seller, emissionToBuy); // TODO: retrieve ett.owner from reference
-                                        emissionToBuy -= bought;
+                            ett = results[0];
+                            console.log("ett ", ett);
 
-                                         removeFromMarket(ett, market);  
-                                    })
-                            })
-                    }                             
-                })
-                .then(function () {
-                    return getAssetRegistry('org.emission.network.Market')
-                        .then(function (registry) {
-                            console.log("update Market");
+                            // get the seller of the ett id on the market
+                            return query('selectCompanyByID', { companyID: ett.owner.getIdentifier() })
+                                .then(function (results) {
+                                    var seller = results[0];
+                                    console.log("Seller = ", seller);
 
-                            promises.push(registry.update(market));
+                                     // TODO: retrieve ett.owner from reference
+                                    var bought = trade(buyer, seller, emissionToBuy);
+                                    emissionToBuy -= bought;
+
+                                    console.log("bought " + bought)
+        
+                                    // if emission is 0 then this ett should not be removed from market
+                                    if (ett.emission <= 0) {
+                                        removeFromMarket(ett, market);
+                                    }
+                                })
+                                .then(function () {
+                                    return getAssetRegistry('org.emission.network.Market')
+                                        .then(function (registry) {
+                                            console.log("update Market", market);
+
+                                            promises.push(registry.update(market));
+                                        })
+                                })
+                                .then(function () {
+                                    return getAssetRegistry('org.emission.network.Ett') // TODO: Error: Expected a Resource or Concept. 
+                                        .then(function (registry) {
+                                            console.log("update Etts", ett);
+
+                                            promises.push(registry.update(ett));
+                                        })
+                                })
+                                .then(function () {
+                                    return getParticipantRegistry('org.emission.network.Company')
+                                        .then(function (registry) {
+                                            console.log("update Company", buyer);
+
+                                            promises.push(registry.update(buyer));
+                                        })
+                                })
+                                .then(function () {
+                                    console.log("done");
+                                    // we have to return all the promises
+                                    return Promise.all(promises);
+                                });
+
                         })
+                    //    }                             
                 })
-                .then(function () {
-                    return getAssetRegistry('org.emission.network.Ett')
-                        .then(function (registry) {
-                            console.log("update Ett");
-
-                            promises.push(registry.updateAll(marketEtts));
-                        })
-                })
-                .then(function () {
-                    return getParticipantRegistry('org.emission.network.Company')
-                        .then(function (registry) {
-                            console.log("update Company");
-
-                            promises.push(registry.update(buyer));
-                        })
-                })
-                .then(function () {
-                    console.log("done");
-                    // we have to return all the promises
-                    return Promise.all(promises);
-                });
         })
 }
 

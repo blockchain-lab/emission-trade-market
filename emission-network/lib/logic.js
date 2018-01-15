@@ -93,7 +93,7 @@ function Sell(transaction) {
 
                     // decrease emissionLimit from seller and give to his ett 
                     seller.emissionLimit -= emission;
-                    ett.emission = seller.emissionLimit;
+                    ett.emission = emission;
 
                     console.log("emission", ett.emission);
 
@@ -153,7 +153,8 @@ function Buy(transaction) {
 
             return query('selectMarketByID', { marketID: baseMarketID })
                 .then(function (results) {
-                
+
+                    var promises = [];                
                     var market = results[0];
                     var marketEtts = market.etts;
 

@@ -84,7 +84,7 @@ function Sell(transaction) {
             var promises = [];
             var seller = results[0];
             var emission = transaction.emission;
-            var ett = seller.ett;
+            //var ett = seller.ett;
 
             return query('selectMarketByID', { marketID: baseMarketID })
                 .then(function (results) {
@@ -93,45 +93,48 @@ function Sell(transaction) {
 
                     // decrease emissionLimit from seller and give to his ett 
                     seller.emissionLimit -= emission;
-                    ett.emission = emission;
 
-                    console.log("emission", ett.emission);
+                    return query('selectEttByID', { ettID: ett.getIdentifier() })
+                        .then(function (results) {
 
-                    return getAssetRegistry('org.emission.network.Market')
-                        .then(function (registry) {
-                            return registry.get(baseMarketID)
-                                .then(function (market) {
-                                    console.log("update Market", market);
+                            var ett = results[0];
+                            console.log("ETT RESULTS = ", ett);
+                            ett.emission = emission;
 
-                                    addToMarket(ett, market);
-
-                                    promises.push(registry.update(market));
-                                })
-                        })
-                        .then(function () {
-                            return getParticipantRegistry('org.emission.network.Company')
+                            return getAssetRegistry('org.emission.network.Market')
                                 .then(function (registry) {
-                                    console.log("update Company");
+                                    return registry.get(baseMarketID)
+                                        .then(function (market) {
+                                            console.log("update Market", market);
 
-                                    promises.push(registry.update(seller));
+                                            addToMarket(ett, market);
+
+                                            promises.push(registry.update(market));
+                                        })
                                 })
-                        })
-               /*        
-               .then(function () {
-                            return getAssetRegistry('org.emission.network.Ett')// TODO : Error: Expected a Resource or Concept.
-                                .then(function (registry) {
-                                    console.log("ett reg ", registry.getAll());
-                                    console.log("update Ett emission", ett.emission);
+                                .then(function () {
+                                    return getParticipantRegistry('org.emission.network.Company')
+                                        .then(function (registry) {
+                                            console.log("update Company");
 
-                                    promises.push(registry.update(ett));
+                                            promises.push(registry.update(seller));
+                                        })
+                                })        
+                                .then(function () {
+                                    return getAssetRegistry('org.emission.network.Ett')// TODO : Error: Expected a Resource or Concept.
+                                        .then(function (registry) {
+                                            console.log("ett reg ", registry.getAll());
+                                            console.log("update Ett emission", ett.emission);
+
+                                            promises.push(registry.update(ett));
+                                        });
+                                })
+                                .then(function () {
+                                    console.log("done");
+                                    // we have to return all the promises
+                                    return Promise.all(promises);
                                 });
-                        })
-                        */
-                        .then(function () {
-                            console.log("done");
-                            // we have to return all the promises
-                            return Promise.all(promises);
-                        });
+                            })
                 })
         })
 };
@@ -148,17 +151,18 @@ function Buy(transaction) {
     return query('selectCompanyByID', { companyID: transaction.buyerID })
         .then(function (company) {
 
+            var promises = [];       
             var buyer = company;
             var emissionToBuy = transaction.emission;
 
             return query('selectMarketByID', { marketID: baseMarketID })
                 .then(function (results) {
-
-                    var promises = [];                
+         
                     var market = results[0];
                     var marketEtts = market.etts;
 
                     var i = 0;
+                    // keep on buying emission from market until all is bought
                     while (emissionToBuy > 0) {
                         var ett = marketEtts[i];
                         var bought = trade(buyer, ett.owner, emissionToBuy);
@@ -167,15 +171,21 @@ function Buy(transaction) {
 
                     removeFromMarket(ett, market);
 
-                    return assetRegistry.update(market);
+                    promises.push(assetRegistry.update(market));
                 })
                 .then(function () {
                     return getAssetRegistry('org.emission.network.Market')
                         .then(function (assetRegistry) {
                             console.log("update Market");
-                            return assetRegistry.update(market);
+
+                            promises.push(assetRegistry.update(market));
                         })
                 })
+                .then(function () {
+                    console.log("done");
+                    // we have to return all the promises
+                    return Promise.all(promises);
+                });
         })
 }
 

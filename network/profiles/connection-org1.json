@@ -20,10 +20,15 @@
             "cert": "crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt",
             "hostnameOverride": "peer0.org2.example.com"
         },
-        {
-            "requestURL": "grpcs://localhost:10051",
-            "cert": "crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt",
-            "hostnameOverride": "peer1.org2.example.com"
+         {
+            "requestURL": "grpcs://localhost:11051",
+            "cert": "crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt",
+            "hostnameOverride": "peer0.org3.example.com"
+        },
+         {
+            "requestURL": "grpcs://localhost:13051",
+            "cert": "crypto-config/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/tls/ca.crt",
+            "hostnameOverride": "peer0.org4.example.com"
         }
     ],
     "ca": {
@@ -39,6 +44,6 @@
             "hostnameOverride": "orderer.example.com"
         }
     ],
-    "channel": "mychannel",
+    "channel": "main",
     "timeout": 3000
 }

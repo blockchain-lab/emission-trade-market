@@ -1,0 +1,4 @@
+2018-01-15T16:46:20.970Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err Expected MSP ID Org4MSP, received org4MSP
+    at /usr/local/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-15T16:46:21.037Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err Expected MSP ID Org4MSP, received org4MSP
+    at /usr/local/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$

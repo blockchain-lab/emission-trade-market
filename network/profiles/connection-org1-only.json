@@ -29,6 +29,6 @@
             "hostnameOverride": "orderer.example.com"
         }
     ],
-    "channel": "mychannel",
+    "channel": "main",
     "timeout": 3000
 }

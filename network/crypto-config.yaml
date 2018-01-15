@@ -1,11 +1,3 @@
-# Copyright IBM Corp. All Rights Reserved.
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-
-# ---------------------------------------------------------------------------
-# "OrdererOrgs" - Definition of organizations managing orderer nodes
-# ---------------------------------------------------------------------------
 OrdererOrgs:
   # ---------------------------------------------------------------------------
   # Orderer
@@ -76,6 +68,24 @@ PeerOrgs:
   - Name: Org2
     Domain: org2.example.com
     Template:
-      Count: 2
+      # Count: 2
+      Count: 1
     Users:
       Count: 1
+
+  - Name: Org3
+    Domain: org3.example.com
+    Template:
+      # Count: 2
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Org4
+    Domain: org4.example.com
+    Template:
+      # Count: 2
+      Count: 1
+    Users:
+      Count: 1
+  

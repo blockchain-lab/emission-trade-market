@@ -104,6 +104,14 @@ function replacePrivateKey () {
   PRIV_KEY=$(ls *_sk)
   cd "$CURRENT_DIR"
   sed $OPTS "s/CA4_PRIVATE_KEY/${PRIV_KEY}/g" docker-compose-e2e.yaml docker-compose-cas.yaml
+  cd crypto-config/peerOrganizations/org5.example.com/ca/
+  PRIV_KEY=$(ls *_sk)
+  cd "$CURRENT_DIR"
+  sed $OPTS "s/CA5_PRIVATE_KEY/${PRIV_KEY}/g" docker-compose-e2e.yaml docker-compose-cas.yaml
+  cd crypto-config/peerOrganizations/org6.example.com/ca/
+  PRIV_KEY=$(ls *_sk)
+  cd "$CURRENT_DIR"
+  sed $OPTS "s/CA6_PRIVATE_KEY/${PRIV_KEY}/g" docker-compose-e2e.yaml docker-compose-cas.yaml
   # If MacOSX, remove the temporary backup of the docker-compose file
   if [ "$ARCH" == "Darwin" ]; then
     rm docker-compose-e2e.yamlt docker-compose-cas.yamlt
@@ -199,6 +207,8 @@ function generateChannelArtifacts() {
   echo "### Generating channel configuration transaction 'channel.tx' ###"
   echo "#################################################################"
   ./bin/configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
+
+  ./bin/configtxgen -profile OtherOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel2.tx -channelID "secondary"
   if [ "$?" -ne 0 ]; then
     echo "Failed to generate channel configuration transaction..."
     exit 1
@@ -216,7 +226,7 @@ function generateChannelArtifacts() {
 
   echo
   echo "#################################################################"
-  echo "#######    Generating anchor peer update for Org2MSP   ##########"
+  echo "#######    Generating anchor peer update   ##########"
   echo "#################################################################"
   ./bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate \
   ./channel-artifacts/Org2MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org2MSP
@@ -225,25 +235,29 @@ function generateChannelArtifacts() {
     exit 1
   fi
 
-  echo
-  echo "#################################################################"
-  echo "#######    Generating anchor peer update for Org2MSP   ##########"
-  echo "#################################################################"
   ./bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate \
   ./channel-artifacts/Org3MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org3MSP
   if [ "$?" -ne 0 ]; then
-    echo "Failed to generate anchor peer update for Org2MSP..."
+    echo "Failed to generate anchor peer update for Org3MSP..."
     exit 1
   fi
 
-  echo
-  echo "#################################################################"
-  echo "#######    Generating anchor peer update for Org2MSP   ##########"
-  echo "#################################################################"
   ./bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate \
   ./channel-artifacts/Org4MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org4MSP
   if [ "$?" -ne 0 ]; then
-    echo "Failed to generate anchor peer update for Org2MSP..."
+    echo "Failed to generate anchor peer update for Org4MSP..."
+    exit 1
+  fi
+ ./bin/configtxgen -profile OtherOrgsChannel -outputAnchorPeersUpdate \
+  ./channel-artifacts/Org5MSPanchors.tx -channelID "secondary" -asOrg Org5MSP
+  if [ "$?" -ne 0 ]; then
+    echo "Failed to generate anchor peer update for Org5MSP..."
+    exit 1
+  fi
+ ./bin/configtxgen -profile OtherOrgsChannel -outputAnchorPeersUpdate \
+  ./channel-artifacts/Org6MSPanchors.tx -channelID "secondary" -asOrg Org6MSP
+  if [ "$?" -ne 0 ]; then
+    echo "Failed to generate anchor peer update for Org6MSP..."
     exit 1
   fi
   echo
@@ -318,7 +332,6 @@ fi
 echo "${EXPMODE} with channel '${CHANNEL_NAME}' and CLI timeout of '${CLI_TIMEOUT}' seconds and CLI delay of '${CLI_DELAY}' seconds${ADDITIONS}"
 
 # ask for confirmation to proceed
-askProceed
 
 #Create the network using docker compose
 if [ "${MODE}" == "up" ]; then

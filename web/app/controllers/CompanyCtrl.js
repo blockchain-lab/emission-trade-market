@@ -2,6 +2,7 @@ var companyCtrl = function ($scope, Company) {
 
     $scope.buy = function () {
         Company.buy({
+            $class: "org.emission.network.Buy",
             amount: $scope.buy_amount,
             companyID: $scope.buy_id
         },
@@ -15,8 +16,9 @@ var companyCtrl = function ($scope, Company) {
 
     $scope.sell = function () {
         Company.sell({
-            amount: $scope.sell_amount,
-            companyID: $scope.sell_companyID
+            $class: "org.emission.network.Sell",
+            emission: $scope.sell_amount,
+            sellerID: $scope.sell_companyID
         },
         function() {
             

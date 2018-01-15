@@ -3,12 +3,8 @@
 /**
  * Trade function
  */
-function trade(buyer, seller, emission) {
+function trade(buyer, seller, ett, emission) {
     var assetRegistry;
-    var ett = seller.ett;
-
-    console.log("seller's ett = "+ ett);
-    console.log("Trade", buyer, seller, emission);
 
     // Check if seller can sell ett
     if (seller.emissionLimit < emission) {
@@ -17,22 +13,24 @@ function trade(buyer, seller, emission) {
     }
 
     // sell maximum what's in the ett's emission   
-    if (ett.emission <= emission) {
-        emission -= ett.emission;
+    if (ett.emission < emission) {
+        console.log("trying to buy more ett than avaible in ett", ett.emission, emission);
+        emission = ett.emission;
     }
 
+  	console.log("buyer.emissionLimit = " + buyer.emissionLimit);
+
     // decrease emissionLimit of buyer and inrease emissionLimit of owner   
-    seller.emissionLimit -= emission;
+    //seller.emissionLimit -= emission;
     buyer.emissionLimit += emission;
+     
+  	console.log("buyer.emissionLimit = " + buyer.emissionLimit);
 
-        // reduce bought emission from ett
-        ett.emission -= emission;
-
-        
-
+    // reduce bought emission from ett
+    //ett.emission -= emission;
+  	//console.log("ett.emission = " + ett.emission);
 
     return emission;
-
 }
 
 // add ett to market
@@ -68,7 +66,7 @@ function removeFromMarket(ett, market) {
     if (index > -1) {
         market.etts.splice(index, 1);
     }
-    console.log("removed from market ", ett);
+    console.log("removed from market = " + market.etts);
 }
 
 var baseMarketID = "M0"; // Currently only one market, should be based on channel
@@ -157,7 +155,7 @@ function Buy(transaction) {
     return query('selectCompanyByID', { companyID: transaction.buyerID })
         .then(function (results) {
 
-            var market, ett, marketEtts;
+            var market, seller, marketEtt, marketEtts;
             var promises = [];
             var buyer = results[0];
             var emissionToBuy = transaction.emission;
@@ -173,29 +171,34 @@ function Buy(transaction) {
                     var i = 0;
                     // keep on buying emission from market until all is bought
                     //   if (emissionToBuy > 0) { #
-                    var mEtt = marketEtts[i];
+                    var ett = marketEtts[i];
 
-                    return query('selectEttByID', { ettID: mEtt.getIdentifier() })
+                    return query('selectEttByID', { ettID: ett.getIdentifier() })
                         .then(function (results) {
 
-                            ett = results[0];
-                            console.log("ett ", ett);
+                            marketEtt = results[0];
+                            console.log("ett ", marketEtt);
 
                             // get the seller of the ett id on the market
-                            return query('selectCompanyByID', { companyID: ett.owner.getIdentifier() })
+                            return query('selectCompanyByID', { companyID: marketEtt.owner.getIdentifier() })
                                 .then(function (results) {
-                                    var seller = results[0];
+                                    seller = results[0];
                                     console.log("Seller = ", seller);
-
-                                     // TODO: retrieve ett.owner from reference
-                                    var bought = trade(buyer, seller, emissionToBuy);
-                                    emissionToBuy -= bought;
-
-                                    console.log("bought " + bought)
-        
+                                    console.log("marketEtt.emission = " + marketEtt.emission);
+                                    
+                                    var bought = trade(buyer, seller, marketEtt, emissionToBuy);
+                                    console.log("bought = " + bought)
+                              
+                              		// decrease emission bought from market
+                                    marketEtt.emission -= bought;
+                                    market.emission -= bought;
+                                      
+                                    console.log("market.emission = " + market.emission);
+        							console.log("marketEtt.emission = " + marketEtt.emission);
+                              
                                     // if emission is 0 then this ett should not be removed from market
-                                    if (ett.emission <= 0) {
-                                        removeFromMarket(ett, market);
+                                    if (marketEtt.emission <= 0) {
+                                        removeFromMarket(marketEtt, market);
                                     }
                                 })
                                 .then(function () {
@@ -209,9 +212,9 @@ function Buy(transaction) {
                                 .then(function () {
                                     return getAssetRegistry('org.emission.network.Ett') // TODO: Error: Expected a Resource or Concept. 
                                         .then(function (registry) {
-                                            console.log("update Ett", ett);
+                                            console.log("update Ett", marketEtt);
 
-                                            promises.push(registry.update(ett));
+                                            promises.push(registry.update(marketEtt));
                                         })
                                 })
                                 .then(function () {
@@ -219,7 +222,7 @@ function Buy(transaction) {
                                         .then(function (registry) {
                                             console.log("update Company", buyer);
 
-                                            promises.push(registry.update(buyer));
+                                            promises.push(registry.updateAll([buyer, seller]));
                                         })
                                 })
                                 .then(function () {

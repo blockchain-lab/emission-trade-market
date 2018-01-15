@@ -22,12 +22,12 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
     refreshPage();
 
     $scope.openAddEttDlg = function () {
-        // ngDialog.open({
-        //     template: 'addEttDlg',
-        //     className: 'ngdialog-theme-default',
-        //     controller: 'RegulatorCtrl'
-        // });
-        $http.post('/adduser');
+        ngDialog.open({
+            template: 'addEttDlg',
+            className: 'ngdialog-theme-default',
+            controller: 'RegulatorCtrl'
+        });
+
     };
 
     $scope.openAddCompanyDlg = function () {
@@ -80,7 +80,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         },
         function(res) {
             temp.push(res);
-            // $http.post('/adduser');
+            $http.post('/adduser', {companyname: $scope.companyName});
             ngDialog.closeAll();
         },
         function (res) {

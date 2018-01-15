@@ -1,0 +1,22 @@
+Searching 58051 files for "org2.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+
+/Users/tamycova/emission-trade-market/network/scripts/script.sh:
+   52      elif [ $1 -eq 2 -o $1 -eq 3 ] ; then
+   53          CORE_PEER_LOCALMSPID="Org2MSP"
+   54:         CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org1.example.com/tls/ca.crt
+   55          CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+   56          if [ $1 -eq 2 ]; then
+
+1 match in 1 file
+
+
+Searching 58051 files for "peer4.org3.example"
+
+/Users/tamycova/emission-trade-market/network/base/docker-compose-base.yaml:
+  121          - /var/run/:/host/var/run/
+  122          - ../crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/msp:/etc/hyperledger/fabric/msp
+  123:         - ../crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls:/etc/hyperledger/fabric/tls
+  124      ports:
+  125        - 11051:7051
+
+1 match in 1 file

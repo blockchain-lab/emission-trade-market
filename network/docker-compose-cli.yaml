@@ -42,13 +42,45 @@ services:
     networks:
       - byfn
 
-  peer1.org2.example.com:
-    container_name: peer1.org2.example.com
+  # peer1.org2.example.com:
+  #   container_name: peer1.org2.example.com
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer1.org2.example.com
+  #   networks:
+  #     - byfn
+
+  peer0.org3.example.com:
+    container_name: peer0.org3.example.com
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org2.example.com
+      service: peer0.org3.example.com
     networks:
       - byfn
+
+  # peer1.org3.example.com:
+  #   container_name: peer1.org3.example.com
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer1.org3.example.com
+  #   networks:
+  #     - byfn
+
+  peer0.org4.example.com:
+    container_name: peer0.org4.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.org4.example.com
+    networks:
+      - byfn
+
+  # peer1.org4.example.com:
+  #   container_name: peer1.org4.example.com
+  #   extends:
+  #     file:  base/docker-compose-base.yaml
+  #     service: peer1.org4.example.com
+  #   networks:
+  #     - byfn
 
   cli:
     container_name: cli
@@ -79,6 +111,10 @@ services:
       - peer0.org1.example.com
       - peer1.org1.example.com
       - peer0.org2.example.com
-      - peer1.org2.example.com
+      #- peer1.org2.example.com
+      - peer0.org3.example.com
+      #- peer1.org3.example.com
+      - peer0.org4.example.com
+      #- peer1.org4.example.com
     networks:
       - byfn

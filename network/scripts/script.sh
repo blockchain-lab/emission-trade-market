@@ -1,18 +1,8 @@
 #!/bin/bash
-
-echo
-echo " ____    _____      _      ____    _____ "
-echo "/ ___|  |_   _|    / \    |  _ \  |_   _|"
-echo "\___ \    | |     / _ \   | |_) |   | |  "
-echo " ___) |   | |    / ___ \  |  _ <    | |  "
-echo "|____/    |_|   /_/   \_\ |_| \_\   |_|  "
-echo
-echo "Build your first network (BYFN) end-to-end test"
-echo
 CHANNEL_NAME="$1"
 DELAY="$2"
 LANGUAGE="$3"
-: ${CHANNEL_NAME:="mychannel"}
+: ${CHANNEL_NAME:="main"}
 : ${TIMEOUT:="60"}
 : ${LANGUAGE:="golang"}
 LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`
@@ -48,17 +38,37 @@ setGlobals () {
 		else
 			CORE_PEER_ADDRESS=peer1.org1.example.com:7051
 		fi
-	else
-		CORE_PEER_LOCALMSPID="Org2MSP"
-		CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
-		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
-		if [ $1 -eq 2 ]; then
-			CORE_PEER_ADDRESS=peer0.org2.example.com:7051
-		else
-			CORE_PEER_ADDRESS=peer1.org2.example.com:7051
-		fi
-	fi
 
+    elif [ $1 -eq 2 -o $1 -eq 3 ] ; then
+        CORE_PEER_LOCALMSPID="Org2MSP"
+        CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+        CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+        if [ $1 -eq 2 ]; then
+            CORE_PEER_ADDRESS=peer0.org2.example.com:7051
+        else
+            CORE_PEER_ADDRESS=peer1.org2.example.com:7051
+        fi
+
+    elif [ $1 -eq 4 -o $1 -eq 5 ] ; then
+        CORE_PEER_LOCALMSPID="Org3MSP"
+        CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt
+        CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
+        if [ $1 -eq 4 ]; then
+            CORE_PEER_ADDRESS=peer0.org3.example.com:7051
+        else
+            CORE_PEER_ADDRESS=peer1.org3.example.com:7051
+        fi
+
+    elif [ $1 -eq 6 -o $1 -eq 7 ] ; then
+        CORE_PEER_LOCALMSPID="Org4MSP"
+        CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/tls/ca.crt
+        CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp
+        if [ $1 -eq 6 ]; then
+            CORE_PEER_ADDRESS=peer0.org4.example.com:7051
+        else
+            CORE_PEER_ADDRESS=peer1.org4.example.com:7051
+        fi
+    fi
 	env |grep CORE
 }
 
@@ -111,7 +121,7 @@ joinWithRetry () {
 }
 
 joinChannel () {
-	for ch in 0 1 2 3; do
+	for ch in 0 1 2 4 6; do
 		setGlobals $ch
 		joinWithRetry $ch
 		echo "===================== PEER$ch joined on the channel \"$CHANNEL_NAME\" ===================== "
@@ -194,56 +204,38 @@ chaincodeInvoke () {
 	echo
 }
 
-## Create channel
-echo "Creating channel..."
+
 createChannel
-
-## Join all the peers to the channel
-echo "Having all peers join the channel..."
 joinChannel
-
-## Set the anchor peers for each org in the channel
 echo "Updating anchor peers for org1..."
 updateAnchorPeers 0
 echo "Updating anchor peers for org2..."
 updateAnchorPeers 2
+echo "Updating anchor peers for org3..."
+updateAnchorPeers 4
+echo "Updating anchor peers for org4..."
+updateAnchorPeers 6
 
-## Install chaincode on Peer0/Org1 and Peer2/Org2
-echo "Installing chaincode on org1/peer0..."
+
+
+echo "Installing chaincode on org1..."
 installChaincode 0
-echo "Install chaincode on org2/peer2..."
+echo "Install chaincode on org2..."
 installChaincode 2
+echo "Install chaincode on org3..."
+installChaincode 4
+echo "Install chaincode on org4"
+installChaincode 6
 
-#Instantiate chaincode on Peer2/Org2
-echo "Instantiating chaincode on org2/peer2..."
+
+echo "Instantiating chaincode on org2..."
 instantiateChaincode 2
-
-#Query on chaincode on Peer0/Org1
-echo "Querying chaincode on org1/peer0..."
+echo "Querying chaincode on org1..."
 chaincodeQuery 0 100
-
-#Invoke on chaincode on Peer0/Org1
-echo "Sending invoke transaction on org1/peer0..."
+echo "Sending invoke transaction on org1..."
 chaincodeInvoke 0
 
-## Install chaincode on Peer3/Org2
-echo "Installing chaincode on org2/peer3..."
-installChaincode 3
-
-#Query on chaincode on Peer3/Org2, check if the result is 90
-echo "Querying chaincode on org2/peer3..."
-chaincodeQuery 3 90
-
 echo
-echo "========= All GOOD, BYFN execution completed =========== "
-echo
-
-echo
-echo " _____   _   _   ____   "
-echo "| ____| | \ | | |  _ \  "
-echo "|  _|   |  \| | | | | | "
-echo "| |___  | |\  | | |_| | "
-echo "|_____| |_| \_| |____/  "
-echo
+echo "Success"
 
 exit 0

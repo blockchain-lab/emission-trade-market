@@ -1,3 +1,3 @@
-./byfn.sh -m down
-./byfn.sh -m generate
-./byfn.sh -m up -s couchdb -a
+sh network_setup.sh -m down
+sh network_setup.sh -m generate
+sh network_setup.sh -m up -s couchdb -a

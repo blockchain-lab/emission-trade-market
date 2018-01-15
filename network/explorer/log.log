@@ -1,107 +1,29 @@
 Please open Internet explorer to access ：http://localhost:8080/
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:53:57.886] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:53:57.889] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
+E0115 21:01:07.001752000 140735096107008 ssl_transport_security.cc:585] Could not add root certificate to ssl context.
+E0115 21:01:07.001804000 140735096107008 ssl_transport_security.cc:1383] Cannot load server root certificates.
+E0115 21:01:07.001834000 140735096107008 security_connector.cc:1046]   Handshaker factory creation failed with TSI_INTERNAL_ERROR.
+E0115 21:01:07.001842000 140735096107008 secure_channel_create.cc:113] Failed to create secure subchannel for secure name '127.0.0.1:8051'
+E0115 21:01:07.001847000 140735096107008 secure_channel_create.cc:145] Failed to create subchannel arguments during subchannel creation.
+E0115 21:01:07.001885000 140735096107008 ssl_transport_security.cc:436] Corruption detected.
+E0115 21:01:07.001937000 140735096107008 ssl_transport_security.cc:412] error:0B07C065:x509 certificate routines:X509_STORE_add_cert:cert already in hash table
+E0115 21:01:07.001944000 140735096107008 secure_endpoint.cc:185]       Decryption error: TSI_DATA_CORRUPTED
+[31merror[39m: [Peer.js]: sendProposal - timed out after:45000
+[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: REQUEST_TIMEOUT
+    at Timeout._onTimeout (/Users/tamycova/emission-trade-market/network/explorer/node_modules/fabric-client/lib/Peer.js:107:19)
+    at ontimeout (timers.js:475:11)
+    at tryOnTimeout (timers.js:310:5)
+    at Timer.listOnTimeout (timers.js:270:5)
+[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: REQUEST_TIMEOUT
+    at Timeout._onTimeout (/Users/tamycova/emission-trade-market/network/explorer/node_modules/fabric-client/lib/Peer.js:107:19)
+    at ontimeout (timers.js:475:11)
+    at tryOnTimeout (timers.js:310:5)
+    at Timer.listOnTimeout (timers.js:270:5)
+[31m[2018-01-15 21:01:52.007] [ERROR] Query - [39mError: REQUEST_TIMEOUT
+    at Timeout._onTimeout (/Users/tamycova/emission-trade-market/network/explorer/node_modules/fabric-client/lib/Peer.js:107:19)
+    at ontimeout (timers.js:475:11)
+    at tryOnTimeout (timers.js:310:5)
+    at Timer.listOnTimeout (timers.js:270:5)
+[31m[2018-01-15 21:01:52.009] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
+    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/explorer/app/query.js:208:33)
     at <anonymous>
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:53:58.926] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:53:58.926] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query block. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:53:59.110] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-(node:3887) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 7): TypeError: Cannot read property 'number' of undefined
-(node:3887) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:53:59.946] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:53:59.946] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:00.977] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:00.977] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:01.997] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:01.997] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:03.053] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:03.053] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:04.080] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:04.080] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:05.108] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:05.108] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:06.151] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:06.151] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
-[31merror[39m: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31merror[39m: [Channel.js]: Failed Query channel info. Error: Error: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:07.181] [ERROR] Query - [39mError: Failed to deserialize creator identity, err MSP Org1MSP is unknown
-    at /Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/grpc/src/client.js:554:15
-[31m[2018-01-15 15:54:07.181] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
-[31m[2018-01-15 15:54:41.647] [ERROR] Query - [39mError: Missing userContext parameter
-    at new TransactionID (/Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/fabric-client/lib/TransactionID.js:43:10)
-    at Channel.queryInfo (/Users/tamycova/emission-trade-market/network/blockchain-explorer/node_modules/fabric-client/lib/Channel.js:765:14)
-    at helper.getOrgAdmin.then (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:93:18)
-    at <anonymous>
-[31m[2018-01-15 15:54:41.647] [ERROR] blockscanner - [39mTypeError: Cannot read property 'low' of undefined
-    at getChainInfo.then.response (/Users/tamycova/emission-trade-market/network/blockchain-explorer/app/query.js:208:33)
-    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)

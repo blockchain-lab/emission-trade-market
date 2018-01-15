@@ -1,6 +1,111 @@
 <div class="container-fluid">
-    <h1>Administration</h1>
-    <tr>
-        <th >
-    </tr>
+    <h1 class="page-header">Administration</h1>
+    <button class="btn btn-primary" ng-click="openAddEttDlg()">Add Assets</button>
+    <button class="btn btn-primary" ng-click="openAddCompanyDlg()">Add Participants</button>
+    <button class="btn btn-primary" ng-click="refresh()">Refresh</button>
+    <h4>PLEASE CLICK REFRESH BTN AFTER AN ACTION!</h4>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Company ID</th>
+            <th>Company Name</th>
+            <th>Consumed Emission Units</th>
+            <th>Emission Trade Token ID</th>            
+            <th>Emission Limit</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat="asset in allAssets">
+        <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ asset.companyID }}</td>
+            <td>{{ asset.name }}</td>
+            <td>0</td>
+            <td>{{ asset.ett }}</td>
+            <td>{{ asset.ett.limit }}</td>
+            <td>
+                <button class="btn btn-success" ng-click="openUpdateDlg()">Update</button>
+                <button class="btn btn-danger" ng-click="openDeleteDlg(asset.companyID)">Delete</button>
+            </td> 
+        </tr>
+        </tbody>
+    </table>
 </div>
+
+<!-- addEtt Templates -->
+<script type="text/ng-template" id="addEttDlg">
+    <h4>Add Asset</h4>
+    <form method="post" name="form" ng-submit="addEtt()">
+        <div class="form-group">
+            <label for="ettID">EttID</label>
+            <input type="text" name="ettID" id="ettID" class="form-control" ng-model="add_ettID" required>
+        </div>
+        <div class="form-group">
+            <label for="limit">Limit</label>
+            <input type="number" name="limit" id="limit" class="form-control" ng-model="limit" required />
+        </div>
+        <div class="form-group">
+            <label for="owner">Owner</label>
+            <input type="text" name="owner" id="owner" class="form-control" ng-model="owner" required />
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</script>
+
+<!-- addCompany Templates -->
+<script type="text/ng-template" id="addCompanyDlg">
+    <h4>Add Company</h4>
+    <form method="post" name="form" ng-submit="addCompany()">
+        <div class="form-group">
+            <label for="companyID">Company ID</label>
+            <input type="text" name="companyID" id="companyID" class="form-control" ng-model="companyID" required>
+        </div>
+        <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" name="companyName" id="companyName" class="form-control" ng-model="companyName" required />
+        </div>
+        <div class="form-group">
+            <label for="ettID">Ett ID</label>
+            <input type="text" name="ettID" id="ettID" class="form-control" ng-model="ettID" required />
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</script>
+
+<!-- update Templates -->
+<script type="text/ng-template" id="updateDlg">
+    <h4>Add Asset</h4>
+    <form method="post" name="form" ng-submit="update()">
+        <div class="form-group">
+            <label for="ettID">EttID</label>
+            <input type="text" name="ettID" id="ettID" class="form-control" ng-model="ettID" required>
+        </div>
+        <div class="form-group">
+            <label for="limit">Limit</label>
+            <input type="number" name="limit" id="limit" class="form-control" ng-model="limit" required />
+        </div>
+        <div class="form-group">
+            <label for="owner">Owner</label>
+            <input type="text" name="owner" id="owner" class="form-control" ng-model="owner" required />
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</script>
+
+<!-- delete Templates -->
+<script type="text/ng-template" id="deleteDlg">
+    <h4>Delete Asset</h4>
+    <div>Are you sure you want to delete this asset?</div>
+    <form method="post" name="form" ng-submit="delete()">
+        <div class="form-actions">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+    </form>
+</script>

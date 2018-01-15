@@ -28,6 +28,8 @@ function Trade(transaction) {
           console.log("update company balance!");
           return assetRegistry.updateAll([buyer.ett, seller.ett]);
       }); 
+
+      TradeEvent(transaction);
 }
 
 /**
@@ -72,16 +74,18 @@ function ChangeEttOwner(transaction) {
 
 
 /**
-* GiveEtt transaction
-* @param {org.emission.network.GiveEtt} Transaction
-* @transaction
-*/
-function GiveEtt(transaction) {
-    var assetRegistry;
-        
-    
-    
-    
-  }
-  
-  
+ * Emit event on trade
+ * @param {org.emission.market.Trade} transaction
+ * @transaction
+ */
+function TradeEvent(transaction) {
+    var factory = getFactory();
+
+    var event = factory.newEvent('org.emission.market', 'TradeEvent');
+    event.seller = transaction.seller;
+    event.buyer = transaction.buyer;
+    event.ett = transaction.ett;
+    event.message = "Trade " +  event.ett.emissionToTrade  + ": " + event.seller + " -> " + event.buyer;
+
+    emit(event);
+}

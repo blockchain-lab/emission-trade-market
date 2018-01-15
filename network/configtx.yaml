@@ -26,6 +26,10 @@ Profiles:
                     - *Org2
                     - *Org3
                     - *Org4
+            OtherConsortium:
+                Organizations:
+                    - *Org5
+                    - *Org6
     TwoOrgsChannel:
         Consortium: SampleConsortium
         Application:
@@ -35,6 +39,13 @@ Profiles:
                 - *Org2
                 - *Org3
                 - *Org4
+    OtherOrgsChannel:
+        Consortium: OtherConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org5
+                - *Org6
 
 ################################################################################
 #
@@ -123,6 +134,40 @@ Organizations:
             # for cross org gossip communication.  Note, this value is only
             # encoded in the genesis block in the Application section context
             - Host: peer0.org4.example.com
+              Port: 7051
+
+    - &Org5
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org5MSP
+
+        # ID to load the MSP definition as
+        ID: Org5MSP
+
+        MSPDir: crypto-config/peerOrganizations/org5.example.com/msp
+
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org5.example.com
+              Port: 7051
+
+    - &Org6
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org6MSP
+
+        # ID to load the MSP definition as
+        ID: Org6MSP
+
+        MSPDir: crypto-config/peerOrganizations/org6.example.com/msp
+
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org6.example.com
               Port: 7051
 ################################################################################
 #

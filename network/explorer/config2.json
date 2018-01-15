@@ -1,0 +1,45 @@
+{
+    "network-config": { 
+    "org5": {
+        "name": "Org5",
+        "mspid": "Org5MSP",
+        "peer0": {
+            "requests": "grpcs://127.0.0.1:14051",
+            "events": "grpcs://127.0.0.1:14053",
+            "server-hostname": "peer0.org5.example.com",
+            "tls_cacerts": "../crypto-config/peerOrganizations/org5.example.com/peers/peer0.org5.example.com/tls/ca.crt"
+        },          
+        "admin": {
+            "key": "../crypto-config/peerOrganizations/org5.example.com/users/Admin@org5.example.com/msp/keystore",
+            "cert": "../crypto-config/peerOrganizations/org5.example.com/users/Admin@org5.example.com/msp/signcerts"
+        }
+    },
+    "org6": {
+        "name": "Org6",
+        "mspid": "Org6MSP",
+        "peer0": {
+            "requests": "grpcs://127.0.0.1:15051",
+            "events": "grpcs://127.0.0.1:15053",
+            "server-hostname": "peer0.org6.example.com",
+            "tls_cacerts": "../crypto-config/peerOrganizations/org6.example.com/peers/peer0.org6.example.com/tls/ca.crt"
+        },          
+        "admin": {
+            "key": "../crypto-config/peerOrganizations/org6.example.com/users/Admin@org6.example.com/msp/keystore",
+            "cert": "../crypto-config/peerOrganizations/org6.example.com/users/Admin@org6.example.com/msp/signcerts"
+        }
+    }               
+    },
+   "host":"localhost",
+   "port":"8084",
+   "channel": "secondary",
+   "GOPATH":"../artifacts",
+   "keyValueStore":"/tmp/fabric-client-kvs2",
+   "eventWaitTime":"30000",     
+   "mysql":{
+      "host":"127.0.0.1",
+      "port":"3306",
+      "database":"fabricexplorer",
+      "username":"root",
+      "passwd":"tamy123"
+   }
+}

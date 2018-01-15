@@ -93,8 +93,12 @@ function Sell(transaction) {
 
                     // decrease emissionLimit from seller and give to his ett 
                     seller.emissionLimit -= emission;
+              
+  					var id = seller.ett.getIdentifier()
 
-                    return query('selectEttByID', { ettID: ett.getIdentifier() })
+                    console.log("emission id", id); 
+
+                    return query('selectEttByID', { ettID: id }) 
                         .then(function (results) {
 
                             var ett = results[0];

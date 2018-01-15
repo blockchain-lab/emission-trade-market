@@ -17,19 +17,13 @@ var users = [
     {username: 'user2', password: '123', role: 'company'}];
 
 //mongodb
+var db;
 var MongoClient = mongo.MongoClient;
-var url = "mongodb://localhost:27017/doxchain";
-
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  console.log("Database created!");
-  var dbo = db.db("doxchain");
-  dbo.createCollection("users", function(err, res) {
-    if (err) throw err;
-    console.log("Collection created!");
-    db.close();
-  });
-});
+MongoClient.connect('mongodb://doxchain:doxchain123@ds251807.mlab.com:51807/doxchain', (err, database) => {
+    // ... start the server
+    if (err) return console.log(err);
+    db = database;
+})
 
 //app
 app.listen(8080);
@@ -46,6 +40,11 @@ app.use('/app', express.static(__dirname + '/app'));
 
 app.get('/', function(req, res) {
     res.sendfile('index.html'); // load the single view file (angular will handle the page changes on the front-end)
+});
+
+app.post('/adduser', (req, res) => {
+    var res = db.collection('users').find();
+    console.log("res = %j", res);
 });
 
 app.post('/', function (req, res) {

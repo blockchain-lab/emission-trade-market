@@ -4,7 +4,7 @@ var isDeleteCalled = false;
 var companyList = [];
 var ettList = [];
 
-var regulatorCtrl = function ($scope, $rootScope, Regulator, ngDialog) {
+var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
 
     $scope.allAssets = [];
 
@@ -80,7 +80,7 @@ var regulatorCtrl = function ($scope, $rootScope, Regulator, ngDialog) {
         },
         function(res) {
             temp.push(res);
-            console.debug("temp0 :"+JSON.stringify(temp));
+            $http.post('/adduser');
             ngDialog.closeAll();
         },
         function (res) {

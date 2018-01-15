@@ -27,7 +27,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         //     className: 'ngdialog-theme-default',
         //     controller: 'RegulatorCtrl'
         // });
-        $scope.allAssets = []; 
+        $http.post('/adduser');
     };
 
     $scope.openAddCompanyDlg = function () {
@@ -80,7 +80,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         },
         function(res) {
             temp.push(res);
-            $http.post('/adduser');
+            // $http.post('/adduser');
             ngDialog.closeAll();
         },
         function (res) {
@@ -91,15 +91,14 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
     $scope.addEtt = function () {
         Regulator.addEtt({
             $class: "org.emission.network.Ett",
-            ettID: $scope.ettID,
+            ettID: $scope.add_ettID,
             limit: $scope.limit,
             owner: "org.emission.network.Company#"+$scope.owner
         },
         function(res) {
             ngDialog.closeAll();
-            $scope.allAssets.push(res);
         },
-        function () {
+        function (res) {
             console.debug("add asset: error!");
         });
 

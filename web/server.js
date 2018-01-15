@@ -18,12 +18,19 @@ var users = [
 
 //mongodb
 var db;
-var MongoClient = mongo.MongoClient;
-MongoClient.connect('mongodb://doxchain:doxchain123@ds251807.mlab.com:51807/doxchain', (err, database) => {
-    // ... start the server
-    if (err) return console.log(err);
-    db = database;
-})
+
+var openDB = function () {
+    var MongoClient = mongo.MongoClient;
+    MongoClient.connect('mongodb://admin:123@ds251807.mlab.com:51807/doxchain', (err, database) => {
+        // ... start the server
+        if (err) return console.log(err);
+        db = database;
+    });
+};
+
+var closeDB = function () {
+    db.close();
+};
 
 //app
 app.listen(8080);
@@ -43,8 +50,12 @@ app.get('/', function(req, res) {
 });
 
 app.post('/adduser', (req, res) => {
-    var res = db.collection('users').find();
-    console.log("res = %j", res);
+    openDB();
+    var col = db.collection('users');
+    // col.insert([{username: 'user2', password: '123', role: 'company'}], function(error, result){
+        
+    // });
+    closeDB();
 });
 
 app.post('/', function (req, res) {

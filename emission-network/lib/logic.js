@@ -45,8 +45,8 @@ function removeFromMarket(ett, market) {
     var index = market.etts.indexOf(ett);
     if (index > -1) {
         market.etts.splice(index, 1);
+        console.log("removed ett from market");
     }
-    console.log("removed ett from market ");
 }
 
 var baseMarketID = "M0"; // Currently only one market, should be based on channel

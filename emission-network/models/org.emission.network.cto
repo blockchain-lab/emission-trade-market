@@ -9,7 +9,7 @@ participant Company identified by companyID {
   o String name
   o Integer emissionConsumed
   o Integer emissionLimit
-  --> Ett ett // TODO: returns string instead of object "resource:org.emission.network.Ett#1"
+  --> Ett ett 
 }
 
 participant Regulator identified by regulatorID {

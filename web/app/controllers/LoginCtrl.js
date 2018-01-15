@@ -3,6 +3,7 @@ var loginCtrl = function ($scope, $location, $rootScope, ngDialog, Auth) {
     $rootScope.isLoggedin = false;
 
     $scope.openLoginDlg = function () {
+        $rootScope.error = "";
         ngDialog.open({
             template: 'loginDlg',
             className: 'ngdialog-theme-default',

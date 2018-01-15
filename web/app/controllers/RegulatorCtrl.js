@@ -1,8 +1,7 @@
 var temp = [];
 var removed_id;
+var removed_name = "";
 var isDeleteCalled = false;
-var companyList = [];
-var ettList = [];
 
 var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
 
@@ -46,8 +45,9 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         });
     };
 
-    $scope.openDeleteDlg = function (id) {
+    $scope.openDeleteDlg = function (id, name) {
         removed_id = id;
+        removed_name = name;
         ngDialog.open({
             template: 'deleteDlg',
             className: 'ngdialog-theme-default',
@@ -112,6 +112,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         Regulator.delete(removed_id,
         function(res) {
             isDeleteCalled = true;
+            $http.post('/deleteuser', {companyname: removed_name});
             ngDialog.closeAll();
         },
         function (res) {

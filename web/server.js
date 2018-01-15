@@ -45,26 +45,45 @@ app.post('/adduser', function (req, res) {
     });
 });
 
+app.post('/deleteuser', function (req, res) {
+    mongo.MongoClient.connect('mongodb://admin:123@ds251807.mlab.com:51807/doxchain', function(err, db) {
+
+        // ... start the server
+        if (err) return console.log(err);
+
+        var col = db.collection('users');
+        col.deleteMany({ username: req.body.companyname }, function(err, res){});
+        db.close();
+    });
+});
+
 app.post('/', function (req, res) {
     var role = roles.guest, username = '';
 
     //console.log(util.inspect(req.body));
 
-    if (req.body) {
-        username = req.body.username;
-        var i;
-        for (i = 0; i < users.length; i++){
-            if(req.body.username == users[i]['username'] && req.body.password == users[i]['password']){
-                role = users[i]['role'];
+    mongo.MongoClient.connect('mongodb://admin:123@ds251807.mlab.com:51807/doxchain', function(err, db) {
+
+        if (err) return console.log(err);
+
+        var col = db.collection('users');
+        col.find({username: req.body.username, password: req.body.password}).toArray(function (err, docs){
+
+            if(docs.length > 0) {
+                username = docs[0].username;
+                role = docs[0].role;
+
+                res.cookie('user', JSON.stringify({
+                    'username': username,
+                    'role': role
+                }));
+
+                console.log(JSON.stringify({username: username, role: role}));
+                res.send({username: username, role: role});
+            }else{
+                res.status(500).send();
             }
-        }
-    }
-
-    res.cookie('user', JSON.stringify({
-        'username': username,
-        'role': role
-    }));
-
-    console.log(JSON.stringify({username: username, role: role}));
-    res.send({username: username, role: role});
+            db.close();
+        });
+    });
 });

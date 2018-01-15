@@ -10,6 +10,12 @@ query selectEtt {
       SELECT org.emission.network.Ett
 }
 
+query selectEttsInMarket {
+  description: "selects all ett in the market"
+  statement:
+    SELECT org.emission.network.Ett FROM org.emission.network.Market.etts 
+}
+
 
 query selectEttByID {
   description: "Select ett by id"
@@ -21,5 +27,11 @@ query selectCompanyByID {
   description: "Select Company by id"
   statement:
       SELECT org.emission.network.Company  WHERE (_$companyID == companyID)
+}
+
+query selectMarketByID {
+  description: "Select Market by id"
+  statement:
+      SELECT org.emission.network.Market  WHERE (_$marketID == marketID)
 }
 

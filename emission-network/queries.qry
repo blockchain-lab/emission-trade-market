@@ -23,3 +23,9 @@ query selectCompanyByID {
       SELECT org.emission.network.Company  WHERE (_$companyID == companyID)
 }
 
+query selectMarketByID {
+  description: "Select Market by id"
+  statement:
+      SELECT org.emission.network.Market  WHERE (_$marketID == marketID)
+}
+

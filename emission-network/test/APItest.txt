@@ -1,0 +1,32 @@
+--TESTS--
+
+Trade:
+
+{
+  "$class": "org.emission.network.Trade",
+  "emission": 100,
+  "buyer": "resource:org.emission.network.Company#b",
+  "seller": "resource:org.emission.network.Company#A"
+}
+
+--
+
+Setup:
+ISSUE IDENTITY TO COMPANIES SO THEY ARE ADDED TO PARTICIPANT REGISTRY!
+Compan#A have 100 emissionLimit
+Ett#A have 0 emissionLimit
+
+Sell:
+
+{
+  "$class": "org.emission.network.Sell",
+  "emission": 50,
+  "sellerID": "1"
+}
+
+Result:
+the Company#A should have 100 -> 50 emissionLimit 
+and Ett#A should have 50 emission
+Market should be updated
+
+--

@@ -42,18 +42,19 @@ function trade(buyer, seller, emission) {
 function addToMarket(ett, market) {
     console.log("addToMarket: ", ett, market);
 
-    var marketEtt = market.etts.find(function(e) {
+    var marketEtt = market.etts.find(function (e) {
         return e;
     });
-    if(marketEtt != undefined) {
-        console.log("ett already in market; increasing its emission");   
+    if (marketEtt != undefined) {
+        console.log("ett already in market; increasing its emission");
         marketEtt.emission += ett.emission;
     } else {
+      	console.log("pushed ett to market");
         market.etts.push(ett);
     }
 
-  	// increase emission of market
-  	market.emission += ett.emission;
+    // increase emission of market
+    market.emission += ett.emission;
 
     console.log("added to market ", ett);
 }
@@ -79,7 +80,7 @@ function Sell(transaction) {
     var assetRegistry;
     return query('selectCompanyByID', { companyID: transaction.sellerID })
         .then(function (results) {
-      
+
             var promises = [];
             var seller = results[0];
             var emission = transaction.emission;
@@ -87,52 +88,50 @@ function Sell(transaction) {
 
             return query('selectMarketByID', { marketID: baseMarketID })
                 .then(function (results) {
-                    //var promises = [];
+                    var promises = [];
                     var market = results[0];
-              
+
                     // decrease emissionLimit from seller and give to his ett 
-             		seller.emissionLimit -= emission;                 
-              		ett.emission = seller.emissionLimit;
-              
-              		console.log("emission", ett.emission);
-                                  
+                    seller.emissionLimit -= emission;
+                    ett.emission = seller.emissionLimit;
+
+                    console.log("emission", ett.emission);
+
                     return getAssetRegistry('org.emission.network.Market')
                         .then(function (registry) {
                             return registry.get(baseMarketID)
-                                .then(function(market) {
-                                    console.log("update Market" , market);
+                                .then(function (market) {
+                                    console.log("update Market", market);
 
                                     addToMarket(ett, market);
-                                    
-                                    return registry.update(market);
+
+                                    promises.push(registry.update(market));
                                 })
-                        })                    
+                        })
                         .then(function () {
-                            return getParticipantRegistry('org.emission.network.Company') 
+                            return getParticipantRegistry('org.emission.network.Company')
                                 .then(function (registry) {
                                     console.log("update Company");
 
-                                    return registry.update(seller);
+                                    promises.push(registry.update(seller));
                                 })
-                                .catch(function (error) {
-                                    console.log(error);
-                                    return error;
+                        })
+               /*        
+               .then(function () {
+                            return getAssetRegistry('org.emission.network.Ett')// TODO : Error: Expected a Resource or Concept.
+                                .then(function (registry) {
+                                    console.log("ett reg ", registry.getAll());
+                                    console.log("update Ett emission", ett.emission);
+
+                                    promises.push(registry.update(ett));
                                 });
                         })
+                        */
                         .then(function () {
-                            return getAssetRegistry('org.emission.network.Ett')// TODO : Error: Expected a Resource or Concept.
-                                .then(function (re) {
-                                console.log("ett reg ", re.getAll());
-                                console.log("update Ett emission", ett.emission);
-
-                                return re.update(ett);
-                            	});
-                       })
-                      .then(function() {                     	
-                      		console.log("done");
+                            console.log("done");
                             // we have to return all the promises
                             return Promise.all(promises);
-                    });
+                        });
                 })
         })
 };
@@ -152,29 +151,28 @@ function Buy(transaction) {
             var buyer = company;
             var emissionToBuy = transaction.emission;
 
-            return getAssetRegistry('org.emission.network.Market')
-                .then(function (assetRegistry) {
-                    console.log("update Market");
+            return query('selectMarketByID', { marketID: baseMarketID })
+                .then(function (results) {
+                
+                    var market = results[0];
+                    var marketEtts = market.etts;
 
-                    return query('selectMarketByID', { marketID: baseMarketID })
-                        .then(function (result) {
-                            var promises = [];
-                            var market = result;
-                            var marketEtts = market.etts;
+                    var i = 0;
+                    while (emissionToBuy > 0) {
+                        var ett = marketEtts[i];
+                        var bought = trade(buyer, ett.owner, emissionToBuy);
+                        emissionToBuy -= bought;
+                    }
 
-                            var i = 0;
-                            while (emissionToBuy > 0) {
-                                var ett = marketEtts[i];
-                                var bought = trade(buyer, ett.owner, emissionToBuy);
-                                emissionToBuy -= bought;
-                            }
+                    removeFromMarket(ett, market);
 
-                            removeFromMarket(ett, market);
-
-                            promises.push(assetRegistry.update(market));
-
-                            // we have to return all the promises
-                            return Promise.all(promises);
+                    return assetRegistry.update(market);
+                })
+                .then(function () {
+                    return getAssetRegistry('org.emission.network.Market')
+                        .then(function (assetRegistry) {
+                            console.log("update Market");
+                            return assetRegistry.update(market);
                         })
                 })
         })

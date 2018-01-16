@@ -1,0 +1,4 @@
+2018-01-15T22:38:59.979Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: chaincode error (status: 500, message: Error installing chaincode code emission-network:0.16.3(chaincode /var/hyperledger/production/chaincodes/emission-network.0.16.3 exists))
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-15T22:39:00.201Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: chaincode error (status: 500, message: Error installing chaincode code emission-network:0.16.3(chaincode /var/hyperledger/production/chaincodes/emission-network.0.16.3 exists))
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$

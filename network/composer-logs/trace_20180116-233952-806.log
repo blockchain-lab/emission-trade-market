@@ -1,0 +1,10 @@
+2018-01-15T22:39:54.314Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: chaincode error (status: 500, message: chaincode exists emission-network)
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-15T22:39:54.345Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: chaincode error (status: 500, message: chaincode exists emission-network)
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-15T22:39:54.352Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: chaincode error (status: 500, message: chaincode exists emission-network)
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-15T22:39:54.371Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: chaincode error (status: 500, message: chaincode exists emission-network)
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-15T22:39:54.420Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: chaincode error (status: 500, message: chaincode exists emission-network)
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$

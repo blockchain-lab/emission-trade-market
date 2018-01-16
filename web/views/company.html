@@ -1,9 +1,10 @@
 <div class="container">
     <h1 class="page-header">Transaction</h1>
+    <p>Hello {{ username }}!</p>
     <div class="row">
         <div class="col-6">
             <p class="font-weight-normal">Available Emission Units on the market:</p>
-            <h1>0</h1>
+            <h1 ng-bind="available">0</h1>
         </div>
         <div class="col-6">
             <p class="font-weight-normal">Price per Emission Unit:</p>
@@ -14,11 +15,11 @@
     <div class="row">
         <div class="col-3">
             <p class="font-weight-normal">On-sale Emission Units:</p>
-            <h1>0</h1>
+            <h1 ng-bind="onsale">0</h1>
         </div>
         <div class="col-3">
             <p class="font-weight-normal">Emission Limit:</p>
-            <h1>0</h1>
+            <h1 ng-bind="limit">0</h1>
         </div>
         <div class="col-3">
             <p class="font-weight-normal">Consumed Emission Units:</p>
@@ -40,12 +41,8 @@
                         <label>Emission</label>
                         <input id="buy-amount" class="form-control" placeholder="Amount" ng-model="buy_amount" required>
                     </div>
-                    <div class="form-group">
-                        <label>Company ID</label>
-                        <input id="buy-id" class="form-control" placeholder="Your Company ID" ng-model="buy_id" required>
-                    </div>
                 </form>
-                <button id="btn-buy" class="btn btn-primary" type="submit">Buy</button>
+                <button id="btn-buy" class="btn btn-primary" type="submit" ng-click="buy()">Buy</button>
             </div>
         </div>
         <div class="col-6">
@@ -57,17 +54,13 @@
                         <label>Emission</label>
                         <input id="sell-amount" class="form-control" placeholder="Amount" ng-model="sell_amount" required>
                     </div>
-                    <div class="form-group">
-                        <label>Company ID</label>
-                        <input id="sell-id" class="form-control" placeholder="Your Company ID" ng-model="sell_id" required>
-                    </div>
                 </form>
-                <button id="btn-sell" class="btn btn-primary" type="submit">Sell</button>
+                <button id="btn-sell" class="btn btn-primary" type="submit" ng-click="sell()">Sell</button>
             </div>
         </div>
     </div>
     <h4>PLEASE REFRESH THIS PAGE BY CLICKING THE BTN BELOW</h4>
-    <button class="btn btn-primary">Refresh</button>
+    <button class="btn btn-primary" ng-click="refresh()">Refresh</button>
 </div>
 
 

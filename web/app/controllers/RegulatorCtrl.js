@@ -76,6 +76,8 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
             $class: "org.emission.network.Company",
             companyID: $scope.companyID,
             name: $scope.companyName,
+            emissionConsumed: 0,
+            emissionLimit: $scope.limit,
             ett: "org.emission.network.Ett#"+$scope.ettID
         },
         function(res) {
@@ -92,7 +94,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         Regulator.addEtt({
             $class: "org.emission.network.Ett",
             ettID: $scope.add_ettID,
-            limit: $scope.limit,
+            emission: 0,
             owner: "org.emission.network.Company#"+$scope.owner
         },
         function(res) {

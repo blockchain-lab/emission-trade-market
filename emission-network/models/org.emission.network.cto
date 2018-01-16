@@ -25,7 +25,7 @@ asset Ett identified by ettID {
 asset Market identified by marketID {  
     o String marketID
     o Integer emission
-    --> Ett[] etts
+    --> Ett[] etts optional
 }
 
 transaction Trade {

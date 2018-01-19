@@ -8,11 +8,14 @@ function trade(buyer, ett, emission) {
 
     // sell maximum what's in the ett's emission   
     if (ett.emission < emission) {
-        console.warn("trying to buy more ett than avaible in ett: " + ett.emission + " < " + emission);
+        console.log("trying to buy more ett than avaible in ett: " + ett.emission + " < " + emission);
         emission = ett.emission;
     }
+    var tmp = buyer.emissionLimit;
+    
     // decrease emissionLimit of buyer and inrease emissionLimit of owner   
     buyer.emissionLimit += emission;
+    console.log(buyer.name + " emission level increased to " + buyer.emissionLimit + " from " + tmp);
 
     return emission;
 }
@@ -41,12 +44,17 @@ function addToMarket(ett, transaction, market) {
 
 // remove ett from market
 function removeFromMarket(ett, market) {
-
-    var index = market.etts.indexOf(ett);
-    if (index > -1) {
-        market.etts.splice(index, 1);
-        console.log("removed ett from market");
-    }
+	
+  	var etts = market.etts;
+  	console.log("market.etts = " + etts);
+  	console.log("ett = " + ett.id);
+  
+  	etts.forEach(function(e) {
+    	if(e.id == ett.id) {
+           etts.splice(etts.indexOf(e), 1);
+           console.log("removed ett from market ");
+        }
+    })
 }
 
 var baseMarketID = "M0"; // Currently only one market, should be based on channel
@@ -73,7 +81,7 @@ function Sell(transaction) {
 
                     // Check if seller has enough emission to sell
                     if (seller.emissionLimit < emission) {
-                        throw "Cannot trade emission: Seller do not have enough emission";
+                        throw "Cannot trade emission: Seller have " + seller.emissionLimit + " emisison";
                         return;
                     }
                     // decrease emissionLimit from seller and give to his ett 
@@ -146,7 +154,7 @@ function Buy(transaction) {
                     market = results[0];
                     marketEtts = market.etts;
 
-                    // keep on buying emission from market until all is bought
+                    // TODO: keep on buying emission from market until all is bought
                     var ett = marketEtts[0];
 
                     return query('selectEttByID', { ettID: ett.getIdentifier() })
@@ -158,7 +166,12 @@ function Buy(transaction) {
                             return query('selectCompanyByID', { companyID: marketEtt.owner.getIdentifier() })
                                 .then(function (results) {
                                     seller = results[0];
-                                    
+
+                                    if(buyer.id == seller.id) {
+                                        buyer = seller;
+                                        console.log("buying back own ett");
+                                    }
+
                                     var bought = trade(buyer, marketEtt, emissionToBuy);
                                     console.log(buyer + " bought " + bought + " emission from " + seller);
                               
@@ -190,8 +203,7 @@ function Buy(transaction) {
                                 .then(function () {
                                     return getParticipantRegistry('org.emission.network.Company')
                                         .then(function (registry) {
-                                            console.log("update Company");
-
+                                 
                                             promises.push(registry.updateAll([buyer, seller]));
                                         })
                                 })
@@ -199,9 +211,7 @@ function Buy(transaction) {
                                     // we have to return all the promises
                                     return Promise.all(promises);
                                 });
-
                         })
-                    //    }                             
                 })
         })
 }

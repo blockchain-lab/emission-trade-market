@@ -17,22 +17,21 @@ function addToMarket(ett, transaction, market) {
         console.log("pushed ett to market");
         market.etts.push(ett);
     }
-
     // increase emission of market
     market.emission += transaction.emission;
 }
 
+// TODO : DOES NOT REMOVE ETT OR UPDATE MARKET EMISSION
 // remove ett from market
 function removeFromMarket(ett, market) {
     var etts = market.etts;
-    console.log("market.etts = " + etts);
 
-    etts.forEach(function (e) {
-        if (e.id === ett.id) {
-            etts.splice(etts.indexOf(e), 1);
-            console.log("removed ett from market ");
+    for(var i = 0; i < etts.length; i++) {
+        if(etts[i].getIdentifier() === ett.ettID) {
+            etts.splice(i, 1);
+            console.log("Successfully removed from market: " + ett);
         }
-    })
+    }
 }
 
 var marketID = "M0";
@@ -57,7 +56,7 @@ function Sell(transaction) {
                     // Check if seller has enough emission to sell
                     if (seller.emissionLimit < emission) {
                         throw "Cannot sell emission: Seller have " + seller.emissionLimit
-                        + ". You are trying to buy " + emission;
+                        + ". You are trying to sell " + emission;
                     }
                     // decrease emissionLimit from seller and give to his ett 
                     seller.emissionLimit -= emission;
@@ -85,7 +84,6 @@ function Sell(transaction) {
  * @transaction
  */
 function Buy(transaction) {
-
     return query('selectCompanyByID', {companyID: transaction.buyerID})
         .then(function (results) {
             var buyer = results[0];
@@ -100,36 +98,31 @@ function Buy(transaction) {
 }
 
 function buyFromMarket(buyer, market, emission) {
-
-    var promises = [];
-    var etts = market.etts;
+    var promises = [], ett, etts = market.etts;
 
     if(emission > market.emission) {
         throw "Cannot buy emission: market have " + market.emission
             + ". You are trying to buy " + emission;
     }
-
     for (var i = 0; i < etts.length; i++) {
-
         if (emission >= 0) {
             var ettRef = etts[i];
+
             if (ettRef === undefined) {
                 console.warn("Cannot buy emission: No more Ett in the market.");
                 return;
             }
-
             promises.push(query('selectEttByID', {ettID: ettRef.getIdentifier()})
                 .then(function (results) {
                     var ett = results[0];
-                    console.log("ett = " + ett);
 
                     emission -= updateEmissionFields(buyer, ett, market, emission);
 
-                    promises.push(updateEtt(ett));
                     promises.push(updateCompany(buyer));
+                    promises.push(updateEtt(ett));
                     promises.push(updateMarket(market));
-                })
-            )
+                }))
+
         }
     }
     // execute all promises
@@ -137,19 +130,13 @@ function buyFromMarket(buyer, market, emission) {
 }
 
 function updateEmissionFields(buyer, ett, market, emission) {
-
-    var emToBuy = emission;
-
     // sell maximum what's in the ett's emission   
-    if (ett.emission < emToBuy) {
-        emToBuy = ett.emission;
+    if (ett.emission < emission) {
+        emission = ett.emission;
     }
-
-    // decrease emissionLimit of buyer and inrease emissionLimit of owner                       
-    buyer.emissionLimit += emToBuy;
-    emission -= emToBuy;
-    ett.emission -= emToBuy;
-    market.emission -= emToBuy;
+    buyer.emissionLimit += emission;
+    ett.emission -= emission;
+    market.emission -= emission;
 
     console.log(buyer.name + " emission level increased to " + buyer.emissionLimit);
 
@@ -157,8 +144,7 @@ function updateEmissionFields(buyer, ett, market, emission) {
     if (ett.emission <= 0) {
         removeFromMarket(ett, market);
     }
-
-    return emToBuy;
+    return emission;
 }
 
 /**
@@ -223,6 +209,15 @@ function updateCompany(company) {
             console.log("update Company #" + company);
 
             return registry.update(company);
+        })
+}
+
+function updateEtts(etts) {
+    return getAssetRegistry('org.emission.network.Ett')
+        .then(function (registry) {
+            console.log("update Ett #" + etts);
+
+            return registry.updateAll(etts);
         })
 }
 

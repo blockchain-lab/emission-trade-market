@@ -31,7 +31,7 @@ describe('Decentralized Energy - check transactions, access', () => {
     // In-memory card store for testing so cards are not persisted to the file system
     const cardStore = new MemoryCardStore();
 
-    // Embedded connection used for local testing
+    // Embedded con used for local testing
     const connectionProfile = {
         name: 'embedded',
         type: 'embedded'
@@ -40,49 +40,56 @@ describe('Decentralized Energy - check transactions, access', () => {
     // Name of the business network card containing the administrative identity for the business network
     const adminCardName = 'admin';
 
-    // Admin connection to the blockchain, used to deploy the business network
+    // Admin con to the blockchain, used to deploy the business network
     let adminConnection;
 
-    // This is the business network connection the tests will use.
-    let businessNetworkConnection;
+    // This is the business network con the tests will use.
+    let con;
 
     // These are the identities 
-    const CAIdentity = 'CAi';
-    const CBIdentity = 'CBi';
+    const C1Identity = 'C1';
+    const C2Identity = 'C2';
+    const C3Identity = 'C3';
+
 
     let businessNetworkName;
     let factory;
     // These are a list of receieved events.
     let events;
-        
-    
+
+    let etts = [];
+    let companies = [];
+    let members;
+    let marketID = "M0";
+
+
     before(() => {
 
-        // Embedded connection does not need real credentials
+        // Embedded con does not need real credentials
         const credentials = {
             certificate: 'FAKE CERTIFICATE',
             privateKey: 'FAKE PRIVATE KEY'
         };
 
-        // Identity used with the admin connection to deploy business networks
+        // Identity used with the admin con to deploy business networks
         const deployerMetadata = {
             version: 1,
             userName: 'PeerAdmin1',
-            roles: [ 'PeerAdmin', 'ChannelAdmin' ]
+            roles: ['PeerAdmin', 'ChannelAdmin']
         };
         const deployerCard = new IdCard(deployerMetadata, connectionProfile);
         deployerCard.setCredentials(credentials);
         const deployerCardName = 'PeerAdmin1';
 
-        adminConnection = new AdminConnection({ cardStore: cardStore });
+        adminConnection = new AdminConnection({cardStore: cardStore});
 
         return adminConnection.importCard(deployerCardName, deployerCard).then(() => {
             return adminConnection.connect(deployerCardName);
         });
-         
-     });
 
-     /**
+    });
+
+    /**
      *
      * @param {String} cardName The card name to use for this identity
      * @param {Object} identity The identity details
@@ -103,6 +110,7 @@ describe('Decentralized Energy - check transactions, access', () => {
     beforeEach(() => {
 
         let businessNetworkDefinition;
+        let promises = [];
 
         // Generate a business network definition from the project directory.
         return BusinessNetworkDefinition.fromDirectory(path.resolve(__dirname, '..'))
@@ -125,231 +133,211 @@ describe('Decentralized Energy - check transactions, access', () => {
                 return adminConnection.importCard(adminCardName, adminCards.get('admin'));
             })
             .then(() => {
-                // Create and establish a business network connection
-                businessNetworkConnection = new BusinessNetworkConnection({ cardStore: cardStore });
+                // Create and establish a business network con
+                con = new BusinessNetworkConnection({cardStore: cardStore});
                 events = [];
-                businessNetworkConnection.on('event', event => {
+                con.on('event', event => {
                     events.push(event);
                 });
-                return businessNetworkConnection.connect(adminCardName);
+                return con.connect(adminCardName);
             })
             .then(() => {
                 // Get the factory for the business network.
-                factory = businessNetworkConnection.getBusinessNetwork().getFactory();
+                factory = con.getBusinessNetwork().getFactory();
 
+                members = 3;
+                for (let i = 0; i < members; i++) {
+                    let ett, company;
+                    ett = factory.newResource(network, 'Ett', i + "");
+                    ett.ettID = i + "";
+                    ett.owner = factory.newRelationship(network, 'Company', i + "");
+                    ett.emission = 0;
 
-                // create 2 ett assets
-                const producer_ett = factory.newResource(network, 'ETT', 'ETT_CA');
-                producer_ett.owner = 'CompanyA';
+                    company = factory.newResource(network, 'Company', i + "");
+                    company.companyID = i + "";
+                    company.name = "Company" + i;
+                    company.ett = factory.newRelationship(network, 'Ett', i + "");
+                    company.emissionLimit = 1000;
+                    company.emissionConsumed = 0;
 
-                const consumer_ett = factory.newResource(network, 'ETT', 'ETT_CB');
-                consumer_ett.owner = 'CompanyB';
-              
-                // create 2 companies
-                const compA = factory.newResource(network, 'Company', 'CA');
-                compA.name = 'CompanyA';
-                compA.energy = factory.newRelationship(network, 'ETT', producer_ett.$identifier);
+                    etts[i] = ett;
+                    companies[i] = company;
+                }
 
-                const comp2 = factory.newResource(network, 'Company', 'CB');
-                comp2.name = 'CompanyB';
-                comp2.energy = factory.newRelationship(network, 'ETT', consumer_ett.$identifier);  
-                
+                // create the market
+                const market = factory.newResource(network, 'Market', marketID);
+                market.emission = 0;
+                market.etts = [];
+                market.marketID = marketID;
+
                 // Get the ett registry
-                return businessNetworkConnection.getAssetRegistry(network + '.Ett')
-                    .then((assetRegistry) => {
-                        // add ett to the ett asset registry.
-                            return assetRegistry.addAll([producer_ett, consumer_ett])
-                        .then((participantRegistry) => {
-                            // add resident
-                            return participantRegistry.addAll([compA, comp2]);
-                        })                        
-                    });
-            })
-            .then(() => {
-
-                // Issue the identities.
-                return businessNetworkConnection.issueIdentity('org.emission.network.Company#CA', 'companyA')
-                .then((identity) => {
-                    return importCardForIdentity(CAIdentity, identity);
-                    })
+                updateEtts(etts)
+                    .then(updateCompanies(companies))
+                    .then(updateMarket(market))
                     .then(() => {
-                        //R1Identity = identity;
-                        return businessNetworkConnection.issueIdentity('org.decentralized.energy.network.Company#CB', 'companyB');
-                    })
-                    .then((identity) => {
-                        return importCardForIdentity(CBIdentity, identity);
-                    });                
+                        // Issue the identities.
+                        return con.issueIdentity('org.emission.network.Company#1', '1')
+                            .then((identity) => {
+                                return importCardForIdentity(C1Identity, identity);
+                            })
+                            .then(() => {
+                                return con.issueIdentity('org.emission.network.Company#2', '2');
+                            })
+                            .then((identity) => {
+                                return importCardForIdentity(C2Identity, identity);
+                            })
+                            .then(() => {
+                                return con.issueIdentity('org.emission.network.Company#0', '0');
+                            })
+                            .then((identity) => {
+                                return importCardForIdentity(C3Identity, identity);
+                            });
+                    });
             });
     });
 
-    
+    describe('#Sell Transaction', () => {
 
-    describe('#CompanyToCompany Transaction', () => {
+        it('Companies should be able to sell emission to the market', () => {
 
-        it('Company should be able to execute transactions with Company' , () => {
-            
-            // create the resident to resident transaction
-            const resident_to_resident = factory.newTransaction(network, 'ChangeEttOwner');
-            resident_to_resident.newOwner = compB;
-            resident_to_resident.ett = 10;
-            resident_to_resident.coinsInc = factory.newRelationship(network, 'Ett', 'CO_R1');
-    
-            return businessNetworkConnection.submitTransaction(resident_to_resident)                    
+            const transaction = factory.newTransaction(network, 'Sell');
+
+            let i, promises = [];
+            for (i = 0; i < companies.length; i++) {
+                let comp = companies[i];
+
+                console.log(comp.companyID);
+
+                transaction.sellerID = comp.companyID;
+                transaction.emission = 100;
+
+                return con.getAssetRegistry(network + '.Ett')
+                    .then((registry) => {
+                        return registry.get(comp.ett.ettID);
+                    })
+                    .then((ett) => {
+                        promises.push(updateMarket(marketID));
+                        promises.push(updateEtt(ett));
+                    })
                     .then(() => {
-                        return businessNetworkConnection.getAssetRegistry(network + '.Coins');
+                        return con.getParticipantRegistry(network + '.Company')
                     })
-                    .then((assetRegistry) => {
-                        // re-get the producer_coins
-                        return assetRegistry.get('CO_R1');
+                    .then((registry) => {
+                        return registry.get(comp.companyID);
                     })
-                    .then((updated_producer_coins) => {
-                        // the updated values of coins
-                        updated_producer_coins.value.should.equal(340);
-                        return businessNetworkConnection.getAssetRegistry(network + '.Coins');
+                    .then((comp) => {
+                        console.log(comp.companyID);
+                        promises.push(updateCompany(comp));
                     })
-                    .then((assetRegistry) => {
-                        // re-get the consumer_coins
-                        return assetRegistry.get('CO_R2');
-                    })
-                    .then((updated_consumer_coins) => {
-                        // the updated values of coins
-                        updated_consumer_coins.value.should.equal(410);
-                        return businessNetworkConnection.getAssetRegistry(network + '.Energy');
-                    })
-                    .then((assetRegistry) => {
-                        // re-get the consumer_energy
-                        return assetRegistry.get('EN_R2');
-                    })
-                    .then((updated_consumer_energy) => {
-                        // the updated values of energy
-                        updated_consumer_energy.value.should.equal(15);
-                        return businessNetworkConnection.getAssetRegistry(network + '.Energy');
-                    })
-                    .then((assetRegistry) => {
-                        // re-get the producer_energy
-                        return assetRegistry.get('EN_R1');
-                    })
-                    .then((updated_producer_energy) => {
-                        // the updated values of energy
-                        updated_producer_energy.value.should.equal(25);
-                    });
-                
-        }); 
-    });
-
-    describe('#ResidentToBank Transaction', () => {
-
-        it('Residents should be able to execute transactions with Banks' , () => {
-            
-            // create the resident to resident transaction
-            const resident_to_bank = factory.newTransaction(network, 'CashToCoins');
-            resident_to_bank.cashRate = 2;
-            resident_to_bank.cashValue = 20;
-            resident_to_bank.coinsInc = factory.newRelationship(network, 'Coins', 'CO_B1');
-            resident_to_bank.coinsDec = factory.newRelationship(network, 'Coins', 'CO_R1');
-            resident_to_bank.cashInc = factory.newRelationship(network, 'Cash', 'CA_R1');
-            resident_to_bank.cashDec = factory.newRelationship(network, 'Cash', 'CA_B1');
-                           
-             // submit the transaction        
-            return businessNetworkConnection.submitTransaction(resident_to_bank)               
+            }
+            Promise.all(promises)
                 .then(() => {
-                    return businessNetworkConnection.getAssetRegistry(network + '.Coins');
+                    return con.getAssetRegistry(network + '.Market')
+                        .then((registry) => {
+                            return registry.get(marketID)
+                                .then((market) => {
+
+                                    // the updated market emission
+                                    market.emission.should.equal(100 * i);
+                                    market.etts.length.should.equal(i);
+                                    return market.ett[i].owner.companyID.should.equal(transaction.sellerID);
+                                })
+                        })
                 })
-                .then((assetRegistry) => {
-                    // re-get the producer_coins
-                    return assetRegistry.get('CO_R1');
-                })
-                .then((updated_resident_coins) => {
-                    // the updated values of coins
-                    updated_resident_coins.value.should.equal(260);
-                    return businessNetworkConnection.getAssetRegistry(network + '.Coins');
-                })
-                .then((assetRegistry) => {
-                    // re-get the consumer_coins
-                    return assetRegistry.get('CO_B1');
-                })
-                .then((updated_bank_coins) => {
-                    // the updated values of coins
-                    updated_bank_coins.value.should.equal(5040);
-                    return businessNetworkConnection.getAssetRegistry(network + '.Cash');
-                })
-                .then((assetRegistry) => {
-                    // re-get the resident_cash
-                    return assetRegistry.get('CA_R1');
-                })
-                .then((updated_resident_cash) => {
-                    // the updated values of energy
-                    updated_resident_cash.value.should.equal(170);
-                    return businessNetworkConnection.getAssetRegistry(network + '.Cash');
-                })
-                .then((assetRegistry) => {
-                    // re-get the resident_cash
-                    return assetRegistry.get('CA_B1');
-                })
-                .then((updated_bank_cash) => {
-                    // the updated values ofenergyenergy
-                    updated_bank_cash.value.should.equal(6980);
-                });                
-        }); 
+        })
     });
 
+    describe('#Buy Transaction', () => {
 
-    describe('#ResidentToUtilityCompany Transaction', () => {
+        it('Companies should be able to buy emission from all ett in the market', () => {
 
-        it('Residents should be able to execute transactions with UtilityCompanies' , () => {
-            
-            
-            // create the resident to utility company transaction
-            const resident_to_utility = factory.newTransaction(network, 'EnergyToCoins');
-            resident_to_utility.energyRate = 4;
-            resident_to_utility.energyValue = 10;
-            resident_to_utility.coinsInc = factory.newRelationship(network, 'Coins', 'CO_U1');
-            resident_to_utility.coinsDec = factory.newRelationship(network, 'Coins', 'CO_R2');
-            resident_to_utility.energyInc = factory.newRelationship(network, 'Energy', 'EN_R2');
-            resident_to_utility.energyDec = factory.newRelationship(network, 'Energy', 'EN_U1');
-               
-            return businessNetworkConnection.submitTransaction(resident_to_utility)                
+            const transaction = factory.newTransaction(network, 'Buy');
+
+            transaction.buyerID = companies[0].companyID;
+            transaction.emission = 250;
+
+            return con.submitTransaction(transaction)
                 .then(() => {
-                    return businessNetworkConnection.getAssetRegistry(network + '.Coins');
+                    return con.getAssetRegistry(network + '.Market');
                 })
                 .then((assetRegistry) => {
-                    // re-get the utility_coins
-                    return assetRegistry.get('CO_U1');
+                    return assetRegistry.get(marketID);
                 })
-                .then((updated_utility_coins) => {
-                    // the updated values of coins
-                    updated_utility_coins.value.should.equal(5040);
-                    return businessNetworkConnection.getAssetRegistry(network + '.Coins');
+                .then((market) => {
+                    // the updated market emission
+                    market.emission.should.equal(50);
+                    return market.etts.length.should.equal(1); // should be only 1 ett left on the market
                 })
-                .then((assetRegistry) => {
-                    // re-get the consumer_coins
-                    return assetRegistry.get('CO_R2');
+                .then(() => {
+                    return con.getAssetRegistry(network + '.Company');
                 })
-                .then((updated_consumer_coins) => {
-                    // the updated values of coins
-                    updated_consumer_coins.value.should.equal(410);
-                    return businessNetworkConnection.getAssetRegistry(network + '.Energy');
+                .then((registry) => {
+                    // the updated market emission
+                    let cmps = registry[0];
+                    cmps[0].emissionLimit.should.equal(1000 + 250); // this guy buys, the rest sells
+                    cmps[1].emissionLimit.should.equal(1000 - 250);
+                    cmps[2].emissionLimit.should.equal(1000 - 250);
+
+                    return market.etts.length.should.equal(0); // market should be empty
                 })
-                .then((assetRegistry) => {
-                    // re-get the consumer_energy
-                    return assetRegistry.get('EN_R2');
+                .then(() => {
+                    return con.getAssetRegistry(network + '.Ett');
                 })
-                .then((updated_consumer_energy) => {
-                    // the updated values of energy
-                    updated_consumer_energy.value.should.equal(15);
-                    return businessNetworkConnection.getAssetRegistry(network + '.Energy');
+                .then((etts) => {
+                    // the updated market emission
+                    let sum = 0;
+                    for (let i = 0; i < etts.length; i++) {
+                        sum += etts[i].emission;
+                    }
+                    return sum.should.equal(50);
                 })
-                .then((assetRegistry) => {
-                    // re-get the utility_energy
-                    return assetRegistry.get('EN_U1');
-                })
-                .then((updated_utility_energy) => {
-                    // the updated values of energy
-                    updated_utility_energy.value.should.equal(990);
-                    
-                });                
-        }); 
+        });
     });
+
+    function updateEtts(etts) {
+        return con.getAssetRegistry('org.emission.network.Ett')
+            .then(function (registry) {
+                console.log("test update Etts #" + etts);
+
+                return registry.updateAll(etts)
+            })
+    }
+
+    function updateMarket(market) {
+        return con.getAssetRegistry('org.emission.network.Market')
+            .then(function (registry) {
+                console.log("test update Market #" + market);
+
+                return registry.update(market)
+            })
+    }
+
+    function updateCompany(company) {
+        return con.getParticipantRegistry('org.emission.network.Company')
+            .then(function (registry) {
+                console.log("test update Company #" + company);
+
+                return registry.update(company);
+            })
+    }
+
+    function updateEtt(ett) {
+        return con.getAssetRegistry('org.emission.network.Ett')
+            .then(function (registry) {
+                console.log("test update Ett #" + ett);
+
+                return registry.update(ett);
+            })
+    }
+
+    function updateCompanies(buyer, seller) {
+        return con.getParticipantRegistry('org.emission.network.Company')
+            .then(function (registry) {
+                console.log("test update Companies #" + [buyer.companyID, seller.companyID]);
+
+                return registry.updateAll([buyer, seller]);
+            })
+    }
 
     /**
      * Reconnect using a different identity.
@@ -357,188 +345,11 @@ describe('Decentralized Energy - check transactions, access', () => {
      * @return {Promise} A promise that will be resolved when complete.
      */
     function useIdentity(cardName) {
-        
-        return businessNetworkConnection.disconnect()
-            .then(() => {                
-                businessNetworkConnection = new BusinessNetworkConnection({ cardStore: cardStore });                                
-                return businessNetworkConnection.connect(cardName);
+
+        return con.disconnect()
+            .then(() => {
+                con = new BusinessNetworkConnection({cardStore: cardStore});
+                return con.connect(cardName);
             });
     }
-    
-        
-    describe('#Residents Access', () => {
-        
-        it('Residents should have read access to all coins, energy and cash assets, read access to other Residents, Banks and Utility Companies, and update only their own Resident record' , () => {                        
-            
-            return useIdentity(CBIdentity)
-                .then(() => {
-                    // use a query                    
-                    return businessNetworkConnection.query('selectResidents');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(2); 
-                    //results[0].getIdentifier().should.equal('R2');                           
-                })                
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectBanks');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(1);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectUtilityCompanies');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(1);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectCoins');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(4);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectCash');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(3);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectEnergy');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(3);                            
-                });
-                
-        });
-    });
-
-    describe('#Banks Access', () => {
-
-        it('Banks should have read only access to all coins and cash assets, read access to other Banks and Residents, and update access to their own Bank record' , () => {
-            
-            return useIdentity(B1Identity)
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectResidents');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(2); 
-                    //results[0].getIdentifier().should.equal('R2');                           
-                })                
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectBanks');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(1);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectUtilityCompanies');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(0);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectCoins');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(4);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectCash');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(3);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectEnergy');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(0);                            
-                });
-                
-        });
-    });
-
-
-    describe('#Utility Company Access', () => {
-
-        it('Utility Company should have read only access to all coins, and energy assets, read access to other Utilty Companies and Residents, and update access to their own Bank record' , () => {
-            
-            return useIdentity(U1Identity)
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectResidents');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(2); 
-                    //results[0].getIdentifier().should.equal('R2');                           
-                })                
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectBanks');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(0);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectUtilityCompanies');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(1);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectCoins');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(4);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectCash');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(0);                            
-                })
-                .then(() => {
-                    // use a query
-                    return businessNetworkConnection.query('selectEnergy');
-                })
-                .then((results) => {
-                    // check results
-                    results.length.should.equal(3);                            
-                });
-                
-        });
-    });
-    
 });

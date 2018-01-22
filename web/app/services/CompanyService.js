@@ -1,4 +1,4 @@
-app.factory('Company', function ($http, $cookieStore, roles){
+app.factory('Company', function ($http){
 
     return {
 

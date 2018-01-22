@@ -1,29 +1,36 @@
-var available;
-var limit;
-var onsale;
-
 var companyCtrl = function ($scope, $rootScope, Company) {
 
-    {
+    var refresh = function () {
         Company.get_available(
             function(res) {
-                available = res[0].emission;
+                $scope.$evalAsync(function () {
+                    $scope.available = res[0].emission;
+                });
             },
             function () {
-            
-        });
+
+            });
         Company.get_limit($rootScope.username.split('user')[1],
-        function(res) {
-            limit = res.emissionLimit;
-        },
-        function () {
-        
-        });
+            function(res) {
+                $scope.$evalAsync(function () {
+                    $scope.limit  = res.emissionLimit;
+                });
+            },
+            function () {
+
+            });
         Company.get_onsale($rootScope.username.split('user')[1],
-        function(res) {
-            onsale = res.emission;
-        });
+            function(res) {
+                $scope.$evalAsync(function () {
+                    $scope.onsale  = res.emission;
+                });
+            },
+            function () {
+
+            });
     };
+
+    refresh();
 
     $scope.buy = function () {
         Company.buy({
@@ -33,27 +40,7 @@ var companyCtrl = function ($scope, $rootScope, Company) {
             timestamp: "2018-01-16T00:12:59.401Z"
         },
         function() {
-            Company.get_available(
-                function(res) {
-                    available = res[0].emission;
-                },
-                function () {
-                
-            });
-            Company.get_limit($rootScope.username.split('user')[1],
-            function(res) {
-                limit = res.emissionLimit;
-            },
-            function () {
-            
-            });
-            Company.get_onsale($rootScope.username.split('user')[1],
-            function(res) {
-                onsale = res.emission;
-            },
-            function () {
-            
-            });
+            refresh();
         },
         function () {
             
@@ -61,6 +48,8 @@ var companyCtrl = function ($scope, $rootScope, Company) {
     },
 
     $scope.sell = function () {
+
+        console.debug("00000");
         Company.sell({
             $class: "org.emission.network.Sell",
             emission: $scope.sell_amount,
@@ -68,37 +57,11 @@ var companyCtrl = function ($scope, $rootScope, Company) {
             timestamp: "2018-01-16T00:12:59.401Z"
         },
         function() {
-            Company.get_available(
-                function(res) {
-                    available = res[0].emission;
-                },
-                function () {
-                
-            });
-            Company.get_limit($rootScope.username.split('user')[1],
-            function(res) {
-                limit = res.emissionLimit;
-            },
-            function () {
-            
-            });
-            Company.get_onsale($rootScope.username.split('user')[1],
-            function(res) {
-                onsale = res.emission;
-            },
-            function () {
-            
-            });
+            refresh();
         },
         function () {
             
         });
-    },
-
-    $scope.refresh = function () {
-        $scope.available = available;
-        $scope.limit = limit;
-        $scope.onsale = onsale;
     }
 };
 

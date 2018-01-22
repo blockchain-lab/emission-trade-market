@@ -73,6 +73,9 @@ function Sell(transaction) {
                                 .then(updateCompany(seller))
                                 .then(updateEtt(ett))
                         })
+                        .then(function () {
+                          // TradeEvent();
+                        })
                 })
         })
 }
@@ -93,6 +96,9 @@ function Buy(transaction) {
                     var market = results[0];
 
                     return buyFromMarket(buyer, market, transaction.emission);
+                })
+                .then(function () {
+                    // TradeEvent();
                 })
         })
 }
@@ -129,6 +135,7 @@ function buyFromMarket(buyer, market, emission) {
     return Promise.all(promises);
 }
 
+
 function updateEmissionFields(buyer, ett, market, emission) {
     // sell maximum what's in the ett's emission   
     if (ett.emission < emission) {
@@ -156,13 +163,49 @@ function TradeEvent(transaction) {
     var factory = getFactory();
 
     var event = factory.newEvent('org.emission.network', 'TradeEvent');
-    event.seller = transaction.seller;
-    event.buyer = transaction.buyer;
-    event.emission = transaction.emission;
-    event.message = "Trade " + event.emission + ": " + event.seller + " -> " + event.buyer;
+
+    event.sellerID = transaction.seller.companyID;
+    event.buyerID = transaction.buyer.companyID;
+    event.market = transaction.market;
+    event.message = "Trade: " + event.sellerID + " -> " + event.buyerID;
 
     emit(event);
 }
+
+/**
+ * Refresh event 
+ * @param {org.emission.network.Refresh} concept
+ * @concept
+ */
+function Refresh(concept) {
+    var res = {
+        sellerID: undefined,
+        buyerID: undefined,
+        market: undefined
+    }
+
+    query('selectMarketByID', {marketID: marketID})
+        .then(function (results) {
+            res.market = results[0];
+        })
+        .then(function() {
+            query('selectCompanyByID', {companyID: buyerID})
+            .then(function (results) {
+                res.buyer = results[0];
+            })
+        })
+        .then(function() {
+            query('selectCompanyByID', {companyID: sellerID})
+            .then(function (results) {
+                res.seller = results[0];
+            })
+        })
+        .then(function () {
+            console.log("returning: " + res);
+            return res;
+        });
+}
+
 
 /**
  * ChangeEttOwner transaction

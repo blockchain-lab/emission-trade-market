@@ -1,7 +1,5 @@
-var temp = [];
 var removed_id;
 var removed_name = "";
-var isDeleteCalled = false;
 
 var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
 
@@ -55,22 +53,6 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         });
     };
 
-    $scope.refresh = function () {
-        console.debug("temp1 :"+JSON.stringify(temp));
-        $scope.allAssets = $scope.allAssets.concat(temp);
-        temp = [];     
-
-        if(isDeleteCalled) {
-            var i;
-            for(i = 0; i < $scope.allAssets.length; i++){
-                if($scope.allAssets[i].companyID == removed_id) {
-                    $scope.allAssets.splice(i, 1);
-                }
-            }
-            isDeleteCalled = !isDeleteCalled;
-        }
-    },
-
     $scope.addCompany = function () {
         Regulator.addCompany({
             $class: "org.emission.network.Company",
@@ -81,7 +63,9 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
             ett: "org.emission.network.Ett#"+$scope.ettID
         },
         function(res) {
-            temp.push(res);
+            $scope.$evalAsync(function (){
+                $scope.allAssets.push(res)
+            });
             $http.post('/adduser', {companyname: $scope.companyName});
             ngDialog.closeAll();
         },
@@ -113,7 +97,15 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
     $scope.delete = function () {
         Regulator.delete(removed_id,
         function(res) {
-            isDeleteCalled = true;
+            //TODO
+            $scope.$evalAsync(function (){
+                var i;
+                for(i = 0; i < $scope.allAssets.length; i++){
+                    if($scope.allAssets[i].companyID == removed_id) {
+                        $scope.allAssets.splice(i, 1);
+                    }
+                }
+            });
             $http.post('/deleteuser', {companyname: removed_name});
             ngDialog.closeAll();
         },

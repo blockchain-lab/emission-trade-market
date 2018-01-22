@@ -19,6 +19,10 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
 
     refreshPage();
 
+    $scope.refresh = function(){
+        refreshPage();      
+    },
+
     $scope.openAddEttDlg = function () {
         ngDialog.open({
             template: 'addEttDlg',
@@ -64,9 +68,12 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
             ett: "org.emission.network.Ett#"+$scope.ettID
         },
         function(res) {
-            $scope.$evalAsync(function (){
-                $scope.allAssets.push(res);
-            });
+            // $scope.$evalAsync(function (){
+            //     $scope.allAssets.push(res);
+            //     $scope.$apply();
+            //     console.debug("load companies1 -pre:"+JSON.stringify($scope.allAssets));
+            // });
+            $scope.allAssets.push(res);
             console.debug("load companies1:"+JSON.stringify($scope.allAssets));
             $http.post('/adduser', {companyname: $scope.companyName});
             ngDialog.closeAll();

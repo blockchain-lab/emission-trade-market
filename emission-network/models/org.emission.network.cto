@@ -49,9 +49,16 @@ transaction Sell {
   o String sellerID
 }
 
-event TradeEvent {
+concept Refresh {
+  o Integer sellerID
+  o Integer buyerID
   o String message
-  o Integer emission
-  --> Company seller
-  --> Company buyer 
+  --> Market market
+}
+
+event TradeEvent {
+  o Integer sellerID
+  o Integer buyerID
+  o String message
+  --> Market market
 }

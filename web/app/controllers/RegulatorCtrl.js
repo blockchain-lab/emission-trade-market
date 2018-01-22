@@ -8,7 +8,8 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
     function refreshPage(){
         Regulator.loadCompanies(
             function(res) {
-                $scope.allAssets = res;
+                angular.extend($scope.allAssets, res);
+                console.debug("load companies0");
             },
             function() {
                 console.debug("load companies error");
@@ -64,8 +65,9 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         },
         function(res) {
             $scope.$evalAsync(function (){
-                $scope.allAssets.push(res)
+                $scope.allAssets.push(res);
             });
+            console.debug("load companies1:"+JSON.stringify($scope.allAssets));
             $http.post('/adduser', {companyname: $scope.companyName});
             ngDialog.closeAll();
         },
@@ -98,14 +100,16 @@ var regulatorCtrl = function ($scope, $rootScope, $http, Regulator, ngDialog) {
         Regulator.delete(removed_id,
         function(res) {
             //TODO
-            $scope.$evalAsync(function (){
-                var i;
+            
+            var i;
                 for(i = 0; i < $scope.allAssets.length; i++){
                     if($scope.allAssets[i].companyID == removed_id) {
-                        $scope.allAssets.splice(i, 1);
+                        $scope.$evalAsync(function (){
+                            $scope.allAssets.splice(i, 1);
+                        });
                     }
                 }
-            });
+                console.debug("load companies2:"+JSON.stringify($scope.allAssets));
             $http.post('/deleteuser', {companyname: removed_name});
             ngDialog.closeAll();
         },

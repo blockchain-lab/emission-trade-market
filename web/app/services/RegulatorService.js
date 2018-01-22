@@ -5,7 +5,6 @@ app.factory('Regulator', function ($http){
         loadCompanies: function(success, error){
             $http.get('http://localhost:3000/api/Company').then(
                 function (response) {
-                    console.debug("?? = "+JSON.stringify(response.data));
                     success(response.data);
                 },
                 error

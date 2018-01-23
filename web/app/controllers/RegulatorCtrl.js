@@ -14,10 +14,6 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
 
     refreshPage();
 
-    $scope.refresh = function(){
-        refreshPage();      
-    },
-
     $scope.openAddEttDlg = function () {
         ngDialog.open({
             template: 'addEttDlg',
@@ -58,6 +54,8 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
     };
 
     $scope.addCompany = function () {
+        $scope.loading_add = true;
+
         var body = {
             $class: "org.emission.network.Company",
             companyID: $scope.companyID,
@@ -66,14 +64,14 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             emissionLimit: $scope.limit,
             ett: "org.emission.network.Ett#"+$scope.ettID
         };
-        //$http.post('http://localhost:3000/api/Company', body).then(
-        $http.get('https://jsonplaceholder.typicode.com/posts/1').then(
+        $http.post('http://localhost:3000/api/Company', body).then(
 
             function (response) {
-                $scope.$parent.allAssets.push(body);
-                console.debug("add companies1:"+JSON.stringify(body));
-                console.debug("add companies1-scope:"+JSON.stringify($scope.allAssets));
+                $scope.$parent.allAssets.push(response.data);
+                console.debug("add companies1:"+JSON.stringify(response.data));
+                console.debug("add companies1-scope:"+JSON.stringify($scope.$parent.allAssets));
                 $http.post('/adduser', {companyname: $scope.companyName});
+                $scope.$parent.loading_add = false;
                 ngDialog.closeAll();
         });
     };
@@ -100,17 +98,18 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
 
     $scope.delete = function () {
 
+        $scope.loading_delete = true;
+
         $http.delete('http://localhost:3000/api/Company/'+removed_id).then(
             function (response) {
                 var i;
                 for(i = 0; i < $scope.allAssets.length; i++){
                     if($scope.allAssets[i].companyID == removed_id) {
-                        $scope.$evalAsync(function (){
-                            $scope.allAssets.splice(i, 1);
-                        });
+                        $scope.$parent.allAssets.splice(i, 1);
                     }
                 }
                 $http.post('/deleteuser', {companyname: removed_name});
+                $scope.loading_delete = false;
                 ngDialog.closeAll();}
         );
     };

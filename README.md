@@ -1,68 +1,49 @@
 ## How to run:
---------------------------------------------------------------------------
-Generate a business network archive (Do it only after changing the composer, otherwise skip it)
 
-First, navigate to the neywork-network directory.
+#### To update Composer logic (optional):
+--------------------------------------------------------------------------
+To generate a new business network archive (Do it only after changing the composer, otherwise skip this step and go to Setup network)
+
+First, navigate to the ```emission-network``` directory.
 ```
 composer archive create -t dir -n .
 ```
+Then copy the generate  ```emission-network@0.0.1.bna``` file to the  ```network ``` folder.
+```
+mv emission-network@0.0.1.bna ../network/
+```
+Now you are ready to deploy the updated busniess logic to the fabric network!
+
 -------------------------------------------------------------------------
+#### To setup the Fabric network: 
+Inside ```network``` directory.
 
-To kill running containers and remove previous Fabric chaincode images: 
+To kill any running containers and remove previous Fabric chaincode images: 
 ```
-docker kill $(docker ps -q)
-docker rm $(docker ps -aq)
-docker rmi $(docker images dev-* -q)
+./teardownAllDocker.sh
 ```
+Then download platform-specific binaries:
+```
+./getBin.sh
+```
+Deploy network:
+```
+./deploy_network.sh
+```
+Deploy composer:
+```
+./deploy_composer.sh 
+```
+That's it. Rest server is now running at localhost:3000!
 
- Start fabric and create peer admin card:
-```
-./downloadFabric.sh
-./startFabric.sh
-./createPeerAdminCard.sh
-```
-Install the composer runtime: 
-```
-composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName emission-network
-```
-Deploy the emission network in the ```emission-network``` folder:
-```
-cd emission-network/
-composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile emission-network@0.0.1.bna --file networkadmin.card
-```
-Import the network administrator identity as a usable business network card:
-```
-composer card import --file networkadmin.card
-```
-Ping to see that network is running properly:
-```
-composer network ping --card admin@emission-network
-```
-To create the REST API:
-```
-composer-rest-server
-```
-Specify the following when asked:
-```
-? Enter the name of the business network card to use: admin@emission-network
-? Specify if you want namespaces in the generated REST API: never use namespaces
-? Specify if you want to enable authentication for the REST API using Passport: No
-? Specify if you want to enable event publication over WebSockets: Yes
-? Specify if you want to enable TLS security for the REST API: No
+#### To start the front-end client:
+Navigate to ```web``` directory.
 
+Start the node cient:
 ```
-Rest server is now running!
-
-
-To stop and teardown running fabric network:
+node server.js
 ```
-./stopFabric.sh
-./teardownFabric.sh
-```
-
-
-For more info check out https://hyperledger.github.io/composer/tutorials/developer-tutorial.html
-
+The client is now running at logicalhost:8080
 
 # Decentralized emission trade market
 

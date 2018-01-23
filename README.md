@@ -1,7 +1,6 @@
 ## How to run:
 
 ### To update Composer logic (optional):
---------------------------------------------------------------------------
 To generate a new business network archive (Do it only after changing the composer, otherwise skip this step and go to Setup network)
 
 First, navigate to the ```emission-network``` directory.
@@ -15,6 +14,7 @@ mv emission-network@0.0.1.bna ../network/
 Now you are ready to deploy the updated busniess logic to the fabric network!
 
 -------------------------------------------------------------------------
+
 ### To setup the Fabric network: 
 Inside ```network``` directory.
 
@@ -36,6 +36,8 @@ Deploy composer:
 ```
 That's it. Rest server is now running at localhost:3000!
 
+--------------------------------------------------------------------------
+
 ### To start the front-end client:
 Navigate to ```web``` directory.
 
@@ -46,7 +48,6 @@ node server.js
 The app is now running at logicalhost:8080!
 
 ![](https://github.com/Gabbe1993/emission-trade-market/blob/master/img/client.png)
-
 # Decentralized emission trade market
 
 Companies active in the Port of Rotterdam operate within a strict emission regulatory framework. This framework sets maximum allowed values per company for each of the emission types (CO2, NOX, SO2 etc.). The sum of the maximum allowed values per emission type /per company cannot exceed the total allowed emissions for the port region as a whole. For some of these emission types companies find it easier to stay below the threshold than for others, while for others it is much more difficult and would require extensive investment.

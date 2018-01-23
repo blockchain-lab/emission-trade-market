@@ -10,7 +10,7 @@ var companyCtrl = function ($scope, $rootScope, Company) {
             function () {
 
             });
-        Company.get_limit(parseInt($rootScope.username).repalce(/[^0-9]/g,''),
+        Company.get_limit(parseInt($rootScope.username.replace(/[^0-9]/g,'')),
             function(res) {
                 $scope.$evalAsync(function () {
                     $scope.limit  = res.emissionLimit;
@@ -19,7 +19,7 @@ var companyCtrl = function ($scope, $rootScope, Company) {
             function () {
 
             });
-        Company.get_onsale(parseInt($rootScope.username).repalce(/[^0-9]/g,''),
+        Company.get_onsale(parseInt($rootScope.username.replace(/[^0-9]/g,'')),
             function(res) {
                 $scope.$evalAsync(function () {
                     $scope.onsale  = res.emission;
@@ -38,7 +38,7 @@ var companyCtrl = function ($scope, $rootScope, Company) {
         Company.buy({
             $class: "org.emission.network.Buy",
             emission: $scope.buy_amount,
-            buyerID: parseInt($rootScope.username).repalce(/[^0-9]/g,''),
+            buyerID: parseInt($rootScope.username.replace(/[^0-9]/g,'')),
             timestamp: "2018-01-16T00:12:59.401Z"
         },
         function() {
@@ -55,7 +55,7 @@ var companyCtrl = function ($scope, $rootScope, Company) {
         Company.sell({
             $class: "org.emission.network.Sell",
             emission: $scope.sell_amount,
-            sellerID: parseInt($rootScope.username).repalce(/[^0-9]/g,''),
+            sellerID: parseInt($rootScope.username.replace(/[^0-9]/g,'')),
             timestamp: "2018-01-16T00:12:59.401Z"
         },
         function() {

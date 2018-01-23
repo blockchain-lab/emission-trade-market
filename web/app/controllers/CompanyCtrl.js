@@ -32,9 +32,7 @@ var companyCtrl = function ($scope, $rootScope, Company) {
 
     refresh();
 
-    $scope.refresh = function(){
-        refresh();
-    },
+    
 
     $scope.buy = function () {
         Company.buy({

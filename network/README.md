@@ -1,8 +1,13 @@
+#How to run:
+
+--To redeploy network running network first shutdown docker containers with 
+./teardownAllDocker.sh
+
 - Always inside network:
     - sh getBin.sh (create platform-specific binaries)
     - sh deploy_network.sh(beautiful print should show that bynf execution completed)
     - sh deploy_composer.sh (on a separate terminal)
-    
+      
 - After modifying business-network files in emission-network folder:
     - composer archive create -t dir -n . (move .bna file to the multiorg directory)
 

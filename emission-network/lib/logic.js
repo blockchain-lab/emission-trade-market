@@ -154,11 +154,7 @@ function updateEmissionFields(buyer, ett, market, emission) {
     return emission;
 }
 
-/**
- * Emit event on trade
- * @param {org.emission.network.Trade} transaction
- * @transaction
- */
+
 function TradeEvent(transaction) {
     var factory = getFactory();
 
@@ -175,7 +171,7 @@ function TradeEvent(transaction) {
 /**
  * Refresh event 
  * @param {org.emission.network.Refresh} concept
- * @concept
+ * @transaction
  */
 function Refresh(concept) {
     var res = {

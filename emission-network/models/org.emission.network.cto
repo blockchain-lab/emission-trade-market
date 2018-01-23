@@ -28,12 +28,6 @@ asset Market identified by marketID {
     --> Ett[] etts optional
 }
 
-transaction Trade {
-  o Integer emission
-  --> Company buyer
-  --> Company seller
-}
-
 transaction ChangeEttOwner {
   --> Company newOwner
   --> Ett ett
@@ -49,16 +43,16 @@ transaction Sell {
   o String sellerID
 }
 
-concept Refresh {
+transaction Refresh {
   o Integer sellerID
   o Integer buyerID
   o String message
   --> Market market
 }
 
-event TradeEvent {
+/*event TradeEvent {
   o Integer sellerID
   o Integer buyerID
   o String message
   --> Market market
-}
+}*/

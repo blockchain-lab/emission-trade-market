@@ -1,6 +1,6 @@
 ## How to run:
 
-#### To update Composer logic (optional):
+### To update Composer logic (optional):
 --------------------------------------------------------------------------
 To generate a new business network archive (Do it only after changing the composer, otherwise skip this step and go to Setup network)
 
@@ -15,7 +15,7 @@ mv emission-network@0.0.1.bna ../network/
 Now you are ready to deploy the updated busniess logic to the fabric network!
 
 -------------------------------------------------------------------------
-#### To setup the Fabric network: 
+### To setup the Fabric network: 
 Inside ```network``` directory.
 
 To kill any running containers and remove previous Fabric chaincode images: 
@@ -36,14 +36,16 @@ Deploy composer:
 ```
 That's it. Rest server is now running at localhost:3000!
 
-#### To start the front-end client:
+### To start the front-end client:
 Navigate to ```web``` directory.
 
 Start the node cient:
 ```
 node server.js
 ```
-The client is now running at logicalhost:8080
+The app is now running at logicalhost:8080!
+
+![alt text](https://github.com/Gabbe1993/emission-trade-market/img/client.png)
 
 # Decentralized emission trade market
 

@@ -45,7 +45,7 @@ node server.js
 ```
 The app is now running at logicalhost:8080!
 
-![alt text](https://github.com/Gabbe1993/emission-trade-market/img/client.png)
+![](https://github.com/Gabbe1993/emission-trade-market/blob/master/img/client.png)
 
 # Decentralized emission trade market
 

@@ -5,6 +5,8 @@ var companyCtrl = function ($scope, $rootScope, Company) {
             function(res) {
                 $scope.$evalAsync(function () {
                     $scope.available = res[0].emission;
+                    $scope.loading_available = false;
+
                 });
             },
             function () {
@@ -14,6 +16,8 @@ var companyCtrl = function ($scope, $rootScope, Company) {
             function(res) {
                 $scope.$evalAsync(function () {
                     $scope.limit  = res.emissionLimit;
+                    $scope.loading_limit = false;
+                
                 });
             },
             function () {
@@ -23,6 +27,7 @@ var companyCtrl = function ($scope, $rootScope, Company) {
             function(res) {
                 $scope.$evalAsync(function () {
                     $scope.onsale  = res.emission;
+                    $scope.loading_onsale = false;
                 });
             },
             function () {
@@ -35,6 +40,9 @@ var companyCtrl = function ($scope, $rootScope, Company) {
     
 
     $scope.buy = function () {
+        $scope.loading_available = true;
+        $scope.loading_onsale = true;
+        $scope.loading_limit = true;
         Company.buy({
             $class: "org.emission.network.Buy",
             emission: $scope.buy_amount,
@@ -51,7 +59,9 @@ var companyCtrl = function ($scope, $rootScope, Company) {
 
     $scope.sell = function () {
 
-        console.debug("00000");
+        $scope.loading_available = true;
+        $scope.loading_onsale = true;
+        $scope.loading_limit = true;
         Company.sell({
             $class: "org.emission.network.Sell",
             emission: $scope.sell_amount,

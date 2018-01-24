@@ -21,7 +21,6 @@ function addToMarket(ett, transaction, market) {
     market.emission += transaction.emission;
 }
 
-// TODO : DOES NOT REMOVE ETT OR UPDATE MARKET EMISSION
 // remove ett from market
 function removeFromMarket(ett, market) {
     var etts = market.etts;
@@ -33,8 +32,6 @@ function removeFromMarket(ett, market) {
         }
     }
 }
-
-var marketID = "M0";
 /**
  * API Transaction to sell ett to market
  *
@@ -49,7 +46,7 @@ function Sell(transaction) {
             var emission = transaction.emission;
             var ettRef = seller.ett;
 
-            return query('selectMarketByID', {marketID: marketID})
+            return query('selectMarketByID', {marketID: seller.marketID})
                 .then(function (results) {
                     var market = results[0];
 
@@ -91,7 +88,7 @@ function Buy(transaction) {
         .then(function (results) {
             var buyer = results[0];
 
-            return query('selectMarketByID', {marketID: marketID})
+            return query('selectMarketByID', {marketID: buyer.marketID})
                 .then(function (results) {
                     var market = results[0];
 
@@ -145,7 +142,7 @@ function updateEmissionFields(buyer, ett, market, emission) {
     ett.emission -= emission;
     market.emission -= emission;
 
-    console.log(buyer.name + " emission level increased to " + buyer.emissionLimit);
+    console.log(buyer.name + " emission level set to " + buyer.emissionLimit);
 
     // if all emission is bought then this Ett should be removed from market
     if (ett.emission <= 0) {
@@ -166,6 +163,36 @@ function TradeEvent(transaction) {
     event.message = "Trade: " + event.sellerID + " -> " + event.buyerID;
 
     emit(event);
+}
+
+/**
+ * Remove company and withdraw its ett from market 
+ * @param {org.emission.network.RemoveCompany} transaction
+ * @transaction
+ */
+function RemoveCompany(transaction) {
+    var companyID = transaction.companyID;
+
+    return query('selectCompanyByID', {companyID: companyID})
+        .then(function (results) {
+            var company = results[0];
+
+            return query('selectMarketByID', {marketID: company.marketID})
+                .then(function (results) {
+                    var market = results[0];
+                    var ett;
+
+                    return query('selectEttByID', {ettID: company.ett.getIdentifier()})
+                    .then(function (results) {
+                         ett = results[0];
+                
+                        return updateEmissionFields(company, ett, market, ett.emission);
+                    })
+                    .then(updateMarket(market))
+                    .then(removeAsset(ett, 'Ett'))
+                    .then(removeParticipant(company, 'Company'))
+                })
+            })
 }
 
 /**
@@ -232,6 +259,25 @@ function ChangeEttOwner(transaction) {
         });
 }
 
+// Remove asset from registry
+function removeAsset(asset, registryName) {
+    return getAssetRegistry('org.emission.network.' + registryName)
+        .then(function (registry) {
+            console.log("removed asset: " + asset);
+
+            return registry.remove(asset)
+        })
+}
+
+// Remove participant from registry
+function removeParticipant(participant, registryName) {
+    return getParticipantRegistry('org.emission.network.' + registryName)
+        .then(function (registry) {
+            console.log("removed participant: " + participant);
+
+            return registry.remove(participant)
+        })
+}
 
 function updateMarket(market) {
     return getAssetRegistry('org.emission.network.Market')

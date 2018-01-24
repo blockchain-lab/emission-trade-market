@@ -6,7 +6,8 @@ namespace org.emission.network
 
 participant Company identified by companyID {
   o String companyID
-  o String name
+  o String name  
+  o String marketID  optional
   o Integer emissionConsumed
   o Integer emissionLimit
   --> Ett ett 
@@ -43,12 +44,18 @@ transaction Sell {
   o String sellerID
 }
 
+
+transaction RemoveCompany {  
+  o String companyID
+}
+
 transaction Refresh {
   o Integer sellerID
   o Integer buyerID
   o String message
   --> Market market
 }
+
 
 /*event TradeEvent {
   o Integer sellerID

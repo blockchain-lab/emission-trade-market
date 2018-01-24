@@ -4,25 +4,19 @@ var removed_name = "";
 var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
 
     $scope.allAssets = [];
+    $scope.markets = [];
+    $scope.currentMarket = "";
 
     function refreshPage(){
+        $http.get('http://localhost:3000/api/Market').then(function (response) {
+            angular.extend($scope.markets, response.data);
+        });
         $http.get('http://localhost:3000/api/Company').then(function (response) {
             angular.extend($scope.allAssets, response.data);
-            console.debug("init: "+JSON.stringify($scope.allAssets));
         });
     };
 
     refreshPage();
-
-    $scope.openAddEttDlg = function () {
-        ngDialog.open({
-            template: 'addEttDlg',
-            className: 'ngdialog-theme-default',
-            controller: 'RegulatorCtrl',
-            scope: $scope
-        });
-
-    };
 
     $scope.openAddCompanyDlg = function () {
         ngDialog.open({
@@ -33,13 +27,17 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
         });
     };
 
-    $scope.openUpdateDlg = function () {
+    $scope.openAddMarketDlg = function () {
         ngDialog.open({
-            template: 'updateDlg',
+            template: 'addMarketDlg',
             className: 'ngdialog-theme-default',
             controller: 'RegulatorCtrl',
             scope: $scope
         });
+    };
+
+    $scope.setCurrentView = function () {
+        $scope.currentMarket = $scope.selectedMarket;
     };
 
     $scope.openDeleteDlg = function (id, name) {
@@ -51,6 +49,23 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             controller: 'RegulatorCtrl',
             scope: $scope
         });
+    };
+
+    $scope.addMarket = function () {
+        $scope.loading_add2 = true;
+
+        var body = {
+            $class: "org.emission.network.Company",
+            marketID: $scope.marketName2,
+            emission: []
+        };
+        $http.post('http://localhost:3000/api/Market', body).then(
+
+            function (response) {
+                $scope.$parent.markets.push(response.data);
+                $scope.$parent.loading_add2 = false;
+                ngDialog.closeAll();
+            });
     };
 
     $scope.addCompany = function () {
@@ -68,33 +83,27 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
 
             function (response) {
                 $scope.$parent.allAssets.push(response.data);
-                console.debug("add companies1:"+JSON.stringify(response.data));
-                console.debug("add companies1-scope:"+JSON.stringify($scope.$parent.allAssets));
                 $http.post('/adduser', {companyname: $scope.companyName});
                 $scope.$parent.loading_add = false;
                 ngDialog.closeAll();
         });
     };
 
-    $scope.addEtt = function () {
-        var body = {
-            $class: "org.emission.network.Ett",
-            ettID: $scope.add_ettID,
-            emission: 0,
-            owner: "org.emission.network.Company#"+$scope.owner
-        };
-
-        $http.post('http://localhost:3000/api/Ett', body).then(
-            function () {
-                ngDialog.closeAll();
-            }
-        );
-
-    };
-
-    $scope.update = function () {
-
-    };
+    // $scope.addEtt = function () {
+    //     var body = {
+    //         $class: "org.emission.network.Ett",
+    //         ettID: $scope.add_ettID,
+    //         emission: 0,
+    //         owner: "org.emission.network.Company#"+$scope.owner
+    //     };
+    //
+    //     $http.post('http://localhost:3000/api/Ett', body).then(
+    //         function () {
+    //             ngDialog.closeAll();
+    //         }
+    //     );
+    //
+    // };
 
     $scope.delete = function () {
 

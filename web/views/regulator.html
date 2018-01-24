@@ -1,7 +1,40 @@
 <div class="container-fluid transparent">
     <h1 class="page-header">Administration</h1>
-    <button class="btn btn-primary" ng-click="openAddEttDlg()">Add Assets</button>
-    <button class="btn btn-primary" ng-click="openAddCompanyDlg()">Add Participants</button>
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card card-body  transparent">
+                        <p class="card-text">To add market:</p>
+                            <button class="btn btn-primary" style="width:60%" ng-click="openAddMarketDlg()">Add</button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card card-body  transparent">
+                        <p class="card-text">To add companies:</p>
+                        <button class="btn btn-primary" style="width:60%" ng-click="openAddCompanyDlg()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card card-body  transparent">
+                <p class="card-text">To view markets</p>
+                <div class="row">
+                    <div class="col-6">
+                        <select class="form-control" ng-init="selectedMarket = markets[0].marketID" ng-model="selectedMarket" ng-options="x.marketID for x in markets" required>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-primary" style="width:60%"  ng-click="setCurrentView()">Switch</button>
+                    </div>
+                </div>
+                </select>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h4>Selected Market: {{currentMarket}}</h4>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -14,7 +47,7 @@
             <th>Actions</th>
         </tr>
         </thead>
-        <tbody ng-repeat="asset in allAssets">
+        <tbody ng-repeat="asset in allAssets" ng-if="asset.marketID == currentMarket">
         <tr>
             <td>{{ $index + 1 }}</td>
             <td>{{ asset.companyID }}</td>
@@ -23,7 +56,6 @@
             <td>{{ asset.ett }}</td>
             <td>{{ asset.emissionLimit }}</td>
             <td>
-                <button class="btn btn-success" ng-click="openUpdateDlg()">Update</button>
                 <button class="btn btn-danger" ng-click="openDeleteDlg(asset.companyID, asset.name)">Delete</button>
             </td> 
         </tr>
@@ -31,32 +63,10 @@
     </table>
 </div>
 
-<!-- addEtt Templates -->
-<script type="text/ng-template" id="addEttDlg">
-    <h4>Add Asset</h4>
-    <form method="post" name="form" ng-submit="addEtt()">
-        <div class="form-group">
-            <label for="ettID">EttID</label>
-            <input type="text" name="ettID" id="ettID" class="form-control" ng-model="add_ettID" required>
-        </div>
-        <div class="form-group">
-            <label for="owner">Owner</label>
-            <input type="text" name="owner" id="owner" class="form-control" ng-model="owner" required />
-        </div>
-        <div class="form-actions">
-            <button type="submit" class="btn btn-success">Submit</button>
-        </div>
-    </form>
-</script>
-
 <!-- addCompany Templates -->
 <script type="text/ng-template" id="addCompanyDlg">
     <h4>Add Company</h4>
     <form method="post" name="form" ng-submit="addCompany()">
-        <div class="form-group">
-            <label for="companyID">Company ID</label>
-            <input type="text" name="companyID" id="companyID" class="form-control" ng-model="companyID" required>
-        </div>
         <div class="form-group">
             <label for="companyName">Company Name</label>
             <input type="text" name="companyName" id="companyName" class="form-control" ng-model="companyName" required />
@@ -66,8 +76,9 @@
             <input type="number" name="limit" id="limit" class="form-control" ng-model="limit" required />
         </div>
         <div class="form-group">
-            <label for="ettID">Ett ID</label>
-            <input type="text" name="ettID" id="ettID" class="form-control" ng-model="ettID" required />
+            <label>Market</label>
+            <select class="form-control" ng-init="selectedMarket = markets[0]" ng-model="selectedMarket" ng-options="x.marketID for x in markets" required>
+            </select>
         </div>
         <div class="form-actions">
             <button type="submit" ng-disabled="loading_add" class="btn btn-success">Submit</button>
@@ -76,24 +87,17 @@
     </form>
 </script>
 
-<!-- update Templates -->
-<script type="text/ng-template" id="updateDlg">
-    <h4>Add Asset</h4>
-    <form method="post" name="form" ng-submit="update()">
+<!-- addCompany Templates -->
+<script type="text/ng-template" id="addMarketDlg">
+    <h4>Add Market</h4>
+    <form method="post" name="form" ng-submit="addMarket()">
         <div class="form-group">
-            <label for="ettID">EttID</label>
-            <input type="text" name="ettID" id="ettID" class="form-control" ng-model="ettID" required>
-        </div>
-        <div class="form-group">
-            <label for="limit">Limit</label>
-            <input type="number" name="limit" id="limit" class="form-control" ng-model="limit" required />
-        </div>
-        <div class="form-group">
-            <label for="owner">Owner</label>
-            <input type="text" name="owner" id="owner" class="form-control" ng-model="owner" required />
+            <label for="marketName2">Market Name</label>
+            <input type="text" name="marketName2" id="marketName2" class="form-control" ng-model="marketName2" required />
         </div>
         <div class="form-actions">
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" ng-disabled="loading_add2" class="btn btn-success">Submit</button>
+            <img ng-if="loading_add2" style="width:48px;height:48px;margin:6px" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
         </div>
     </form>
 </script>

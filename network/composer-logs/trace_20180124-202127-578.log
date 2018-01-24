@@ -1,0 +1,8 @@
+2018-01-23T19:28:45.902Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to execute transaction (Timeout expired while executing transaction)
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-23T19:28:46.075Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to execute transaction (Timeout expired while executing transaction)
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-23T19:28:46.406Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to execute transaction (Timeout expired while executing transaction)
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-23T19:28:46.852Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Failed to execute transaction (Timeout expired while executing transaction)
+    at /home/doxchain/.nvm/versions/node/v8.9.4/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$

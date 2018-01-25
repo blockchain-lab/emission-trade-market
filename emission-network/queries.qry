@@ -17,11 +17,10 @@ query selectEttsInMarket {
 }
 
 query selectCompanyByName {
-  description: "Select company by id"
+  description: "Select company by name"
   statement:
       SELECT org.emission.network.Company WHERE (_$name == name)
 }
-
 
 query selectEttByID {
   description: "Select ett by id"

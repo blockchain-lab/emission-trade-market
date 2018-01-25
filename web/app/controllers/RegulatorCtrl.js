@@ -89,22 +89,11 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             $class: "org.emission.network.Company",
             companyID: id,
             name: $scope.companyName,
-            marketID: $scope.selectedMarket2,
+            marketID: $scope.selectedMarket2.marketID,
             emissionConsumed: 0,
             emissionLimit: $scope.limit,
             ett: "org.emission.network.Ett#"+id
         };
-        $http.post('http://localhost:3000/api/Company', body1).then(
-
-            function (response) {
-                $scope.$parent.allAssets.push(response.data);
-            },
-            function () {
-                ngDialog.closeAll();
-                return;
-            }
-        );
-
         // then, add ett
         var body2 = {
             $class: "org.emission.network.Ett",
@@ -112,13 +101,25 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             emission: 0,
             owner: "org.emission.network.Company#"+id
         };
-        $http.post('http://localhost:3000/api/Ett', body2).then(
-                function () {
-                    $http.post('/adduser', {companyname: $scope.companyName});
-                    $scope.$parent.loading_add = false;
-                    ngDialog.closeAll();
-                }
-            );
+
+        $http.post('http://localhost:3000/api/Company', body1).then(
+
+            function (response) {
+                $scope.$parent.allAssets.push(response.data);
+                $http.post('http://localhost:3000/api/Ett', body2).then(
+                    function () {
+                        $http.post('/adduser', {companyname: $scope.companyName});
+                        $scope.$parent.loading_add = false;
+                        ngDialog.closeAll();
+                    }
+                );
+            },
+            function () {
+                ngDialog.closeAll();
+                return;
+            }
+        );
+
     };
 
     $scope.delete = function () {

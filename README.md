@@ -29,7 +29,7 @@ Now you are ready to deploy the updated busniess logic to the fabric network!
 
 Inside ```network``` directory.
 ```
-chmod u+x *
+sudo chmod u+x *
 ```
 
 To kill any running containers and remove previous Fabric chaincode images: 
@@ -46,11 +46,11 @@ Then download platform-specific binaries:
 ```
 Deploy network:
 ```
-sh deploy_network.sh
+./deploy_network.sh
 ```
 Deploy composer:
 ```
-sh deploy_composer.sh 
+./deploy_composer.sh 
 ```
 That's it. Rest server is now running at localhost:3000!
 
@@ -64,6 +64,7 @@ Some errors can be resolved as follow:
     ```
     chmod -R 777 ~/.composer
     ```
+    
   -if you still cannot access thos files try this " chmod -R 777 * " in the network directory
  
 

@@ -71,6 +71,10 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             function (response) {
                 $scope.$parent.markets.push(response.data);
                 $scope.$parent.loading_add2 = false;
+                if($scope.$parent.markets.length == 1) {
+                    $scope.$parent.selectedMarket = $scope.markets[0];
+                    $scope.$parent.selectedMarket2 = $scope.markets[0];
+                }
                 ngDialog.closeAll();
             });
     };
@@ -84,7 +88,8 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
         var body1 = {
             $class: "org.emission.network.Company",
             companyID: id,
-            name: $scope.selectedMarket2,
+            name: $scope.companyName,
+            marketID: $scope.selectedMarket2,
             emissionConsumed: 0,
             emissionLimit: $scope.limit,
             ett: "org.emission.network.Ett#"+id

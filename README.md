@@ -28,11 +28,11 @@ Then download platform-specific binaries:
 ```
 Deploy network:
 ```
-./deploy_network.sh
+sh deploy_network.sh
 ```
 Deploy composer:
 ```
-./deploy_composer.sh 
+sh deploy_composer.sh 
 ```
 That's it. Rest server is now running at localhost:3000!
 

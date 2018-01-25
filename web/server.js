@@ -11,11 +11,6 @@ var roles = {
     company:   'company'
 };
 
-var users = [
-    {username: 'admin', password: '123', role: 'regulator'},
-    {username: 'user1', password: '123', role: 'company'},
-    {username: 'user2', password: '123', role: 'company'}];
-
 //app
 app.listen(8080);
 

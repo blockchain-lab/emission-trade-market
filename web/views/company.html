@@ -50,10 +50,11 @@
                 <form name="form" ng-submit="buy()">
                     <div class="form-group">
                         <label>Emission</label>
-                        <input id="buy-amount" class="form-control" placeholder="Amount" ng-model="buy_amount" required>
+                        <input id="buy-amount"  type="number"  class="form-control" placeholder="Amount" ng-model="buy_amount" required>
+                        <span ng-show="buy_amount > available" style="color:red" class="help-block">Invalid transaction</span>
                     </div>
                 </form>
-                <button id="btn-buy" class="btn btn-primary" ng-disabled="loading_available" type="submit" ng-click="buy()">Buy</button>
+                <button id="btn-buy" class="btn btn-primary" ng-disabled="loading_available || buy_amount > available" type="submit" ng-click="buy()">Buy</button>
             </div>
         </div>
         <div class="col-6">
@@ -63,10 +64,11 @@
                 <form name="form" ng-submit="sell()">
                     <div class="form-group">
                         <label>Emission</label>
-                        <input id="sell-amount" class="form-control" placeholder="Amount" ng-model="sell_amount" required>
+                        <input id="sell-amount" type="number" class="form-control" placeholder="Amount" ng-model="sell_amount" required>
+                        <span ng-show="sell_amount > limit" style="color:red" class="help-block">Invalid transaction</span>
                     </div>
                 </form>
-                <button id="btn-sell" class="btn btn-primary" ng-disabled="loading_available" type="submit" ng-click="sell()">Sell</button>
+                <button id="btn-sell" class="btn btn-primary" ng-disabled="loading_available || sell_amount > limit" type="submit" ng-click="sell()">Sell</button>
             </div>
         </div>
     </div>

@@ -1,40 +1,28 @@
 <div class="container-fluid transparent">
     <h1 class="page-header">Administration</h1>
     <div class="row">
-        <div class="col-6">
-            <div class="row">
-                <div class="col-6">
-                    <div class="card card-body  transparent">
-                        <p class="card-text">To add market:</p>
-                            <button class="btn btn-primary" style="width:60%" ng-click="openAddMarketDlg()">Add</button>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card card-body  transparent">
-                        <p class="card-text">To add companies:</p>
-                        <button class="btn btn-primary" style="width:60%" ng-click="openAddCompanyDlg()">Add</button>
-                    </div>
-                </div>
+        <div class="col-4">
+            <div class="card card-body  transparent">
+                <p class="card-text">To add market :</p>
+                <button class="btn btn-primary" style="width:60%"style="width:60%" ng-click="openAddMarketDlg()">Add</button>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
             <div class="card card-body  transparent">
-                <p class="card-text">To view markets</p>
-                <div class="row">
-                    <div class="col-6">
-                        <select class="form-control" ng-init="selectedMarket = markets[0].marketID" ng-model="selectedMarket" ng-options="x.marketID for x in markets" required>
-                        </select>
-                    </div>
-                    <div class="col-6">
-                        <button class="btn btn-primary" style="width:60%"  ng-click="setCurrentView()">Switch</button>
-                    </div>
-                </div>
+                <p class="card-text">To add companies :</p>
+                <button class="btn btn-primary" style="width:60%" ng-click="openAddCompanyDlg()">Add</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card card-body  transparent">
+                <p class="card-text">To view markets :</p>
+                <select class="form-control" style="width:60%" ng-model="selectedMarket" ng-options="x.marketID for x in markets" required>
                 </select>
             </div>
         </div>
     </div>
     <hr>
-    <h4>Selected Market: {{currentMarket}}</h4>
+    <h4>Selected Market: {{selectedMarket.marketID}}</h4>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -47,7 +35,7 @@
             <th>Actions</th>
         </tr>
         </thead>
-        <tbody ng-repeat="asset in allAssets" ng-if="asset.marketID == currentMarket">
+        <tbody ng-repeat="asset in allAssets" ng-if="asset.marketID == selectedMarket.marketID">
         <tr>
             <td>{{ $index + 1 }}</td>
             <td>{{ asset.companyID }}</td>
@@ -77,7 +65,7 @@
         </div>
         <div class="form-group">
             <label>Market</label>
-            <select class="form-control" ng-init="selectedMarket = markets[0]" ng-model="selectedMarket" ng-options="x.marketID for x in markets" required>
+            <select class="form-control" ng-model="selectedMarket2" ng-options="x.marketID for x in markets" required>
             </select>
         </div>
         <div class="form-actions">

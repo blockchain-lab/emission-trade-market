@@ -5,11 +5,20 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
 
     $scope.allAssets = [];
     $scope.markets = [];
-    $scope.currentMarket = "";
+
+    //test samples
+    // $scope.allAssets = [{companyID:1, name:"test1", marketID:"east"},{companyID:2, name:"test2", marketID:"west"},
+    //                     {companyID:3, name:"test3", marketID:"east"},{companyID:4, name:"test4", marketID:"east"}];
+    // $scope.markets = [{marketID:"east"},{marketID:"west"}];
+    //
+    // $scope.selectedMarket = $scope.markets[0];
+    // $scope.selectedMarket2 = $scope.markets[0];
 
     function refreshPage(){
         $http.get('http://localhost:3000/api/Market').then(function (response) {
             angular.extend($scope.markets, response.data);
+            $scope.selectedMarket = $scope.markets[0];
+            $scope.selectedMarket2 = $scope.markets[0];
         });
         $http.get('http://localhost:3000/api/Company').then(function (response) {
             angular.extend($scope.allAssets, response.data);
@@ -34,10 +43,6 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             controller: 'RegulatorCtrl',
             scope: $scope
         });
-    };
-
-    $scope.setCurrentView = function () {
-        $scope.currentMarket = $scope.selectedMarket;
     };
 
     $scope.openDeleteDlg = function (id, name) {
@@ -71,39 +76,43 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
     $scope.addCompany = function () {
         $scope.loading_add = true;
 
-        var body = {
+        var id = $scope.allAssets.length+1;
+
+        //fist, add company
+        var body1 = {
             $class: "org.emission.network.Company",
-            companyID: $scope.companyID,
+            companyID: id,
             name: $scope.companyName,
             emissionConsumed: 0,
             emissionLimit: $scope.limit,
-            ett: "org.emission.network.Ett#"+$scope.ettID
+            ett: "org.emission.network.Ett#"+id
         };
-        $http.post('http://localhost:3000/api/Company', body).then(
+        $http.post('http://localhost:3000/api/Company', body1).then(
 
             function (response) {
                 $scope.$parent.allAssets.push(response.data);
-                $http.post('/adduser', {companyname: $scope.companyName});
-                $scope.$parent.loading_add = false;
+            },
+            function () {
                 ngDialog.closeAll();
-        });
-    };
+                return;
+            }
+        );
 
-    // $scope.addEtt = function () {
-    //     var body = {
-    //         $class: "org.emission.network.Ett",
-    //         ettID: $scope.add_ettID,
-    //         emission: 0,
-    //         owner: "org.emission.network.Company#"+$scope.owner
-    //     };
-    //
-    //     $http.post('http://localhost:3000/api/Ett', body).then(
-    //         function () {
-    //             ngDialog.closeAll();
-    //         }
-    //     );
-    //
-    // };
+        // then, add ett
+        var body2 = {
+            $class: "org.emission.network.Ett",
+            ettID: id,
+            emission: 0,
+            owner: "org.emission.network.Company#"+id
+        };
+        $http.post('http://localhost:3000/api/Ett', body2).then(
+                function () {
+                    $http.post('/adduser', {companyname: $scope.companyName});
+                    $scope.$parent.loading_add = false;
+                    ngDialog.closeAll();
+                }
+            );
+    };
 
     $scope.delete = function () {
 

@@ -50,16 +50,16 @@ transaction RemoveCompany {
 }
 
 transaction Refresh {
-  o Integer sellerID
-  o Integer buyerID
+  o String sellerID
+  o String buyerID
   o String message
   --> Market market
 }
 
 
 /*event TradeEvent {
-  o Integer sellerID
-  o Integer buyerID
+  o String sellerID
+  o String buyerID
   o String message
   --> Market market
 }*/

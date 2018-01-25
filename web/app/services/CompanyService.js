@@ -2,6 +2,8 @@ app.factory('Company', function ($http){
 
     return {
 
+        // http://localhost:3000/api/queries/selectCompanyByName?name=user2
+
         buy: function(body, success, error) {
             $http.post('http://localhost:3000/api/Buy', body).then(
                 success,

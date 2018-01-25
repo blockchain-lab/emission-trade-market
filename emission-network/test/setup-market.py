@@ -9,7 +9,7 @@ ETT_URL = LOCALHOST + "Ett"
 SELL_URL = LOCALHOST + "Sell"
 
 marketSize = 3 # determins how many companies to be setup; each with one ett and does one sell transaction
-marketID = 1
+marketID = 2
 
 companies = [0] * marketSize
 etts = [0] * marketSize
@@ -27,7 +27,13 @@ market = {
 reqs.append((MARKET_URL, market))
 
 for x in range(marketSize):
-    companies[x] = {
+    ett = {
+        "$class": "org.emission.network.Ett",
+        "ettID": str(x),
+        "emission": 0,
+        "owner": "resource:org.emission.network.Company#" + str(x)
+    }   
+    company = {
         "$class": "org.emission.network.Company",
         "companyID": str(x),
         "name": "COMPANY NAME " + str(x),
@@ -36,27 +42,25 @@ for x in range(marketSize):
         "emissionLimit": 1000,
         "ett": "resource:org.emission.network.Ett#" + str(x)
     }
-    reqs.append((COMPANY_URL, companies[x]))
+    etts[x] = ett
+    companies[x] = company
 
-for x in range(marketSize):
-    etts[x] = {
-        "$class": "org.emission.network.Ett",
-        "ettID": str(x),
-        "emission": 0,
-        "owner": "resource:org.emission.network.Company#" + str(x)
-    }
-    reqs.append((ETT_URL, etts[x]))
+    reqs.append((ETT_URL, ett))
+    reqs.append((COMPANY_URL, company))
 
-for x in range(marketSize):
-    sells[x] = {
+for x in range(marketSize): 
+    sell = {
         "$class": "org.emission.network.Sell",
         "emission": 100,
         "sellerID": str(x)
-    }
-    reqs.append((SELL_URL, sells[x]))
+    } 
+    sells[x] = sell
+
+    reqs.append((SELL_URL, sell))
 
 for x in reqs:
     print "POST: " + str((x[0], x[1]))
-    requests.post(x[0], x[1])
+    r = requests.post(x[0], x[1])
+    print r
 
 print "done" 

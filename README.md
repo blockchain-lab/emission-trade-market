@@ -1,7 +1,9 @@
 ## Install the prerequisites and the development environment:
 
 You can follow thos tutorials to install prereq and your environment
+
 -Prereq:https://hyperledger.github.io/composer/installing/installing-prereqs.html
+
 -Development Environment:https://hyperledger.github.io/composer/installing/development-tools.html (Step 2 and 3 are not required to run the project)
 
 
@@ -55,9 +57,13 @@ That's it. Rest server is now running at localhost:3000!
 --------------------------------------------------------------------------
 
 Some errors can be resolved as follow:
+
   -try to use sudo before to run a script
+  
   -if you can't access card files:
+    ```
     chmod -R 777 ~/.composer
+    ```
   -if you still cannot access thos files try this " chmod -R 777 * " in the network directory
  
 
@@ -68,7 +74,7 @@ Start the node cient:
 ```
 node server.js
 ```
-The app is now running at logicalhost:8080!
+The app is now running at localhost:8080!
 
 ![](https://github.com/Gabbe1993/emission-trade-market/blob/master/img/client.png)
 # Decentralized emission trade market

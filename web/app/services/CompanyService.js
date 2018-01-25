@@ -29,7 +29,7 @@ app.factory('Company', function ($http){
                     success(response.data);
                 },
                 function(response){
-                    console.debug('market: '+JSON.stringify(response.data));
+                    console.debug('get market error');
                 }
             );
         },
@@ -40,7 +40,7 @@ app.factory('Company', function ($http){
                     success(response.data);
                 },
                 function(response){
-                    console.debug('company: '+JSON.stringify(response.data));
+                    console.debug('get limit error');
                 }
             );
         },
@@ -51,7 +51,7 @@ app.factory('Company', function ($http){
                     success(response.data);
                 },
                 function(response){
-                    console.debug('ett: '+JSON.stringify(response.data));
+                    console.debug('get ett error');
                 }
             );
         }

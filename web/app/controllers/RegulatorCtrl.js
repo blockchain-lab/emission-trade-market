@@ -60,10 +60,12 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
         $scope.loading_add2 = true;
 
         var body = {
-            $class: "org.emission.network.Company",
-            marketID: $scope.marketName2,
-            emission: []
+            $class: "org.emission.network.Market",
+            marketID: $scope.marketName,
+            emission: 0,
+            etts: []
         };
+        console.debug("body "+JSON.stringify(body));
         $http.post('http://localhost:3000/api/Market', body).then(
 
             function (response) {
@@ -82,7 +84,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
         var body1 = {
             $class: "org.emission.network.Company",
             companyID: id,
-            name: $scope.companyName,
+            name: $scope.selectedMarket2,
             emissionConsumed: 0,
             emissionLimit: $scope.limit,
             ett: "org.emission.network.Ett#"+id

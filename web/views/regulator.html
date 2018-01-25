@@ -75,13 +75,13 @@
     </form>
 </script>
 
-<!-- addCompany Templates -->
+<!-- addMarket Templates -->
 <script type="text/ng-template" id="addMarketDlg">
     <h4>Add Market</h4>
     <form method="post" name="form" ng-submit="addMarket()">
         <div class="form-group">
-            <label for="marketName2">Market Name</label>
-            <input type="text" name="marketName2" id="marketName2" class="form-control" ng-model="marketName2" required />
+            <label for="marketName">Market Name</label>
+            <input type="text" name="marketName" id="marketName" class="form-control" ng-model="marketName" required />
         </div>
         <div class="form-actions">
             <button type="submit" ng-disabled="loading_add2" class="btn btn-success">Submit</button>

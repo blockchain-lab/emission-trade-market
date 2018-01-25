@@ -3,10 +3,10 @@ var companyCtrl = function ($scope, $http, $rootScope, Company) {
 
     var refresh = function () {
         console.debug("compant id:"+JSON.stringify($scope.companyID));
-        Company.get_available(
+        Company.get_available($scope.marketID,
             function(res) {
                 $scope.$evalAsync(function () {
-                    $scope.available = res[0].emission;
+                    $scope.available = res.emission;
                     $scope.loading_available = false;
 
                 });

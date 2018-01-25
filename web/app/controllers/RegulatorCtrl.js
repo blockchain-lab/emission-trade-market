@@ -82,7 +82,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
     $scope.addCompany = function () {
         $scope.loading_add = true;
 
-        var id = Math.random().toString().substr(2,10);  //generate unique company ID
+        var id = Math.random().toString(36).substr(2,10);  //generate unique company ID
 
         //fist, add company
         var body1 = {

@@ -23,8 +23,8 @@ app.factory('Company', function ($http){
             );
         },
 
-        get_available: function(success, error) {
-            $http.get('http://localhost:3000/api/Market').then(
+        get_available: function(marketid, success, error) {
+            $http.get('http://localhost:3000/api/Market/'+marketid).then(
                 function(response) {
                     success(response.data);
                 },

@@ -126,7 +126,12 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
 
         $scope.loading_delete = true;
 
-        $http.delete('http://localhost:3000/api/Company/'+removed_id).then(
+        var body = {
+            $class: "org.emission.network.RemoveCompany",
+            companyID: removed_id
+        };
+
+        $http.delete('http://localhost:3000/api/RemoveCompany', body).then(
             function (response) {
                 var i;
                 for(i = 0; i < $scope.allAssets.length; i++){

@@ -71,6 +71,11 @@ Some errors can be resolved as follow:
 ### To start the front-end client:
 Navigate to ```web``` directory.
 
+(Optional) Start with pre-installed markets and companies
+```
+sh setup-market.sh
+```
+
 Start the node cient:
 ```
 node server.js

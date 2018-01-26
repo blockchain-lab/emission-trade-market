@@ -148,7 +148,7 @@ function updateEmissionFields(buyer, ett, market, emission) {
     if (ett.emission <= 0) {
         removeFromMarket(ett, market);
     }
-    return emission; 
+    return Promise.resolve(emission);
 }
 
 

@@ -32,6 +32,67 @@ function removeFromMarket(ett, market) {
         }
     }
 }
+
+
+/**
+ * API Transaction to declare ett to market
+ *
+ * @param {org.emission.network.Declare} transaction
+ * @transaction
+ */
+function Declare(transaction) {
+    return query('selectCompanyByID', {companyID: transaction.declarerID})
+        .then(function (results) {
+
+            var declarer = results[0];
+            var emission = transaction.emission;
+ 
+
+            return query('selectMarketByID', {marketID: declarer.marketID})
+                .then(function (results) {
+                    var market = results[0];
+
+                    // Check if seller has enough emission to sell
+                    if (declarer.emissionLimit < emission) {
+                        throw "Cannot declare emission: Company have " + declarer.emissionLimit
+                        + ". You are trying to declare " + emission;
+                    }
+                    // decrease emissionLimit from seller and give to his ett 
+                    declarer.emissionLimit -= emission;
+                    declarer.emissionConsumed += emission; 
+		    market.declaredEmission += emission;   
+
+                    return updateMarket(market)
+                                .then(updateCompany(declarer))
+                                
+                        })
+                        .then(function () {
+                          // TradeEvent();
+                        })
+                })
+        
+}
+
+/**
+ * API Transaction to make a money deposit
+ *
+ * @param {org.emission.network.Deposit} transaction
+ * @transaction
+ */
+function Deposit(transaction) {
+    return query('selectCompanyByID', {companyID: transaction.deposerID})
+        .then(function (results) {
+
+            var deposer = results[0];
+            var cash = transaction.cash;
+ 
+            deposer.cash += cash;
+
+            return updateCompany(deposer);                   
+           
+	})
+        
+}
 /**
  * API Transaction to sell ett to market
  *
@@ -107,6 +168,10 @@ function buyFromMarket(buyer, market, emission) {
         throw "Cannot buy emission: market have " + market.emission
             + ". You are trying to buy " + emission;
     }
+    if((emission*10) > buyer.cash) {
+        throw "Cannot buy emission: you have " + buyer.cash
+            + "$. You need " + emission*10;
+    }
     for (var i = 0; i < etts.length; i++) {
         if (emission >= 0) {
             var ettRef = etts[i];
@@ -118,12 +183,17 @@ function buyFromMarket(buyer, market, emission) {
             promises.push(query('selectEttByID', {ettID: ettRef.getIdentifier()})
                 .then(function (results) {
                     var ett = results[0];
+                    var ettO = ett.owner;
+                    promises.push(query('selectCompanyByID', {companyID: ettO.getIdentifier()})
+			.then(function (results) {
+			    var ettOwner = results[0];
+		            emission -= updateEmissionFields(buyer, ett, ettOwner, market, emission);
 
-                    emission -= updateEmissionFields(buyer, ett, market, emission);
-
-                    promises.push(updateCompany(buyer));
-                    promises.push(updateEtt(ett));
-                    promises.push(updateMarket(market));
+		            promises.push(updateCompany(buyer));
+			    promises.push(updateCompany(ettOwner));
+		            promises.push(updateEtt(ett));
+		            promises.push(updateMarket(market));
+			}))
                 }))
 
         }
@@ -133,22 +203,26 @@ function buyFromMarket(buyer, market, emission) {
 }
 
 
-function updateEmissionFields(buyer, ett, market, emission) {
-    // sell maximum what's in the ett's emission   
-    if (ett.emission < emission) {
-        emission = ett.emission;
-    }
-    buyer.emissionLimit += emission;
-    ett.emission -= emission;
-    market.emission -= emission;
+function updateEmissionFields(buyer, ett, ettOwner, market, emission) {
+   
+	    // sell maximum what's in the ett's emission   
+	    if (ett.emission < emission) {
+		emission = ett.emission;
+	    }
+	    buyer.emissionLimit += emission;
+	    buyer.cash -= emission*10;	
+	    ettOwner.cash += emission*10;
+	    ett.emission -= emission;
+	    market.emission -= emission;
 
-    console.log(buyer.name + " emission level set to " + buyer.emissionLimit);
+	    console.log(buyer.name + " emission level set to " + buyer.emissionLimit);
 
-    // if all emission is bought then this Ett should be removed from market
-    if (ett.emission <= 0) {
-        removeFromMarket(ett, market);
-    }
-    return emission;
+	    // if all emission is bought then this Ett should be removed from market
+	    if (ett.emission <= 0) {
+		removeFromMarket(ett, market);
+	    }
+
+	    return emission; 
 }
 
 
@@ -184,9 +258,9 @@ function RemoveCompany(transaction) {
 
                     return query('selectEttByID', {ettID: company.ett.getIdentifier()})
                     .then(function (results) {
-                         ett = results[0];
+                         ett = results[0]
                 
-                        return Promise.resolve(updateEmissionFields(company, ett, market, ett.emission))
+                        return updateEmissionFields(company, ett, market, ett.emission)
                             .then(updateMarket(market))
                             .then(removeAsset(ett, 'Ett'))
                             .then(removeParticipant(company, 'Company'))

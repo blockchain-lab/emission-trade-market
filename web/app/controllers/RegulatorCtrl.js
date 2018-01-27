@@ -63,6 +63,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             $class: "org.emission.network.Market",
             marketID: $scope.marketName,
             emission: 0,
+	    declaredEmission: 0,	
             etts: []
         };
         console.debug("body "+JSON.stringify(body));
@@ -92,6 +93,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             marketID: $scope.selectedMarket2.marketID,
             emissionConsumed: 0,
             emissionLimit: $scope.limit,
+	    cash:0,		
             ett: "org.emission.network.Ett#"+id
         };
         // then, add ett

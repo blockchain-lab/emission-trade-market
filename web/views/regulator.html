@@ -30,9 +30,9 @@
             <th>Company ID</th>
             <th>Company Name</th>
             <th>Emission Trade Token ID</th> 
-	    <th>Consumed Emission Units</th>          
+	          <th>Consumed Emission Units</th>          
             <th>Emission Limit</th>
-	    <th>Cash balance</th>
+	          <th>Cash balance</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -44,7 +44,7 @@
             <td>{{ asset.ett }}</td> 
             <td>{{ asset.emissionConsumed }}</td>
             <td>{{ asset.emissionLimit }}</td>
-	    <td>{{ asset.cash }}</td>
+	          <td>{{ asset.cash }}</td>
             <td>
                 <button class="btn btn-danger" ng-click="openDeleteDlg(asset.companyID, asset.name)">Delete</button>
             </td> 

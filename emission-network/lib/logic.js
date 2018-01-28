@@ -58,7 +58,6 @@ function Declare(transaction) {
                         + ". You are trying to declare " + emission;
                     }
                     // decrease emissionLimit from seller and give to his ett 
-                    declarer.emissionLimit -= emission;
                     declarer.emissionConsumed += emission; 
 		    market.declaredEmission += emission;   
 

@@ -259,7 +259,7 @@ function RemoveCompany(transaction) {
                     .then(function (results) {
                          ett = results[0];
                 
-                        return Promise.resolve(updateEmissionFields(company, ett, market, ett.emission))
+                        return Promise.resolve(updateEmissionFields(company, ett, company, market, ett.emission))
                             .then(updateMarket(market))
                             .then(removeAsset(ett, 'Ett'))
                             .then(removeParticipant(company, 'Company'))

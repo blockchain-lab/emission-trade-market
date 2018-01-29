@@ -83,7 +83,7 @@
                         <span ng-show="declare_amount <= 0" style="color:red" class="help-block">Invalid transaction</span>
                     </div>
                 </form>
-                <button id="btn-declare" class="btn btn-primary" ng-disabled="loading_available || declare_amount > limit" type="submit" ng-click="declare()">Declare</button>
+                <button id="btn-declare" class="btn btn-primary" ng-disabled="loading_available" type="submit" ng-click="declare()">Declare</button>
             </div>
         </div>
 	<div class="col-6">

@@ -10,6 +10,7 @@ participant Company identified by companyID {
   o String marketID  optional
   o Integer emissionConsumed
   o Integer emissionLimit
+  o Integer cash
   --> Ett ett 
 }
 
@@ -26,6 +27,7 @@ asset Ett identified by ettID {
 asset Market identified by marketID {  
     o String marketID
     o Integer emission
+    o Integer declaredEmission
     --> Ett[] etts optional
 }
 
@@ -44,6 +46,16 @@ transaction Sell {
   o String sellerID
 }
 
+transaction Declare {
+  o Integer emission
+  o String declarerID
+}
+
+transaction Deposit {
+  o Integer cash
+  o String deposerID
+}
+
 
 transaction RemoveCompany {  
   o String companyID
@@ -52,6 +64,7 @@ transaction RemoveCompany {
 transaction Refresh {
   o String sellerID
   o String buyerID
+  o String declarerID
   o String message
   --> Market market
 }

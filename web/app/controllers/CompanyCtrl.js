@@ -14,6 +14,7 @@ var companyCtrl = function ($scope, $http, $rootScope, Company) {
             function () {
 
             });
+
         Company.get_limit($scope.companyID,
             function(res) {
                 $scope.$evalAsync(function () {
@@ -25,6 +26,31 @@ var companyCtrl = function ($scope, $http, $rootScope, Company) {
             function () {
 
             });
+
+	Company.get_cash($scope.companyID,
+            function(res) {
+                $scope.$evalAsync(function () {
+                    $scope.cash  = res.cash;
+                    $scope.loading_cash = false;
+                
+                });
+            },
+            function () {
+
+            });
+
+         Company.get_declared($scope.companyID,
+            function(res) {
+                $scope.$evalAsync(function () {
+                    $scope.declared  = res.emissionConsumed;
+                    $scope.loading_declared = false;
+                
+                });
+            },
+            function () {
+
+            });
+
         Company.get_onsale($scope.companyID,
             function(res) {
                 $scope.$evalAsync(function () {
@@ -59,6 +85,8 @@ var companyCtrl = function ($scope, $http, $rootScope, Company) {
         $scope.loading_available = true;
         $scope.loading_onsale = true;
         $scope.loading_limit = true;
+	$scope.loading_declared = true;
+        $scope.loading_cash = true;
         Company.buy({
             $class: "org.emission.network.Buy",
             emission: $scope.buy_amount,
@@ -72,12 +100,53 @@ var companyCtrl = function ($scope, $http, $rootScope, Company) {
             
         });
     },
+    $scope.declare = function () {
 
+        $scope.loading_available = true;
+        $scope.loading_onsale = true;
+        $scope.loading_limit = true;
+	$scope.loading_declared = true;
+	$scope.loading_cash = true;
+        Company.declare({
+            $class: "org.emission.network.Declare",
+            emission: $scope.declare_amount,
+            declarerID: $scope.companyID,
+            timestamp: "2018-01-16T00:12:59.401Z"
+        },
+        function() {
+            refresh();
+        },
+        function () {
+            
+        });
+    },	
+     $scope.deposit = function () {
+
+        $scope.loading_available = true;
+        $scope.loading_onsale = true;
+        $scope.loading_limit = true;
+	$scope.loading_declared = true;
+	$scope.loading_cash = true;
+        Company.deposit({
+            $class: "org.emission.network.Deposit",
+            cash: $scope.deposit_amount,
+            deposerID: $scope.companyID,
+            timestamp: "2018-01-16T00:12:59.401Z"
+        },
+        function() {
+            refresh();
+        },
+        function () {
+            
+        });
+    },	
     $scope.sell = function () {
 
         $scope.loading_available = true;
         $scope.loading_onsale = true;
         $scope.loading_limit = true;
+	$scope.loading_declared = true;
+	$scope.loading_cash = true;
         Company.sell({
             $class: "org.emission.network.Sell",
             emission: $scope.sell_amount,

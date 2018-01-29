@@ -52,11 +52,7 @@ function Declare(transaction) {
                 .then(function (results) {
                     var market = results[0];
 
-                    // Check if seller has enough emission to sell
-                    if (declarer.emissionLimit < emission) {
-                        throw "Cannot declare emission: Company have " + declarer.emissionLimit
-                        + ". You are trying to declare " + emission;
-                    }
+                  
                     // decrease emissionLimit from seller and give to his ett 
                     declarer.emissionConsumed += emission; 
 		    market.declaredEmission += emission;   

@@ -1,11 +1,13 @@
 app.factory('Company', function ($http){
 
+    var URL = 'http://localhost:3000/api/';
+
     return {
 
         // http://localhost:3000/api/queries/selectCompanyByName?name=user2
 
         buy: function(body, success, error) {
-            $http.post('http://localhost:3000/api/Buy', body).then(
+            $http.post(URL+'Buy', body).then(
                 success,
                 function(response){
                     console.debug('buy: '+JSON.stringify(response.data));
@@ -15,7 +17,7 @@ app.factory('Company', function ($http){
 
         sell: function(body, success, error) {
             console.debug("sell body"+JSON.stringify(body));
-            $http.post('http://localhost:3000/api/Sell', body).then(
+            $http.post(URL+'Sell', body).then(
                 success,
                 function(response){
                     console.debug('sell: '+JSON.stringify(response.data));
@@ -26,7 +28,7 @@ app.factory('Company', function ($http){
 
 	declare: function(body, success, error) {
             console.debug("declare body"+JSON.stringify(body));
-            $http.post('http://localhost:3000/api/Declare', body).then(
+            $http.post(URL+'Declare', body).then(
                 success,
                 function(response){
                     console.debug('declare: '+JSON.stringify(response.data));
@@ -36,7 +38,7 @@ app.factory('Company', function ($http){
 
 	deposit: function(body, success, error) {
             console.debug("deposit body"+JSON.stringify(body));
-            $http.post('http://localhost:3000/api/Deposit', body).then(
+            $http.post(URL+'Deposit', body).then(
                 success,
                 function(response){
                     console.debug('deposit: '+JSON.stringify(response.data));
@@ -45,7 +47,7 @@ app.factory('Company', function ($http){
         },
 
         get_available: function(marketid, success, error) {
-            $http.get('http://localhost:3000/api/Market/'+marketid).then(
+            $http.get(URL+'Market/'+marketid).then(
                 function(response) {
                     success(response.data);
                 },
@@ -56,7 +58,7 @@ app.factory('Company', function ($http){
         },
 
         get_limit: function(companyid, success, error) {
-            $http.get('http://localhost:3000/api/Company/'+companyid).then(
+            $http.get(URL+'Company/'+companyid).then(
                 function(response) {
                     success(response.data);
                 },
@@ -67,7 +69,7 @@ app.factory('Company', function ($http){
         },
 
 	get_declared: function(companyid, success, error) {
-            $http.get('http://localhost:3000/api/Company/'+companyid).then(
+            $http.get(URL+'Company/'+companyid).then(
                 function(response) {
                     success(response.data);
                 },
@@ -78,7 +80,7 @@ app.factory('Company', function ($http){
         },
 
         get_onsale: function(ettid, success, error) {
-            $http.get('http://localhost:3000/api/Ett/'+ettid).then(
+            $http.get(URL+'Ett/'+ettid).then(
                 function(response) {
                     success(response.data);
                 },
@@ -89,7 +91,7 @@ app.factory('Company', function ($http){
         },
 
 	get_cash: function(companyid, success, error) {
-            $http.get('http://localhost:3000/api/Company/'+companyid).then(
+            $http.get(URL+'Company/'+companyid).then(
                 function(response) {
                     success(response.data);
                 },

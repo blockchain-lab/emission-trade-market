@@ -1,5 +1,6 @@
 var companyCtrl = function ($scope, $http, $rootScope, Company) {
 
+    var URL = 'http://localhost:3000/api/';
 
     var refresh = function () {
         console.debug("compant id:"+JSON.stringify($scope.companyID));
@@ -65,7 +66,7 @@ var companyCtrl = function ($scope, $http, $rootScope, Company) {
     //get company ID first
     {
         console.debug("username="+$rootScope.username);
-        $http.get('http://localhost:3000/api/queries/selectCompanyByName?name='+$rootScope.username).then(
+        $http.get(URL+'queries/selectCompanyByName?name='+$rootScope.username).then(
             function(response){
                 $scope.$evalAsync(function () {
                     console.debug('get id success:'+JSON.stringify(response));

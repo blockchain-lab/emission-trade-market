@@ -6,6 +6,8 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
     $scope.allAssets = [];
     $scope.markets = [];
 
+    var URL = 'http://localhost:3000/api/';
+
     //test samples
     // $scope.allAssets = [{companyID:1, name:"test1", marketID:"east"},{companyID:2, name:"test2", marketID:"west"},
     //                     {companyID:3, name:"test3", marketID:"east"},{companyID:4, name:"test4", marketID:"east"}];
@@ -15,12 +17,12 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
     // $scope.selectedMarket2 = $scope.markets[0];
 
     function refreshPage(){
-        $http.get('http://localhost:3000/api/Market').then(function (response) {
+        $http.get(URL+'Market').then(function (response) {
             angular.extend($scope.markets, response.data);
             $scope.selectedMarket = $scope.markets[0];
             $scope.selectedMarket2 = $scope.markets[0];
         });
-        $http.get('http://localhost:3000/api/Company').then(function (response) {
+        $http.get(URL+'Company').then(function (response) {
             angular.extend($scope.allAssets, response.data);
         });
     };
@@ -67,7 +69,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             etts: []
         };
         console.debug("body "+JSON.stringify(body));
-        $http.post('http://localhost:3000/api/Market', body).then(
+        $http.post(URL+'Market', body).then(
 
             function (response) {
                 $scope.$parent.markets.push(response.data);
@@ -104,11 +106,11 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             owner: "org.emission.network.Company#"+id
         };
 
-        $http.post('http://localhost:3000/api/Company', body1).then(
+        $http.post(URL+'Company', body1).then(
 
             function (response) {
                 $scope.$parent.allAssets.push(response.data);
-                $http.post('http://localhost:3000/api/Ett', body2).then(
+                $http.post(URL+'Ett', body2).then(
                     function () {
                         $http.post('/adduser', {companyname: $scope.companyName});
                         $scope.$parent.loading_add = false;
@@ -133,7 +135,7 @@ var regulatorCtrl = function ($scope, $rootScope, $http, ngDialog) {
             companyID: removed_id
         };
 
-        $http.post('http://localhost:3000/api/RemoveCompany', body).then(
+        $http.post(URL+'RemoveCompany', body).then(
             function (response) {
                 var i;
                 for(i = 0; i < $scope.allAssets.length; i++){

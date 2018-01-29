@@ -9,20 +9,21 @@ ETT_URL = LOCALHOST + "Ett"
 SELL_URL = LOCALHOST + "Sell"
 
 marketSize = 3 # determins how many companies to be setup; each with one ett and does one sell transaction
-marketID = 5
+marketID = 9
+multipier = 9
 
 companies = [0] * marketSize
 etts = [0] * marketSize
 sells = [0] * marketSize
 reqs = []
 
-multipier = 10
 
 
 market = {
     "$class": "org.emission.network.Market",
     "marketID": str(marketID),
     "emission": 0,
+    "declaredEmission": 0,
     "etts": []
 }
 
@@ -33,7 +34,7 @@ for x in range(marketSize):
         "$class": "org.emission.network.Ett",
         "ettID": str(x) * multipier,
         "emission": 0,
-        "owner": "resource:org.emission.network.Company#" + str(x)
+        "owner": "resource:org.emission.network.Company#" + str(x) * multipier
     }   
     company = {
         "$class": "org.emission.network.Company",
@@ -42,7 +43,8 @@ for x in range(marketSize):
         "marketID": str(marketID),
         "emissionConsumed": 0,
         "emissionLimit": 1000,
-        "ett": "resource:org.emission.network.Ett#" + str(x)
+        "cash":100,
+        "ett": "resource:org.emission.network.Ett#" + str(x) * multipier
     }
     etts[x] = ett
     companies[x] = company

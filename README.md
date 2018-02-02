@@ -1,3 +1,29 @@
+## Doxchain VM image
+The Doxchain VM image can be found here: https://drive.google.com/open?id=1JxjQtzscduTC5Bj-5vRXTP5SpSbJtjA-
+username: doxchain
+password: 666666
+
+The Doxchain project can be found on home/workspace/emission-trade-market
+To run:
+
+First, navigate to the ```network``` directory.
+```
+./deploy_network.sh
+./deploy_composer.sh 
+```
+Second, navigate to the ```web``` directory . Setup sample networks containg two markets and five companies.
+```
+sh setup-market.sh
+node server.js
+```
+The app is now running at localhost:8080
+All password are set as ```123```. The regulator's username is ```admin```. Companies' usernames are equal to their Company Name which can be checked on the regulator page.
+
+Note, we use mLab to store company account information: https://mlab.com/databases/doxchain/collections/users 
+The account to login mLab:
+username: doxchain
+password: doxchain123
+
 ## Install the prerequisites and the development environment:
 
 You can follow thos tutorials to install prereq and your environment

@@ -2,6 +2,7 @@
 The Doxchain VM image can be found here: https://drive.google.com/open?id=1JxjQtzscduTC5Bj-5vRXTP5SpSbJtjA-
 username: doxchain
 password: 666666
+(Alternatively, you can also clone and deploy the Doxchain project on your own computer. Please see the next session)
 
 The Doxchain project can be found on home/workspace/emission-trade-market
 To run:

@@ -129,3 +129,34 @@ The trading records should be transparent and traceable, and most importantly, f
 The blockchain should have a very high reliability and security level. On the other hand, the throughput, latency, and storage requirements are relatively low.
 
 A smart matchmaking scheme should also be designed, which allows not only 2-party trades, but also multi-party trading matches.
+
+# What the scripts do
+
+For setting up the network we have created a script deploy_network.sh which does all the necessary steps to deploy our network. These steps include:
+
+1. Generate certificates for each organization using the cryptogen tool
+2. Generate orderer genesis block
+3. Generate channel configuration transaction 
+4. Generate anchor peer updates for each of the organizations
+5. Starting docker containers for each of the components for our network
+6. Setting up the orderer, channels and each organization joining the channel
+7. Updating anchor peers to make sure that there is communication between the organizations
+8. Sample chaincode installation for testing purposes on each peer
+9. Chaincode instantiation on the channel which initializes the chaincode on the channel, sets the endorsement policy for the chaincode, and launches a chaincode container for the targeted peer.
+10. Doing simple queries to make sure components are communicating
+11. Invoking a sample transaction to make sure transactions are being written
+
+After making sure the network is successfully set up and all components are communicating between each other, we need to deploy Hyperledger Composer on each of the peers. To do so, we have created deploy_composer.sh script which does the following:
+
+1. Removing any previously created network cards which are crypto certificates used to access the blockchain network
+2. Creating network cards for each of the organizations
+3. Importing the network cards for installing composer for each of the organizations
+4. Installing Composer runtime for each of the organizations
+5. Retrieving crypto certificates for network admins for each organization
+6. Starting the business network
+7. Creating network cards for for network admins for each organization
+8. Importing the network cards for for network admins for each organization
+9. Pinging the network on behalf of the network admins for each organization
+10. Instantiating REST server with the credentials of one organization
+
+

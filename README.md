@@ -109,7 +109,7 @@ node server.js
 ```
 The app is now running at localhost:8080!
 
-![](https://github.com/Gabbe1993/emission-trade-market/blob/master/img/client.png)
+![](https://github.com/Gabbe1993/emission-trade-market/blob/master/img/web.png)
 # Decentralized emission trade market
 
 Companies active in the Port of Rotterdam operate within a strict emission regulatory framework. This framework sets maximum allowed values per company for each of the emission types (CO2, NOX, SO2 etc.). The sum of the maximum allowed values per emission type /per company cannot exceed the total allowed emissions for the port region as a whole. For some of these emission types companies find it easier to stay below the threshold than for others, while for others it is much more difficult and would require extensive investment.
